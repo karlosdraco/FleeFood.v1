@@ -1,16 +1,22 @@
 <div class="page-wrapper">
     <div class="form-banner">
             <div class="s-in-out-toggler">
-                    <div class="toggle-btn" id="sign-up-toggle" ng-click="showSignUp = true">SIGN UP
-                    </div><div class="toggle-btn" id="log-in-toggle" ng-click="showSignIn = true">LOGIN</div>
+                    <div class="toggle-btn" id="sign-up-toggle" ng-click="showSignUp = 1;showSignIn = 0;">SIGN UP
+                    </div><div class="toggle-btn" id="log-in-toggle" ng-click="showSignIn = 1;showSignUp = 0;">LOGIN</div>
             </div>
-        <div class="signup">
-            <form ng-show="showSignUp">
-                <input class="sign-up-input" type="text" placeholder="Firstname"><br>
-                <input class="sign-up-input" type="text" placeholder="Lastname"><br>
-                <input class="sign-up-input" type="text" placeholder="Email"><br>
-                <input class="sign-up-input" type="password" placeholder="Password"><br>
-                <input class="sign-up-input" type="text" placeholder="Contact"><br><br>
+        <div class="signup" ng-controller="signup-controller">
+                <div class="error-call" ng-if="showSignUpErr">
+                        <p>{{errors.error}}</p>
+                </div>
+            <form id="signupForm" ng-if="showSignUp" ng-submit="submitSignUpForm()">
+                    <div class="header">
+                        Sign up and start sharing food
+                    </div>
+                <input class="sign-up-input" type="text" required placeholder="Firstname" ng-model="user.firstname"><br>
+                <input class="sign-up-input" type="text" required placeholder="Lastname" ng-model="user.lastname"><br>
+                <input class="sign-up-input" type="email" required placeholder="Email" ng-model="user.email"><br>
+                <input class="sign-up-input" type="password" required placeholder="Password" ng-model="user.password"><br>
+                <input class="sign-up-input" type="text" required placeholder="Contact" ng-model="user.contact"><br><br>
                 <input id="sign-up-btn" type="submit" value="Sign Up">
             </form>
         </div>
@@ -19,20 +25,23 @@
                 <div class="error-call" ng-if="showError">
                     <p>{{error.message}}</p>
                 </div>
-                <form ng-show="showSignIn" ng-submit="submitLoginForm()">
+                <form ng-if="showSignIn" ng-submit="submitLoginForm()">
+                        <div class="header">
+                            Let's start sharing food
+                        </div>
                     <h3>Email address</h3>
-                    <input class="sign-in-input" type="text" ng-model="user.email"><br>
+                    <input class="sign-in-input" type="email" required ng-model="user.email"><br>
                     <br>
                     <h3>Password</h3>
-                    <input class="sign-in-input" type="password" ng-model="user.password"><br><br>
+                    <input class="sign-in-input" type="password" required ng-model="user.password"><br><br>
                     <input type="submit" id="sign-in-btn" value="Log in">
+                    <div class="sign-in-out-footer"><p><a href="#">Forgot password?</a></p></div>
                 </form>
-                <div class="sign-in-out-footer"><p><a href="#">Forgot password?</a></p></div>
         </div>
         <div class="sign-in-out-footer"><p>By proceeding, you agree to our <a href="#">Privacy Policy</a> and <a href="#">Terms of Use</a>.</p></div>
     </div>
 </div>
 
-<div class="img-banner" style="background-image: url(contents/assets/Resource/Images/we-resouce-img/background_img.jpg)">
-        <!--<img src="contents/assets/Resource/images/web-resource-img/background_cropped.jpg" alt="">-->
+<div class="img-banner">
+        <img src="/contents/assets/Resource/images/web-resource-img/background_img.jpg" alt="">
 </div>

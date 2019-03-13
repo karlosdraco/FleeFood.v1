@@ -3,11 +3,8 @@
     margin: 0 auto;
 }
 
-body{
-    height: 100%;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-
+.img-banner img{
+   width: 100%;
 }
 .form-banner{
     position: absolute;
@@ -16,9 +13,9 @@ body{
     border:1px solid #dbdbdb;
     border-radius: 10px;
     width: 480px;
-    height: 500px;
+    /*height: 500px;*/
     text-align: center;
-    margin-left: 200px;
+    margin-bottom: 50px;
 }
 
 .toggle-btn{
@@ -46,6 +43,19 @@ body{
     width: 45%;
 }
 
+.signup .header{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.signin .header{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
 .toggle-btn:hover{
     cursor: pointer;
 }
@@ -66,10 +76,10 @@ body{
     color: #ffffff;
 }
 
-
 .signup form{
     width: 270px;
     margin: 0 auto;
+    padding-bottom: 20px;
 }
 
 .sign-up-input{
@@ -89,16 +99,12 @@ body{
     width: 92%;
 }
 
-
-.sign-in-out-footer{
-    margin-top: 40px;
-}
-
 .sign-in-out-footer p{
     font-size: 11px;
     font-family: helvetica;
     color: #818181;
     text-align: center;
+    margin: 20px;
 }
 
 .sign-in-out-footer a{
@@ -132,4 +138,8 @@ body{
     border-radius: 5px;
     font-weight: bold;
     width: 92%;
+}
+
+#sign-in-btn, #sign-up-btn:hover{
+    cursor: pointer;
 }

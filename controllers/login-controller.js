@@ -1,4 +1,4 @@
-app.controller("login-controller", ['$scope','$http','$window','$cookies', function($scope, $http, $window, $cookies){
+app.controller("login-controller", ['$scope','$http','$window',function($scope, $http, $window){
         $scope.user = {};
         $scope.showError = false;
 
@@ -13,7 +13,7 @@ app.controller("login-controller", ['$scope','$http','$window','$cookies', funct
                 } 
             }).then(function(response){
                 $scope.error = response.data;
-
+               
                 if($scope.error.authenticated){
                     $window.location.href = '#!/profile';
                 }else{

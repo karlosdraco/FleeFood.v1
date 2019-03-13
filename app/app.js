@@ -1,4 +1,4 @@
-var app = angular.module("fleefood_app",['ngRoute','ngCookies'])
+var app = angular.module("fleefood_app",['ngRoute']);
  
 app.config(['$routeProvider',function($routeProvider){
     
