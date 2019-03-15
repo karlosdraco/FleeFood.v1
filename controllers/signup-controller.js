@@ -7,11 +7,10 @@ app.controller("signup-controller", ['$scope','$http','$window',function($scope,
         
         $http({
             method: 'POST',
-            url: 'https://cors-anywhere.herokuapp.com/http://fleefood.000webhostapp.com/signup',
+            url: 'http://localhost/fleefood_API/signup',
             data: $scope.user,
             headers : { 
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Access-Control-Allow-Credentials': 'true'
+                'Content-Type': 'application/json'
             } 
         }).then(function(response){
             $scope.errors = response.data;

@@ -5,12 +5,11 @@ app.controller("login-controller", ['$scope','$http','$window',function($scope, 
         $scope.submitLoginForm = function(){
             $http({
                 method: 'POST',
-                url: 'http://fleefood.000webhostapp.com/login',
+                url: 'http://localhost/fleefood_API/login',
                 data: $scope.user,
                 withCredentials: true,
                 headers : { 
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Credentials': 'true'
+                    'Content-Type': 'application/json'
                 } 
             }).then(function(response){
                 $scope.error = response.data;
