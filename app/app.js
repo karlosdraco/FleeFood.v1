@@ -1,6 +1,7 @@
 var app = angular.module("fleefood_app",['ngRoute']);
  
-app.config(['$routeProvider',function($routeProvider){
+app.config(['$routeProvider','$httpProvider',function($routeProvider, $httpProvider){
+    $httpProvider.defaults.withCredentials = true;
     
     $routeProvider
     .when("/",{

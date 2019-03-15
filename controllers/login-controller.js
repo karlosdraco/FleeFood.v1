@@ -5,10 +5,11 @@ app.controller("login-controller", ['$scope','$http','$window',function($scope, 
         $scope.submitLoginForm = function(){
             $http({
                 method: 'POST',
-                url: 'https://cors-anywhere.herokuapp.com/http://fleefood.000webhostapp.com/login',
+                url: 'http://fleefood.000webhostapp.com/login',
                 data: $scope.user,
+                withCredentials: true,
                 headers : { 
-                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Content-Type': 'application/json',
                     'Access-Control-Allow-Credentials': 'true'
                 } 
             }).then(function(response){
@@ -19,7 +20,7 @@ app.controller("login-controller", ['$scope','$http','$window',function($scope, 
                 }else{
                     $scope.showError = true;
                 }
-            })
+            });
         }
 
 
