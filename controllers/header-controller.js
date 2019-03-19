@@ -1,19 +1,32 @@
-app.controller('header-controller', ['$scope','$document', function($scope, $document){
-    $scope.showButton = false;
-    
-    var searchBar = document.getElementById("search-bar");
+app.controller('header-controller', ['$scope','$http','$cookie', function($scope, $http, $cookie){
+  $scope.showDropdown = 0;
 
-    $scope.searchTransitions = function(){
-        $scope.showButton = !($scope.showButton);
-        event.stopPropagation();
-    };
+    $scope.dropToggle = function(){
+        $scope.showDropdown++;
 
-    window.onclick = function(event){
-        if($scope.showButton){
-            $scope.showButton = false;
-            $scope.$apply();
+        if($scope.showDropdown > 1){
+            $scope.showDropdown = 0;
         }
-    };
+    }
 
-
+    $scope.logout = function(){
+        $http({
+            method: 'POST',
+            url: 'http://localhost/fleefood_API/logout',
+            withCredentials: true,
+            headers : { 
+                'Content-Type': 'application/json'
+            } 
+        }).then(function(response){
+            $scope.error = response.data;
+           
+            if(!$scope.error.error){
+                //$window.location.href = '#!/home';
+                window.location.href = "/?#!/";
+            }else{
+                $scope.showError = true;
+            }
+        });
+    }
+    
 }]);

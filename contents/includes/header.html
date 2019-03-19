@@ -11,8 +11,29 @@
         </div>
 
         <div class="searchBar">
-            <input id="search-bar" type="text" tabindex="1" placeholder="Search food or place" ng-click="searchTransitions()">
-            <input id="search-button" type="submit" value="Search" ng-show="showButton">
+            <form action="">
+                <input id="search-bar" type="text" placeholder="Search food or place">
+                <input id="search-button" type="submit" value="Search">
+            </form>
+          
+        </div>
+        
+        
+        <div class="user_icon_dropdown">
+          <a href="#!profile">
+            <div class="user_icon" ng-controller="profile-controller">  
+                <img src="/contents/assets/Resource/images/icons/profile_image.jpg" alt="">
+                <p>Daniel</p>
+            </div>
+          </a>
+            <div class="arrow-down" ng-click="dropToggle()"></div>
+
+            <div class="dropdown_content" ng-if="showDropdown">
+                <div class="arrow-up"></div>
+                <span>Stalls</span>
+                <span>Account Settings</span>
+                <span ng-click="logout()">Logout</span>
+            </div>
         </div>
     </div>
 </div>
