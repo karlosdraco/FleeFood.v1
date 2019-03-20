@@ -1,5 +1,12 @@
-app.controller('header-controller', ['$scope','$http','$cookie', function($scope, $http, $cookie){
+app.controller('header-controller', ['$scope','RestService','$cookies',function($scope, RestService, $cookies){
   $scope.showDropdown = 0;
+  $scope.showUserHeaderIcon = 0;
+  
+    if($cookies.get('SNID')){
+        $scope.showUserHeaderIcon = 1;
+    }else{
+        $scope.showUserHeaderIcon = 0;
+    }
 
     $scope.dropToggle = function(){
         $scope.showDropdown++;
@@ -9,24 +16,23 @@ app.controller('header-controller', ['$scope','$http','$cookie', function($scope
         }
     }
 
+    RestService.getUser().then(function(response){
+        $scope.name = response.data;
+    });
+
     $scope.logout = function(){
-        $http({
-            method: 'POST',
-            url: 'http://localhost/fleefood_API/logout',
-            withCredentials: true,
-            headers : { 
-                'Content-Type': 'application/json'
-            } 
-        }).then(function(response){
+
+        RestService.logOut().then(function(response){
             $scope.error = response.data;
            
             if(!$scope.error.error){
                 //$window.location.href = '#!/home';
-                window.location.href = "/?#!/";
+                location.href = "/";
             }else{
                 $scope.showError = true;
             }
         });
+      
     }
     
 }]);

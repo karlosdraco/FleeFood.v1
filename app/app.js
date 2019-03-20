@@ -1,12 +1,17 @@
-var app = angular.module("fleefood_app",['ngRoute']);
- 
+var app = angular.module("fleefood_app",['ngRoute','ngCookies']);
+
 app.config(['$routeProvider','$httpProvider',function($routeProvider, $httpProvider){
     $httpProvider.defaults.withCredentials = true;
     
     $routeProvider
-    .when("/",{
+      .when("/",{
         templateUrl: 'views/landing-page.html',
         controller: 'landing-page-controller'
+      })
+
+      .when("/home",{
+        templateUrl: 'views/home.html',
+        controller: 'home-controller'
       })
       
       .when("/profile",{

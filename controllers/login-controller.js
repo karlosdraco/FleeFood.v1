@@ -1,27 +1,21 @@
-app.controller("login-controller", ['$scope','$http','$window',function($scope, $http, $window){
+app.controller("login-controller", ['$scope','RestService',function($scope,RestService){
         $scope.user = {};
         $scope.showError = false;
         $scope.userHeaderIcon = 0;
 
         $scope.submitLoginForm = function(){
-            $http({
-                method: 'POST',
-                url: 'http://localhost/fleefood_API/login',
-                data: $scope.user,
-                withCredentials: true,
-                headers : { 
-                    'Content-Type': 'application/json'
-                } 
-            }).then(function(response){
+            RestService.loginUser($scope.user).then(function(response){
                 $scope.error = response.data;
                
                 if($scope.error.authenticated){
-                    $window.location.href = '#!/profile';
+                    location.href = '#!/home';
                 }else{
                     $scope.showError = true;
                 }
             });
         }
+
+      
 
 
 }]);

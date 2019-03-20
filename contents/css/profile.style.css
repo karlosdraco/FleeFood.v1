@@ -1,131 +1,52 @@
 .profile-wrapper{
-    max-width: 960px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
 .profile-content{
-    width: 600px;
-    margin: 0 auto;
+    padding: 12px;
 }
 
 .user-profile-head{
-    padding: 10px;
     background-color: #ffffff;
-    border: 1px solid #e6e6e6;
-    height: 150px;
-    margin-bottom: 20px;
-}
-
-.user-profile-head img{
-    width: 150px;
+    border: 1px solid #ececec;
+    border-radius: 10px;
+    width: 300px;
     float: left;
-    margin-right: 20px;
 }
 
 .user-info{
-    margin-top: 10px;
+    margin: 10px;
 }
 
-.user-info .name{
-    font-family: helvetica;
-    font-size: 24px;
-    color: #525252;
+.name{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    font-size: 25px;
+    font-weight: bolder;
+    margin: 0; 
 }
 
-.user-info .email{
-    font-family: helvetica;
-    font-size: 13px;
-    color: #5ccaf5;
-}
-
-.user-info h3{
-    padding: 0;
+.email{
+    color:  #57baf3;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    font-size: 12.5px;
+    font-weight: 100;
     margin: 0;
 }
 
-.widgets{
+.user-activity{
+    width: 500px;
+    margin: 0 auto;
+    margin-left: 12px;
     float: left;
-    margin-top: 20px;
 }
 
-.widgets a{
-    color: #525252;
-    font-family: helvetica;
-    font-size: 13px;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-}
-
-.widgets p{
-    font-weight: bold;
-    padding: 0;
-}
-
-.post, .stars, .followers, .following, .stalls, .more{
-    float: left;
-    text-align: center;
-    margin: 7px;
-    padding: 0;
-}
-
-.widgets a:hover{
-    color: #141414;
-}
-
-.more:hover{
-    cursor: pointer;
-}
-
-.more h3{
-    font-size: 15px;
-    font-family: helvetica;
-    margin-top: 41px;
-}
-.user-about{
-    max-width: 600px;
+.activity-header{
     background-color: #ffffff;
-    background-color: #ffffff;
-    border: 1px solid #e6e6e6;
-    height: 350px;
-}
-
-.user-about span{
-    background-color: #7a7a7a;
-    color: #ffffff;
-    font-family: helvetica;
-    padding: 10px;
-}
-
-.user-about span:hover{
-    background-color: #a1a1a1;
-    cursor: pointer;
-}
-
-.user-bio{
-    margin-top: 20px;
-}
-
-.edit-icon{
-   background-color: #7a7a7a;
-   float: right;
-   padding: 7px;
-   width: 55px;
-   
-}
-
-.edit-icon img{
-    width: 25px;
-    float: left;
-}
-
-.edit-icon p{
-    font-family: helvetica;
-    font-size: 10px;
-    text-align: center;
-    position: relative;
-    top: 1px;
-    font-weight: bold;
+    border: 1px solid #ececec;
+    border-radius: 10px;
 }
 
 

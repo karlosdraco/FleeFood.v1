@@ -1,13 +1,12 @@
-app.controller("profile-controller", ['$scope', '$http', function($scope, $http){
+app.controller("profile-controller", ['$scope', 'RestService','$cookies', function($scope, RestService, $cookies){
 
-        $http({
-            method: 'GET',
-            url: 'http://localhost/fleefood_API/profile',
-            withCredentials: true,
-            headers : { 
-                'Content-Type': 'application/json'
-            } 
-        }).then(function(response){
+    if($cookies.get('SNID')){
+        RestService.getUser().then(function(response){
             $scope.profile = response.data;
         });
+    }else{
+        location.href="/";
+    }
+
+   
 }]);

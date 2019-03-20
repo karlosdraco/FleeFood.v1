@@ -8,7 +8,7 @@
 }
 
 .header-container{
-    max-width: 960px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
@@ -72,9 +72,11 @@
 }
 
 .user_icon{
-    width: 110px;
+    width: 95px;
     float: right;
     margin-top: 6px;
+    position: relative;
+    left: -180px;
 }
 
 .user_icon p{
@@ -88,6 +90,7 @@
     width: 32px;
     border: 3px solid #f9fd02;
     border-radius: 5px;
+    margin-top: 2px;
 }
 
 .arrow-down {
@@ -98,7 +101,7 @@
     border-right: 7px solid transparent;
     border-top: 7px solid #ffffff;
     position: relative;
-    left: 115px;
+    left: -65px;
     top: 24px;
   }
 
@@ -116,8 +119,8 @@
       padding: 10px;
       float: right;
       position: relative;
-      left: 12px;
-      top: -5px;
+      left: -56px;
+      top: 40px;
       box-shadow: 0 2px 5px rgba(54, 54, 54, 0.2); 
   }
 

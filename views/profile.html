@@ -1,67 +1,30 @@
 <div class="profile-wrapper">
     <div class="profile-content">
        <div class="user-profile-head">
-          <img ng-src="/contents/assets/Resource/images/icons/profile_image.jpg" alt="">
+          <img ng-src="/contents/assets/Resource/images/icons/profile_image.jpg" alt=""style="width: 100%;">
            <div class="user-info" ng-repeat="user in profile">
                 <h3 class="name">{{user.firstname + " " + user.lastname}}</h3>
-                <h3 class="email">{{user.email}}</h3>
-
-                <div class="widgets">
-                    
-                    <div class="post">
-                        <a href="?post">
-                            <p>10</p>
-                            <h3>Post</h3>
-                        </a>
+                <h4 class="email">{{user.email}}</h3>
+                    <div class="user-bio" ng-repeat="info in bio">
+                            {{info}}
                     </div>
-                    
-                    <div class="stars">
-                        <a href="#">
-                            <p>Good</p>
-                            <h3>Stars</h3>
-                        </a>
-                    </div>
-                      
-                    <div class="followers">
-                        <a href="#">
-                            <p>22</p>
-                            <h3>Followers</h3>
-                        </a>
-                    </div>
-                   
-                    <div class="following">
-                        <a href="#">
-                            <p>5</p>
-                            <h3>Following</h3>
-                        </a>
-                    </div>
-               
-                    <div class="stalls">
-                        <a href="#">
-                            <p>2</p>
-                            <h3>Stalls</h3>
-                        </a>
-                    </div>
-                    
-                    <div class="more">
-                           <h3>More</h3>
-                    </div>
-                </div>
-           </div>
         </div>
+    </div>
 
-       <div class="user-about">
-           <span>Post
-           </span><span ng-click="user_info_filter('overview')">Overview
-          </span><span ng-click="user_info_filter('address')">Address</span>
-          <div class="edit-icon">
-              <img src="contents/assets/Resource/images/icons/edit-icon.png" alt="">
-              <p>Edit</p>
-          </div>
-
-          <div class="user-bio" ng-repeat="info in bio">
-                {{info}}
-           </div>
-       </div>
+    <div class="user-activity">
+        <div class="activity-header">
+                <div class="widgets">
+                        <span>Post
+                        </span><span ng-click="user_info_filter('overview')">Overview
+                        </span><span ng-click="user_info_filter('address')">Address</span>
+                        <div class="edit-icon">
+                            <p>Edit profile</p>
+                        </div>        
+                </div>
+        </div>
+        <div class="profile-post">
+                <h3>Taeng malaki binebenta</h3>
+        </div>
+    </div>
     </div>
 </div>

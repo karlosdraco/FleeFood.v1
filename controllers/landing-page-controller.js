@@ -1,10 +1,8 @@
-app.controller('landing-page-controller', ['$scope','$http', function($scope, $http){
+app.controller('landing-page-controller', ['$scope','$cookies', function($scope, $cookies){
     $scope.showSignUp = 1;
     $scope.showSignIn = 0;
-    
-    var toggleBtn = document.getElementsByClassName('toggle-btn');
-    var signupToggle = document.getElementById('sign-up-toggle');
-    var loginToggle = document.getElementById('login-in-toggle');
 
-    
+    if($cookies.get('SNID')){
+        location.href="/#!home";
+    }
 }]);
