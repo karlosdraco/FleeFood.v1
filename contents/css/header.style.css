@@ -5,6 +5,8 @@
     width: 100%;
     height: 50px;
     margin-bottom: 50px;
+    position: fixed;
+    z-index: 1;
 }
 
 .header-container{
@@ -76,7 +78,7 @@
     float: right;
     margin-top: 6px;
     position: relative;
-    left: -180px;
+    left: -130px;
 }
 
 .user_icon p{
@@ -101,8 +103,8 @@
     border-right: 7px solid transparent;
     border-top: 7px solid #ffffff;
     position: relative;
-    left: -65px;
-    top: 24px;
+    left: -20px;
+    top: 26px;
   }
 
   .arrow-up {
@@ -119,8 +121,8 @@
       padding: 10px;
       float: right;
       position: relative;
-      left: -56px;
-      top: 40px;
+      left: -105px;
+      top: -2px;
       box-shadow: 0 2px 5px rgba(54, 54, 54, 0.2); 
   }
 

@@ -2,8 +2,12 @@ app.controller('header-controller', ['$scope','RestService','$cookies',function(
   $scope.showDropdown = 0;
   $scope.showUserHeaderIcon = 0;
   
-    if($cookies.get('SNID')){
+
+    if($cookies.get('auth_token')){
         $scope.showUserHeaderIcon = 1;
+        RestService.getUser().then(function(response){
+            $scope.name = response.data;
+        });
     }else{
         $scope.showUserHeaderIcon = 0;
     }
@@ -16,12 +20,7 @@ app.controller('header-controller', ['$scope','RestService','$cookies',function(
         }
     }
 
-    RestService.getUser().then(function(response){
-        $scope.name = response.data;
-    });
-
     $scope.logout = function(){
-
         RestService.logOut().then(function(response){
             $scope.error = response.data;
            
@@ -32,7 +31,6 @@ app.controller('header-controller', ['$scope','RestService','$cookies',function(
                 $scope.showError = true;
             }
         });
-      
     }
     
 }]);

@@ -5,8 +5,30 @@
            <div class="user-info" ng-repeat="user in profile">
                 <h3 class="name">{{user.firstname + " " + user.lastname}}</h3>
                 <h4 class="email">{{user.email}}</h3>
-                    <div class="user-bio" ng-repeat="info in bio">
-                            {{info}}
+                    <div class="user-bio">
+                            <div class="bio">
+                                Hi my name is karlos and i believe that children's our 
+                                future teach them well and let them be the way
+                            </div>
+                            <div class="info-icons">
+                                <span>
+                                    <img src="/contents/assets/Resource/images/icons/icons8-marker-50.png" alt="">
+                                    Viva Homes Salawag Dasma Cavite
+                                </span>
+
+                                <span>
+                                    <img src="/contents/assets/Resource/images/icons/icons8-mobile-48.png" alt="">
+                                    {{user.contact}}
+                                </span>
+
+                                <span>
+                                    <img src="/contents/assets/Resource/images/icons/icons8-party-balloon-40.png" alt="">
+                                    June 21 1996
+                                </span>
+                            </div>
+                    </div>
+                    <div class="edit-btn" ng-click="modal()">
+                        Update profile
                     </div>
         </div>
     </div>
@@ -14,17 +36,42 @@
     <div class="user-activity">
         <div class="activity-header">
                 <div class="widgets">
-                        <span>Post
-                        </span><span ng-click="user_info_filter('overview')">Overview
-                        </span><span ng-click="user_info_filter('address')">Address</span>
-                        <div class="edit-icon">
-                            <p>Edit profile</p>
-                        </div>        
+                        <span>Status
+                        </span><span>Followers
+                        </span><span>Following
+                        </span><span>Food Request</span>      
                 </div>
         </div>
         <div class="profile-post">
                 <h3>Taeng malaki binebenta</h3>
         </div>
     </div>
+    </div>
+
+    <div class="update_profile" ng-if="showModal">
+        <div class="modal_content">
+             <h2>Update profile</h2>
+             <span class="modal-p-close" ng-click="showModal = 0">&times;</span>
+             <form ng-submit="updateProfile()">
+                 <textarea name="" id="" cols="63" rows="5" placeholder="Enter something about yourself" ng-model="user.bio"></textarea><br>
+                 <input class="update_input" type="text" placeholder="Birthdate" ng-model="user.birthdate">
+                 <input class="update_input" type="text" placeholder="Age" ng-model="user.age"><br>
+                
+                 <input class="update_input" type="text" placeholder="Address line 1" ng-model="user.addressLine1">
+                 <input class="update_input" type="text" placeholder="Address line 2" ng-model="user.addressLin2"><br>
+                 <input class="update_input" type="text" placeholder="Occupation" ng-model="user.occupation">
+                 <input class="update_input" type="text" placeholder="Country" ng-model="user.country">
+                 <input class="update_input" type="text" placeholder="Zip Code" ng-model="user.zipCode">
+
+                  
+                 <select name="gender" id="gender" ng-model="user.gender">
+                        <option value="" disabled selected>Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                </select><br>
+   
+                 <input class="update_profile_btn" type="submit" value="Update profile">
+             </form>
+        </div>
     </div>
 </div>

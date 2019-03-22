@@ -15,7 +15,4 @@ app.controller("login-controller", ['$scope','RestService',function($scope,RestS
             });
         }
 
-      
-
-
 }]);

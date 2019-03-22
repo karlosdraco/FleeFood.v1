@@ -16,24 +16,6 @@ app.controller("signup-controller", ['$scope','RestService',function($scope,Rest
             form.reset();
         })
         
-        /*$http({
-            method: 'POST',
-            url: 'http://localhost/fleefood_API/signup',
-            data: $scope.user,
-            headers : { 
-                'Content-Type': 'application/json'
-            } 
-        }).then(function(response){
-            $scope.errors = response.data;
-            if($scope.errors.errorFlag){
-                $scope.showSignUpErr = true;
-            }else{
-                $scope.showSignUpErr = false;
-                form.reset();
-            }
-            form.reset();
-        })*/
-        
     }
 
 

@@ -4,3 +4,7 @@ body,html{
     background-color: #f7f5f5;
     overflow-x: hidden;
 }
+
+main{
+    margin-top: 100px;
+}

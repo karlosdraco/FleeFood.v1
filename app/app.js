@@ -14,7 +14,7 @@ app.config(['$routeProvider','$httpProvider',function($routeProvider, $httpProvi
         controller: 'home-controller'
       })
       
-      .when("/profile",{
+      .when("/profile/:name",{
         templateUrl: 'views/profile.html',
         controller: 'profile-controller'
       }).otherwise({
