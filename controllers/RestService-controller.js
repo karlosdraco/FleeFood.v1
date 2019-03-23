@@ -20,7 +20,7 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
             url: 'http://127.0.0.1/fleefood_API/logout',
             withCredentials: true,
             headers : { 
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
             } 
         })
     }

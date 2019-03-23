@@ -3,7 +3,10 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', functi
     $scope.user = {};
     
     $scope.modal = function(){
-        return $scope.showModal = 1;
+        $scope.showModal++;
+        if($scope.showModal > 1){
+            $scope.showModal = 0;
+        }
     }
     
     if($cookies.get('auth_token')){
@@ -15,8 +18,15 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', functi
     }
 
     $scope.updateProfile = function(){
-        RestService.updateUser().then(function(response){
+
+        RestService.updateUser($scope.user).then(function(response){
             $scope.error = response.data;
+            
+            if($scope.error.error == false){
+                alert($scope.error.message);
+            }else{
+                alert("There's an error updating your account");
+            }
         });
     }
 }]);
