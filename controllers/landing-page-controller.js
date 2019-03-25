@@ -3,6 +3,6 @@ app.controller('landing-page-controller', ['$scope','$cookies', function($scope,
     $scope.showSignIn = 0;
 
     if($cookies.get('auth_token')){
-        location.href="/#!home";
+        location.href="/fleefood.v1/#!/home";
     }
 }]);

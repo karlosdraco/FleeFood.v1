@@ -37,7 +37,7 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
         })
     }
 
-    service.getUser = function(){
+    service.isloggedIn = function(){
         return $http({
             method: 'GET',
             url: 'http://127.0.0.1/fleefood_API/loggedIn',

@@ -1,4 +1,4 @@
-app.controller("profile-controller", ['$scope', 'RestService','$cookies', function($scope, RestService, $cookies){
+app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$route',function($scope, RestService, $cookies, $route){
     $scope.showModal = 0;
     $scope.user = {};
     
@@ -13,15 +13,13 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', functi
         RestService.getUserName().then(function(response){
             $scope.profile = response.data;
         });
-    }else{
-        location.href="/";
     }
 
     $scope.updateProfile = function(){
 
         RestService.updateUser($scope.user).then(function(response){
             $scope.error = response.data;
-            
+            $route.reload();
             if($scope.error.error == false){
                 alert($scope.error.message);
             }else{

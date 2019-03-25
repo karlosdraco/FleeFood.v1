@@ -1,4 +1,4 @@
-app.controller("login-controller", ['$scope','RestService',function($scope,RestService){
+app.controller("login-controller", ['$scope','RestService','$window',function($scope,RestService, $window){
         $scope.user = {};
         $scope.showError = 0;
         $scope.userHeaderIcon = 0;
@@ -8,7 +8,9 @@ app.controller("login-controller", ['$scope','RestService',function($scope,RestS
                 $scope.error = response.data;
                
                 if($scope.error.authenticated){
-                    location.href = '/fleefood.v1/#!/home';
+                    $window.location.href = '/fleefood.v1/#!home';
+                    $window.location.reload();
+            
                 }else{
                     $scope.showError++;
                 }

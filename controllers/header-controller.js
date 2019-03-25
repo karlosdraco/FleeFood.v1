@@ -11,12 +11,14 @@ app.controller('header-controller', ['$scope','RestService','$cookies',function(
     }
 
     if($cookies.get('auth_token')){
-        RestService.getUser().then(function(response){
-            $scope.showUserHeaderIcon++;
-            $scope.name = response.data;
+        RestService.isloggedIn().then(function(response){
+            $scope.data = response.data;
+            $scope.showUserHeaderIcon = 1;
         });
+            
     }else{
         $scope.showUserHeaderIcon = 0;
+        location.href="/fleefood.v1/#!/";
     }
 
     $scope.logout = function(){
