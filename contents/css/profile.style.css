@@ -85,6 +85,17 @@
     color: #ffffff;
 }
 
+.follow-btn{
+    text-align: center;
+    border: 1px solid  #44cf62;
+    background-color:  #44cf62;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: helvetica;
+    font-weight: bold;
+    color: #ffffff;
+}
+
 .edit-btn:hover{
     cursor: pointer;
 }
