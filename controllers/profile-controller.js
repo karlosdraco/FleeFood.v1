@@ -2,6 +2,8 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
     $scope.showModal = 0;
     $scope.showUpdate = 1;
     $scope.showFollow = 0;
+    $scope.showUpdateProfileImageBtn = 0;
+    $scope.showProfileImageModal = 0;
     $scope.user = {};
 
     //CHECKING IF THERE'S A COOKIE
@@ -24,20 +26,31 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
         }
     }
 
+    //UPDATE PROFILE IMAGE MODAL FUNCTIONALITY
+    $scope.profileImageModal = function(){
+        $scope.showProfileImageModal++;
+        if($scope.showProfileImageModal > 1){
+            $scope.showProfileImageModal = 0;
+        }
+    }
+
+
     //FETCHING PROFILE DATA
     $scope.show_profile_update = function(){
         if($scope.loggedUser.firstname != $routeParams.name){
             $scope.showFollow = 1;
+            $scope.showUpdateProfileImageBtn = 0;
             return $scope.showUpdate = 0;
         }else{
             $scope.showFollow = 0;
+            $scope.showUpdateProfileImageBtn = 1;
             return $scope.showUpdate = 1;
         }
     }
     
     //UPDATE PROFILE DATA
     $scope.updateProfile = function(){
-
+        console.log($scope.user);
         RestService.updateUser($scope.user).then(function(response){
             $scope.error = response.data;
             $route.reload();
@@ -47,5 +60,9 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
                 alert("There's an error updating your account");
             }
         });
+    }
+
+    $scope.sendProfileImage = function(){
+        
     }
 }]);

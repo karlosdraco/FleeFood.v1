@@ -2,6 +2,7 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
      
     var service = {};
     
+    
     service.loginUser = function(user){
         return $http({
             method: 'POST',
@@ -69,6 +70,18 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
             headers : { 
                 'Content-Type': 'application/json'
             } 
+        })
+    }
+
+    service.uploadImage = function(fd){
+        return $http({
+            method: 'POST',
+            url: 'http://127.0.0.1/fleefood_API/upload',
+            data: fd,
+            withCredentials: true,
+            headers: {
+                'Content-Type': undefined
+            }
         })
     }
 
