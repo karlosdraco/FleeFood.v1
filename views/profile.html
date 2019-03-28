@@ -1,6 +1,6 @@
 <div class="profile-wrapper">
     <div class="profile-content">
-       <div class="user-profile-head">
+       <div class="user-profile-head" ng-repeat="user in profile">
             
         <div class="updateProfileImgBtn" ng-if="showUpdateProfileImageBtn" ng-click="profileImageModal()">
                     <h3>Update</h3>
@@ -16,10 +16,10 @@
                         <p>{{ response.message }}</p>
                 </div>
             </div>
-
-          <img ng-src="./contents/assets/Resource/images/icons/profile_image.jpg" alt=""style="width: 100%;">
-          
-           <div class="user-info" ng-repeat="user in profile">
+         
+            <img ng-src="{{user.profile_image}}" style="width: 100%;">
+        
+           <div class="user-info">
                 <h3 class="name">{{user.firstname + " " + user.lastname}}</h3>
                 <h4 class="email">{{user.email}}</h3>
                     <div class="user-bio">
