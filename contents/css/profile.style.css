@@ -15,6 +15,37 @@
     float: left;
 }
 
+.profile-image-container{
+   position: relative;
+   height: 302px;
+   overflow: hidden;
+}
+.profile-image-container img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.profile-image-container:hover .updateProfileImgBtn{
+    display: block;
+}
+.updateProfileImgBtn{
+   display: none;
+   background-color: #f9fd02;
+   margin: 0;
+   padding: 5px;
+   position: absolute;
+   top: 239px;
+   z-index: 3;
+   width: 96.7%;
+}
+
+.updateProfileImgBtn h3{
+    font-size: 15px;
+    font-family: helvetica;
+    text-align: center;
+}
+
+
 .user-info{
     margin: 10px;
 }
@@ -174,28 +205,10 @@
     font-weight: bold;
 }
 
+
+
 .update_profile_btn:hover{
     cursor: pointer;
-}
-
-.updateProfileImgBtn{
-    background-color: black;
-    border: 3px solid #bbbbbb;
-    border-radius: 25px;
-    width: 150px;
-    height: 30px;
-    position: absolute;
-    margin-left: 70px;
-    margin-top: 240px;
-}
-
-.updateProfileImgBtn h3{
-    font-size: 15px;
-    font-family: helvetica;
-    color: #ffffff;
-    text-align: center;
-    position: relative;
-    top: -9px;  
 }
 
 .updateProfileImageModal{
@@ -213,6 +226,8 @@
 
 .updateProfileImageModal img{
     width: 64px;
+    margin-right: 15px;
+    float: left;
 }
 
 .updateImageButton{
@@ -220,6 +235,21 @@
     margin: 0 auto;
     background-color:#ffffff;
     padding: 20px;
+}
+
+.updateImageButton p{
+    background-color: #44cf62;
+    color: #ffffff;
+    font-family: helvetica;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.updateImageButton h3{
+    font-family: helvetica;
+    margin: 0;
+    padding: 0;
 }
 
 .updateProfileImgBtn:hover{

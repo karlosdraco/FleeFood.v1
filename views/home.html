@@ -1,0 +1,40 @@
+<div class="home-wrapper">
+    <div class="home-content" >
+        <div class="user-profile-widget" ng-controller="header-controller">
+            <img ng-src="{{data.imgUrl}}" alt="">
+            <div class="profile-info-container">
+                <p id="name">{{data.firstname + " " + data.lastname}}</p>
+                <p id="email">{{data.email}}</p>
+            </div>
+           
+            <div class="profile-stats">
+                <ul class="stats">
+                    <span>
+                        <li>1</li>
+                        Status
+                    </span> 
+
+                    <span>
+                        <li>1</li>
+                        Followers
+                    </span> 
+
+                    <span>
+                    <li>1</li>
+                        Following
+                    </span> 
+                </ul>
+
+            </div>
+        </div>   
+
+        <div class="user-activity-feed">
+                <div class="activity-post">
+                     <div></div>
+                </div>
+                <div class="profile-post">
+                        <h3>Posts</h3>
+                </div>
+        </div>
+    </div>
+</div>

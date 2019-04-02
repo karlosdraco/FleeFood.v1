@@ -75,7 +75,7 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
 
     service.uploadImage = function(fd){
         return $http({
-            method: 'POST',
+            method: 'PUT',
             url: 'http://127.0.0.1/fleefood_API/upload',
             data: fd,
             withCredentials: true,

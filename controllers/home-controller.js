@@ -1,3 +1,6 @@
-app.controller('home-controller', ['$scope', function($scope){
+app.controller('home-controller', ['$scope', 'RestService', function($scope, RestService){
+     
+    
 
+     
 }]);

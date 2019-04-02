@@ -15,6 +15,10 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
 
         RestService.getUserName().then(function(response){
             $scope.profile = response.data;
+        }, function error(response){
+            if(response.status == 404){
+                $scope.tmpImg = './contents/assets/Resource/images/icons/profile_image.jpg';
+            }
         });
     }
     
@@ -26,7 +30,7 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
         }
     }
 
-    //UPDATE PROFILE IMAGE MODAL FUNCTIONALITY
+    //UPDATE PROFILE IMAGE MODAL FUNCTIONALITY      
     $scope.profileImageModal = function(){
         $scope.showProfileImageModal++;
         if($scope.showProfileImageModal > 1){
@@ -62,7 +66,5 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
         });
     }
 
-    $scope.sendProfileImage = function(){
-        
-    }
+  
 }]);

@@ -1,0 +1,58 @@
+.home-wrapper{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.home-content{
+    padding: 12px;
+}
+
+.user-profile-widget{
+    background-color: #ffffff;
+    border: 1px solid #ececec;
+    width: 290px;
+    float: left;
+}
+
+.user-profile-widget img{
+    width: 80px;
+    margin: 10px;
+    float: left;
+}
+
+.profile-info-container{
+    margin: 10px;
+}
+
+.user-profile-widget p{
+    font-family: helvetica;
+}
+
+#name{
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#email{
+    margin: 0;
+    color:  #57baf3;
+    font-size: 13px;
+}
+
+.profile-stats ul{
+    list-style-type: none;
+}
+
+.profile-stats li{
+    display: inline;
+}
+
+.user-activity-feed{
+    background-color: #ffffff;
+    border: 1px solid #ececec;
+    width: 500px;
+    margin: 0 auto;
+    margin-left: 12px;
+    float: left;
+}

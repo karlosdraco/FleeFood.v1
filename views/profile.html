@@ -2,23 +2,31 @@
     <div class="profile-content">
        <div class="user-profile-head" ng-repeat="user in profile">
             
-        <div class="updateProfileImgBtn" ng-if="showUpdateProfileImageBtn" ng-click="profileImageModal()">
-                    <h3>Update</h3>
-            </div>
-            
             <div class="updateProfileImageModal" ng-if="showProfileImageModal" ng-controller="upload-controller">
                 <div class="updateImageButton">
                         <span class="modal-p-close" ng-click="profileImageModal()">&times;</span>
-                        <img src="./contents/assets/Resource/images/icons/profile_image.jpg" alt="">
 
-                        <input type="file" accept="" id="file" name="file" ng-files="getTheFiles($files)">
+                        <div class="loadImg">
+                            <div class="lodingIndicator" ng-if="loading">
+                                <img src="./contents/assets/Resource/images/icons/Rolling-1s-200px.gif" alt="">
+                            </div> 
+                        </div>
+                        <h3>Update profile image</h3>
+                        <input type="file" accept="" id="file" name="file" ng-files="getTheFiles($files)" required>
                         <input type='button' value='Upload' id='upload' ng-click='upload()'>
-                        <p>{{ response.message }}</p>
+                        <p ng-if="showResponse">{{ response.message }}</p>
                 </div>
             </div>
          
-            <img ng-src="{{user.profile_image}}" style="width: 100%;">
-        
+            <div class="profile-image-container">
+                <img ng-src="{{user.profile_image || tmpImg}}" style="width: 100%;">
+                <div class="updateProfileImgBtn" ng-if="showUpdateProfileImageBtn" ng-click="profileImageModal()">
+                    <h3>Update</h3>
+                </div>
+            </div>
+            
+            
+            
            <div class="user-info">
                 <h3 class="name">{{user.firstname + " " + user.lastname}}</h3>
                 <h4 class="email">{{user.email}}</h3>
@@ -72,7 +80,7 @@
                 </div>
         </div>
         <div class="profile-post">
-                <h3>Taeng malaki binebenta</h3>
+                <h3>Posts</h3>
         </div>
     </div>
     </div>
