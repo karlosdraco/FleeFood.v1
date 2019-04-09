@@ -29,11 +29,63 @@
         </div>   
 
         <div class="user-activity-feed">
-                <div class="activity-post">
-                     <div></div>
+                
+                <div class="user-post">
+                    <div class="post-food" ng-click="dropdown();">
+                        <p>Post Food</p>
+                    </div>
                 </div>
-                <div class="profile-post">
-                        <h3>Posts</h3>
+                
+                <div class="post-dropdown" ng-if="showDropdown">
+                    <div class="post-content">
+                        <div class="food-image">
+                                <h3>Upload food images</h3>
+                                <form action="">
+                                    <input type="file">
+                                </form>
+                        </div>
+                        <div class="image-uploaded">
+                            image
+                        </div>
+
+                      
+                          <div class="food-info">
+                              <form action="">
+                                    <input id="fd-name" type="text" placeholder="Food Title"><br>
+                                    <textarea id="fd-desc" type="text" placeholder="Description"></textarea><br>
+                                    <input id="fd-price" type="text" placeholder="Price" value="0">
+                                    
+                                    <select id="fd-currency">
+                                        <option value="">PHP</option>
+                                        <option value="">USD</option>
+                                    </select> <br>
+                                    
+                                    <ul>
+                                        <li>
+                                            <h3>Availability</h3>
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <h3>Delivery fee: </h3>
+                                            <input id="deliveryBox" type="text" value="0">
+                                           
+                                        </li>
+                                    </ul>
+                                    
+                                    <input id="fd-add1" type="text" placeholder="Address line 1">
+                                    <input id="fd-add2" type="text" placeholder="Address line 2">
+                                    <p>Edit address or use your profile address</p>
+
+                                    <input id="cancelBtn" type="submit" value="Cancel" ng-click="dropdown();">
+                                    <input id="postBtn" type="submit" value="Post">
+                              </form>
+                            
+                          </div>
+                    </div>
                 </div>
         </div>
     </div>
