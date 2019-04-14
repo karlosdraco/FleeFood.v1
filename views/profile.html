@@ -12,7 +12,7 @@
                             </div> 
                         </div>
                         <h3>Update profile image</h3>
-                        <input type="file" accept="" id="file" name="file" ng-files="getTheFiles($files)" required>
+                        <input type="file" accept="" id="file" name="file" ng-files="getTheFiles($files)">
                         <input type='button' value='Upload' id='upload' ng-click='upload()'>
                         <p ng-if="showResponse">{{ response.message }}</p>
                 </div>

@@ -30,7 +30,7 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
         }
     }
 
-    //UPDATE PROFILE IMAGE MODAL FUNCTIONALITY      
+    //PROFILE IMAGE MODAL FUNCTIONALITY      
     $scope.profileImageModal = function(){
         $scope.showProfileImageModal++;
         if($scope.showProfileImageModal > 1){
@@ -54,7 +54,7 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
     
     //UPDATE PROFILE DATA
     $scope.updateProfile = function(){
-        console.log($scope.user);
+        //console.log($scope.user);
         RestService.updateUser($scope.user).then(function(response){
             $scope.error = response.data;
             $route.reload();

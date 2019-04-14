@@ -1,12 +1,12 @@
 app.factory("RestService", ['$http','$routeParams',function($http, $routeParams){
      
     var service = {};
-    
+    var url = 'http://127.0.0.1/fleefood_API/';
     
     service.loginUser = function(user){
         return $http({
             method: 'POST',
-            url: 'http://127.0.0.1/fleefood_API/login',
+            url: url + 'login',
             data: user,
             withCredentials: true,
             headers : { 
@@ -18,7 +18,7 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
     service.logOut = function(){
         return $http({
             method: 'DELETE',
-            url: 'http://127.0.0.1/fleefood_API/logout',
+            url: url + 'logout',
             withCredentials: true,
             headers : { 
                 'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
     service.signupUser = function(user){
         return $http({
             method: 'POST',
-            url: 'http://127.0.0.1/fleefood_API/signup',
+            url: url + 'signup',
             data: user,
             withCredentials: true,
             headers : { 
@@ -41,7 +41,7 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
     service.isloggedIn = function(){
         return $http({
             method: 'GET',
-            url: 'http://127.0.0.1/fleefood_API/loggedIn',
+            url: url + 'loggedIn',
             withCredentials: true,
             headers : { 
                 'Content-Type': 'application/json'
@@ -52,7 +52,7 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
     service.getUserName = function(){
         return $http({
             method: 'GET',
-            url: 'http://127.0.0.1/fleefood_API/profile',
+            url: url + 'profile',
             params:{name: $routeParams.name},
             withCredentials: true,
             headers : { 
@@ -64,7 +64,7 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
     service.updateUser = function(user){
         return $http({
             method: 'PUT',
-            url: 'http://127.0.0.1/fleefood_API/profile',
+            url: url + 'profile',
             data: user,
             withCredentials: true,
             headers : { 
@@ -76,12 +76,24 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
     service.uploadImage = function(fd){
         return $http({
             method: 'PUT',
-            url: 'http://127.0.0.1/fleefood_API/upload',
+            url: url + 'upload',
             data: fd,
             withCredentials: true,
             headers: {
                 'Content-Type': undefined
             }
+        })
+    }
+
+    service.foodPost = function(post){
+        return $http({
+            method: 'POST',
+            url: url + 'post',
+            data: post,
+            withCredentials: true,
+            headers : { 
+                'Content-Type': 'application/json'
+            } 
         })
     }
 

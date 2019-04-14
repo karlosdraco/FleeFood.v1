@@ -40,48 +40,47 @@
                     <div class="post-content">
                         <div class="food-image">
                                 <h3>Upload food images</h3>
-                                <form action="">
-                                    <input type="file">
-                                </form>
+                                <input type="file" accept="" id="file" name="file" multiple ng-files="getTheFiles($files)" ng-submit="uploadFoodGallery()">
+                            
                         </div>
                         <div class="image-uploaded">
                             image
                         </div>
 
                       
-                          <div class="food-info">
-                              <form action="">
-                                    <input id="fd-name" type="text" placeholder="Food Title"><br>
-                                    <textarea id="fd-desc" type="text" placeholder="Description"></textarea><br>
-                                    <input id="fd-price" type="text" placeholder="Price" value="0">
+                          <div class="food-info" ng-controller="post-controller">
+                              <form id="foodForm" ng-submit="foodPost()">
+                                    <input id="fd-name" type="text" placeholder="Food Title" ng-model="post.foodName"><br>
+                                    <textarea id="fd-desc" type="text" placeholder="Description" ng-model="post.foodDescription"></textarea><br>
+                                    <input id="fd-price" type="text" placeholder="Price" value="0" ng-model="post.foodPrice">
                                     
-                                    <select id="fd-currency">
-                                        <option value="">PHP</option>
-                                        <option value="">USD</option>
+                                    <select id="fd-currency" ng-model="post.currency">
+                                        <option value="php">PHP</option>
+                                        <option value="usd">USD</option>
                                     </select> <br>
                                     
                                     <ul>
                                         <li>
                                             <h3>Availability</h3>
                                             <label class="switch">
-                                                <input type="checkbox">
+                                                <input type="checkbox" ng-model="post.foodAvailability">
                                                 <span class="slider round"></span>
                                             </label>
                                         </li>
 
                                         <li>
                                             <h3>Delivery fee: </h3>
-                                            <input id="deliveryBox" type="text" value="0">
+                                            <input id="deliveryBox" type="text" value="0" ng-model="post.deliveryFee">
                                            
                                         </li>
                                     </ul>
                                     
-                                    <input id="fd-add1" type="text" placeholder="Address line 1">
-                                    <input id="fd-add2" type="text" placeholder="Address line 2">
+                                    <input id="fd-add1" type="text" placeholder="Address line 1" ng-model="post.addressLine1">
+                                    <input id="fd-add2" type="text" placeholder="Address line 2" ng-model="post.addressLine2">
                                     <p>Edit address or use your profile address</p>
 
                                     <input id="cancelBtn" type="submit" value="Cancel" ng-click="dropdown();">
-                                    <input id="postBtn" type="submit" value="Post">
+                                    <input id="postBtn" type="submit" value="Post" >
                               </form>
                             
                           </div>
