@@ -64,8 +64,8 @@
                     <div class="edit-btn" ng-click="modal()" ng-if="show_profile_update()">
                         Update profile
                     </div>
-                    <div class="follow-btn" ng-if="showFollow">
-                        Follow
+                    <div class="follow-btn" ng-if="showFollow" ng-click="follow()">
+                        {{followbtn}}
                     </div>
         </div>
     </div>
@@ -92,13 +92,13 @@
             
              <form ng-submit="updateProfile()">
                 
-                 <textarea required cols="63" rows="5"  placeholder="Enter something about yourself" ng-model="user.bio"></textarea>
+                 <textarea required cols="63" rows="5"  placeholder="Tell something about yourself" ng-model="user.bio"></textarea>
                  <input class="update_input" type="text" required placeholder="Birthdate" ng-model="user.birthdate">
                  <input class="update_input" type="number" required placeholder="Age" ng-model="user.age">
                  <input required class="update_input" type="text"  placeholder="Address line 1" ng-model="user.addressLine1">
                  <input required class="update_input" type="text"  placeholder="Address line 2" ng-model="user.addressLine2">
                  <input required class="update_input" type="text"  placeholder="Occupation" ng-model="user.occupation">
-                 <input required class="update_input" type="text"  placeholder="Country" ng-model="user.country">
+                 <input required class="update_input" type="text"  placeholder="Country" ng-model="user.country" >
                  <input required class="update_input" type="number"  placeholder="Zip Code" ng-model="user.zipCode">
 
                   

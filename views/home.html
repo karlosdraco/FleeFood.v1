@@ -26,28 +26,23 @@
                 </ul>
 
             </div>
-        </div>   
+        </div>
 
         <div class="user-activity-feed">
-                
                 <div class="user-post">
                     <div class="post-food" ng-click="dropdown();">
                         <p>Post Food</p>
                     </div>
                 </div>
                 
-                <div class="post-dropdown" ng-if="showDropdown">
+                <div class="post-modal" ng-if="showDropdown">
                     <div class="post-content">
                         <div class="food-image">
                                 <h3>Upload food images</h3>
                                 <input type="file" accept="" id="file" name="file" multiple ng-files="getTheFiles($files)" ng-submit="uploadFoodGallery()">
-                            
                         </div>
-                        <div class="image-uploaded">
-                            image
-                        </div>
+                        <div class="image-uploaded">image</div>
 
-                      
                           <div class="food-info" ng-controller="post-controller">
                               <form id="foodForm" ng-submit="foodPost()">
                                     <input id="fd-name" type="text" placeholder="Food Title" ng-model="post.foodName"><br>
@@ -86,6 +81,34 @@
                           </div>
                     </div>
                 </div>
+
+                <div class="post-feed" ng-controller="feed-controller">
+                        <div class="feed" ng-repeat="data in feed">
+                                <div class="foodList">
+                                    <div class="foodCardHeader">
+                                       <span><img ng-src="{{data.profile_image}}" alt="" style="width:30px;"></span>
+                                       <span><a href="#!profile/{{data.firstname}}">{{data.firstname + " " + data.lastname}}</a></span>
+                                       <span>
+                                            <form>
+                                                <input type="submit" value="Report">
+                                            </form>
+                                        </span>
+                                    </div>
+
+                                    <div class="foodWrapper">
+                                       <span><img src="././contents/assets/Resource/images/icons/pork-adobo-recipe-320.jpg" alt="" style="width:100px;"></span>
+                                       <span>{{data.food_name }}</span>
+                                       <p>{{data.currency  + "." + data.delivery_type | uppercase}}</p>
+                                       <p>{{data.currency  + "." + data.food_price | uppercase}}</p>
+                                       <button>View</button>
+                                       <form>
+                                          <input type="submit" value="Request">
+                                       </form>
+                                    </div>
+                                </div>
+                        </div>
+                </div>
         </div>
+
     </div>
 </div>

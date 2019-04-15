@@ -2,9 +2,12 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
     $scope.showModal = 0;
     $scope.showUpdate = 1;
     $scope.showFollow = 0;
+    $scope.followbtn = "Follow";
     $scope.showUpdateProfileImageBtn = 0;
     $scope.showProfileImageModal = 0;
     $scope.user = {};
+    $scope.autofill = {};
+    var count = 0;
 
     //CHECKING IF THERE'S A COOKIE
     if($cookies.get('auth_token')){
@@ -15,11 +18,35 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
 
         RestService.getUserName().then(function(response){
             $scope.profile = response.data;
+
+            $scope.user = {
+                bio: $scope.profile[0].bio,
+                birthdate: $scope.profile[0].birthdate,
+                age: parseInt($scope.profile[0].age),
+                addressLine1: $scope.profile[0].addressLine1,
+                addressLine2: $scope.profile[0].addressLine2,
+                occupation: $scope.profile[0].occupation,
+                country: $scope.profile[0].country,
+                zipCode: parseInt($scope.profile[0].zipCode)
+            };
+            
         }, function error(response){
             if(response.status == 404){
                 $scope.tmpImg = './contents/assets/Resource/images/icons/profile_image.jpg';
             }
         });
+    }
+   
+   
+    $scope.follow = function(){
+        count++;
+        if(count > 0){
+            $scope.followbtn = "Unfollow";
+        }if(count > 1){
+            count = 0;
+        }else{
+            $scope.followbtn = "Follow";
+        }
     }
     
     //MODAL FUNCTIONALITY
@@ -53,6 +80,8 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
     }
     
     //UPDATE PROFILE DATA
+
+
     $scope.updateProfile = function(){
         //console.log($scope.user);
         RestService.updateUser($scope.user).then(function(response){

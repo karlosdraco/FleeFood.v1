@@ -127,7 +127,7 @@
     color: #ffffff;
 }
 
-.edit-btn:hover{
+.edit-btn, .follow-btn:hover{
     cursor: pointer;
 }
 

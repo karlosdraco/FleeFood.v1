@@ -61,6 +61,17 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
         })
     }
 
+    service.getFeed = function(){
+        return $http({
+            method: 'GET',
+            url: url + 'feed',
+            withCredentials: true,
+            headers : { 
+                'Content-Type': 'application/json'
+            } 
+        })
+    }
+
     service.updateUser = function(user){
         return $http({
             method: 'PUT',
