@@ -86,24 +86,28 @@
                         <div class="feed" ng-repeat="data in feed">
                                 <div class="foodList">
                                     <div class="foodCardHeader">
-                                       <span><img ng-src="{{data.profile_image}}" alt="" style="width:30px;"></span>
-                                       <span><a href="#!profile/{{data.firstname}}">{{data.firstname + " " + data.lastname}}</a></span>
+                                       <span id="imgTag"><img ng-src="{{data.profile_image}}" alt="" style="width:30px;"></span>
+                                       <span id="nameTag"><a href="#!profile/{{data.firstname}}">{{data.firstname + " " + data.lastname}}</a></span>
                                        <span>
                                             <form>
-                                                <input type="submit" value="Report">
+                                                <input type="submit" value="Report" id="reportBtn">
                                             </form>
+                                            
                                         </span>
                                     </div>
 
                                     <div class="foodWrapper">
-                                       <span><img src="././contents/assets/Resource/images/icons/pork-adobo-recipe-320.jpg" alt="" style="width:100px;"></span>
-                                       <span>{{data.food_name }}</span>
-                                       <p>{{data.currency  + "." + data.delivery_type | uppercase}}</p>
-                                       <p>{{data.currency  + "." + data.food_price | uppercase}}</p>
-                                       <button>View</button>
-                                       <form>
-                                          <input type="submit" value="Request">
-                                       </form>
+                                       <span><img id="foodImg" src="././contents/assets/Resource/images/icons/pork-adobo-recipe-320.jpg" alt="" style="width:100px;"></span>
+                                       <span id="foodName">{{data.food_name }}</span>
+
+                                       <div class="food-detail">
+                                            <div id="price">{{data.currency | uppercase}}.<span>{{data.food_price}}</span></div>
+                                            <p id="delivery">Delivery fee: {{data.currency  + "." + data.delivery_type | uppercase}}</p>
+                                            <p id="contact">Contact: {{data.contact}}</p>
+                                            <button id="viewBtn">View</button>
+                                        </div>
+                                     
+                                       
                                     </div>
                                 </div>
                         </div>

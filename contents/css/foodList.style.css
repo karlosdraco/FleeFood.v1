@@ -1,6 +1,104 @@
 .feed{
     background-color: #ffffff;
+    overflow-y: hidden;
     width: 500px;
+    height: 170px;
     margin: 0 auto;
     border: 1px solid #ececec;
+    margin-bottom: 20px;
+
 }
+
+.foodCardHeader{
+    border-bottom: 1px solid #ececec;
+    padding: 10px;
+    height: 30px;
+}
+
+.foodCardHeader #imgTag{
+    float: left;
+    margin-right: 10px;
+}
+
+.foodCardHeader #reportBtn{
+    float: right;
+    position: relative;
+    top: -15px;
+    color: #ffffff;
+    border: 2px solid rgb(231, 38, 54);
+    border-radius: 10px;
+    background-color: rgba(231, 38, 54, 0.6);
+    outline: none;
+}
+
+#reportBtn:hover{
+    cursor: pointer;    
+}
+
+#nameTag a{
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: #303030;
+}
+.foodWrapper #foodImg{
+    float: left;
+    margin: 10px;   
+}
+
+.foodWrapper #foodName{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #303030;
+    position: relative;
+    top: 10px;
+}
+
+#price{
+    float: right;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px;
+    color: #44cf62;
+    position: relative;
+    top: -35px;
+}
+
+#price span{
+    font-size: 25px;
+}
+
+#delivery{
+    background-color: #f9fd02;
+    border: 1px solid#f9fd02;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    width: 300px;
+    padding: 5px;
+    color: #ffffff;
+}
+
+#contact{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #57baf3;
+    width: 350px;
+}
+
+#viewBtn{
+    padding: 10px;
+    border: 1px solid #f9fd02;
+    border-radius: 5px;
+    background-color: #f9fd02;
+    color: #ffffff;
+    outline: none;
+    margin: 10px;
+    position: relative;
+    right: -310px;
+    top: -52px;
+}
+
+#viewBtn:hover{
+    cursor: pointer;
+}
+
+

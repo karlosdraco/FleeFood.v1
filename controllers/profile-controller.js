@@ -80,8 +80,6 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
     }
     
     //UPDATE PROFILE DATA
-
-
     $scope.updateProfile = function(){
         //console.log($scope.user);
         RestService.updateUser($scope.user).then(function(response){

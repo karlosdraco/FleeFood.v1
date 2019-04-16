@@ -37,4 +37,7 @@ app.controller("feed-controller", ['$scope', 'RestService', '$timeout', function
 
         $scope.data = 'Loading...';
 
+
+        
+
 }]);
