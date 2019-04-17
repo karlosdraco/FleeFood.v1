@@ -106,8 +106,12 @@
 
 .image-uploaded{
     float: left;
-    background-color: #d4d4d4;
     padding: 10px;
+    width: 70px;
+    height: 70px;
+}
+
+.image-uploaded img{
     width: 70px;
     height: 70px;
 }
@@ -115,6 +119,8 @@
 .food-image input{
     margin: 15px;       
 }
+
+
 
 
 .food-image h3{
