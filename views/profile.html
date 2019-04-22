@@ -6,14 +6,15 @@
                 <div class="updateImageButton">
                         <span class="modal-p-close" ng-click="profileImageModal()">&times;</span>
 
-                        <div class="loadImg">
-                            <div class="lodingIndicator" ng-if="loading">
+                        <div class="loadImg" ng-repeat="step in stepsModel">
+                            <div class="loadingIndicator" ng-if="loading" >
                                 <img src="./contents/assets/Resource/images/icons/Rolling-1s-200px.gif" alt="">
                             </div> 
+                            <img id="imgPreview" ng-src="{{step}}" alt="">
                         </div>
                         <h3>Update profile image</h3>
-                        <input type="file" accept="" id="file" name="file" ng-files="getTheFiles($files)">
-                        <input type='button' value='Upload' id='upload' ng-click='upload()'>
+                        <input type="file" id="file" onchange="angular.element(this).scope().imageUpload(event)" ng-file="uploadfiles">
+                        <input type="button" value="Upload" id="upload" ng-click="upload()">
                         <p ng-if="showResponse">{{ response.message }}</p>
                 </div>
             </div>
@@ -64,8 +65,8 @@
                     <div class="edit-btn" ng-click="modal()" ng-if="show_profile_update()">
                         Update profile
                     </div>
-                    <div class="follow-btn" ng-if="showFollow" ng-click="follow()">
-                        {{followbtn}}
+                    <div class="follow-btn" ng-if="showFollow" ng-click="followUser();">
+                        {{followStatus.Status}}
                     </div>
         </div>
     </div>

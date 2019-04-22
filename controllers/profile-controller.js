@@ -7,8 +7,9 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
     $scope.showProfileImageModal = 0;
     $scope.user = {};
     $scope.autofill = {};
-    var count = 0;
-
+    $scope.stepsModel = [];
+    $scope.count = 0;
+    
     //CHECKING IF THERE'S A COOKIE
     if($cookies.get('auth_token')){
 
@@ -18,7 +19,7 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
 
         RestService.getUserName().then(function(response){
             $scope.profile = response.data;
-
+            
             $scope.user = {
                 bio: $scope.profile[0].bio,
                 birthdate: $scope.profile[0].birthdate,
@@ -29,24 +30,34 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
                 country: $scope.profile[0].country,
                 zipCode: parseInt($scope.profile[0].zipCode)
             };
-            
+
         }, function error(response){
-            if(response.status == 404){
-                $scope.tmpImg = './contents/assets/Resource/images/icons/profile_image.jpg';
-            }
+            $error = response.data;
+        });
+
+        RestService.followStatus().then(function(response){
+            $scope.followStatus = response.data;
         });
     }
    
    
-    $scope.follow = function(){
-        count++;
-        if(count > 0){
-            $scope.followbtn = "Unfollow";
-        }if(count > 1){
-            count = 0;
+    $scope.followUser = function(){
+        
+        if($scope.followStatus.following == true){
+            RestService.follow().then(function(response){
+                $scope.follow = response.data;
+            })
         }else{
-            $scope.followbtn = "Follow";
+            RestService.follow().then(function(response){
+                $scope.follow = response.data;
+            })
         }
+        
+        RestService.followStatus().then(function(response){
+            $scope.followStatus = response.data;
+        });
+        $route.reload();
+        
     }
     
     //MODAL FUNCTIONALITY
@@ -69,6 +80,7 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
     //FETCHING PROFILE DATA
     $scope.show_profile_update = function(){
         if($scope.loggedUser.firstname != $routeParams.name){
+
             $scope.showFollow = 1;
             $scope.showUpdateProfileImageBtn = 0;
             return $scope.showUpdate = 0;
@@ -79,7 +91,23 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
         }
     }
     
-    //UPDATE PROFILE DATA
+     //UPDATE PROFILE IMAGE
+    $scope.imageUpload = function(event){
+        var files = event.target.files;
+
+        var file = files[0];
+        var reader = new FileReader();
+        reader.onload = $scope.imageIsLoaded;
+        reader.readAsDataURL(file);
+    }
+
+    $scope.imageIsLoaded = function(e){
+        $scope.$apply(function(){
+            $scope.stepsModel.push(e.target.result);
+        });
+    }
+
+     //UPDATE PROFILE DATA
     $scope.updateProfile = function(){
         //console.log($scope.user);
         RestService.updateUser($scope.user).then(function(response){

@@ -205,8 +205,6 @@
     font-weight: bold;
 }
 
-
-
 .update_profile_btn:hover{
     cursor: pointer;
 }
@@ -256,4 +254,12 @@
     cursor: pointer;
 }
 
+.loadingIndicator{
+    position: absolute;
+    z-index: 1;
+}
 
+#imgPreview{
+    position: relative;
+    top: -17px;
+}

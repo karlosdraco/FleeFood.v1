@@ -37,16 +37,17 @@
                 
                 <div class="post-modal" ng-if="showDropdown">
                     <div class="post-content">
+                            <div class="errorMsg">{{data.message}}</div>
                         <div class="food-image">
                                 <h3>Upload food images</h3>
-                                <input type='file' ng-model-instant onchange="angular.element(this).scope().imageUpload(event)" multiple ng-file='uploadfiles'>
+                                <input type='file' onchange="angular.element(this).scope().imageUpload(event)" multiple ng-file='uploadfiles'>
                         </div>
                         <div class="image-uploaded" ng-repeat="step in stepsModel">
                             <img ng-src="{{step}}" alt="">
                         </div>
 
-                          <div class="food-info">
-                              <form id="foodForm" ng-submit="foodPost()">
+                          <div class="food-info" ng-controller="upload-controller">
+                              <!--<form id="foodForm" ng-submit="foodPost(); uploadFoodGallery()">-->
                                     <input id="fd-name" type="text" placeholder="Food Title" ng-model="post.foodName"><br>
                                     <textarea id="fd-desc" type="text" placeholder="Description" ng-model="post.foodDescription"></textarea><br>
                                     <input id="fd-price" type="text" placeholder="Price" value="0" ng-model="post.foodPrice">
@@ -77,8 +78,9 @@
                                     <p>Edit address or use your profile address</p>
 
                                     <input id="cancelBtn" type="submit" value="Cancel" ng-click="dropdown();">
-                                    <input id="postBtn" type="submit" value="Post" >
-                              </form>
+                                    <input id="postBtn" type="button" value="Post" ng-click='foodPost(); uploadFoodGallery()'>
+                                    
+                               <!--</form>-->
                             
                           </div>
                     </div>
