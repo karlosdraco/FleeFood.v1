@@ -21,26 +21,24 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
             $scope.profile = response.data;
             
             $scope.user = {
-                bio: $scope.profile[0].bio,
-                birthdate: $scope.profile[0].birthdate,
-                age: parseInt($scope.profile[0].age),
-                addressLine1: $scope.profile[0].addressLine1,
-                addressLine2: $scope.profile[0].addressLine2,
-                occupation: $scope.profile[0].occupation,
-                country: $scope.profile[0].country,
-                zipCode: parseInt($scope.profile[0].zipCode)
+                bio: $scope.profile.profile_data.bio,
+                birthdate: $scope.profile.profile_data.birthdate,
+                age: parseInt($scope.profile.profile_data.age),
+                addressLine1: $scope.profile.profile_data.addressLine1,
+                addressLine2: $scope.profile.profile_data.addressLine2,
+                occupation: $scope.profile.profile_data.occupation,
+                country: $scope.profile.profile_data.country,
+                zipCode: parseInt($scope.profile.profile_data.zipCode)
             };
 
         }, function error(response){
             $error = response.data;
         });
-
         RestService.followStatus().then(function(response){
             $scope.followStatus = response.data;
         });
     }
-   
-   
+
     $scope.followUser = function(){
         
         if($scope.followStatus.following == true){
@@ -59,7 +57,7 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
         $route.reload();
         
     }
-    
+   
     //MODAL FUNCTIONALITY
     $scope.modal = function(){
         $scope.showModal++;
@@ -85,11 +83,15 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
             $scope.showUpdateProfileImageBtn = 0;
             return $scope.showUpdate = 0;
         }else{
+          
             $scope.showFollow = 0;
             $scope.showUpdateProfileImageBtn = 1;
             return $scope.showUpdate = 1;
         }
     }
+
+    //Follow user
+    
     
      //UPDATE PROFILE IMAGE
     $scope.imageUpload = function(event){
