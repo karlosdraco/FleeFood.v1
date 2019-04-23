@@ -77,7 +77,6 @@
 .activity-header{
     background-color: #ffffff;
     border: 1px solid #ececec;
-    border-radius: 10px;
 }
 
 .user-bio{
@@ -263,3 +262,24 @@
     position: relative;
     top: -17px;
 }
+
+.widgets span{
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: #6d6d6d;
+    padding: 10px;
+}
+
+.status{
+    color: #44cf62;
+    font-size: 20px;
+    text-align: center;
+}
+
+.widgets span:hover{
+    background-color: #eeeeee;
+    cursor: pointer;
+}
+
