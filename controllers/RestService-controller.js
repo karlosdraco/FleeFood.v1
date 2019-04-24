@@ -72,6 +72,17 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
         })
     }
 
+    service.userPost = function(){
+        return $http({
+            method: 'GET',
+            url: url + 'post',
+            withCredentials: true,
+            headers : { 
+                'Content-Type': 'application/json'
+            } 
+        })
+    }
+
     service.updateUser = function(user){
         return $http({
             method: 'PUT',

@@ -73,24 +73,50 @@
 
     <div class="user-activity">
         <div class="activity-header">
-                <div class="widgets">
-                       <span>
+                <div class="widgets" ng-repeat="status in profile">
+                        <span style="border-right: 1px solid #ececec;">
+                            <div class="status">
+                                <img class="postIcon" src="./contents/assets/Resource/images/icons/icons8-food-basket-30.png" alt="">
+                            </div>
+                            Post
+                        </span><span>
                            <div class="status">Starter</div>
                            Status
                        </span><span>
-                           <div class="status">0</div>
+                           <div class="status">{{status.followerCount}}</div>
                            Followers
                        </span><span>
-                           <div class="status">0</div>
+                           <div class="status">{{status.followingCount}}</div>
                            Following
                        </span><span>
                             <div class="status">0</div>
-                            <div>Food request</div>
+                            Food request
+                       </span><span>
+                            <div class="addStall">
+                                <img class="addIcon" src="./contents/assets/Resource/images/icons/icons8-add-48.png" alt="">
+                            </div>
                        </span>
                 </div>
         </div>
-        <div class="profile-post">
-                <h3>Posts</h3>
+        <div class="profile-post" ng-controller="status-controller">
+                <h3>Stalls</h3>
+                <div class="stallSlider">
+                    <p>No stalls yet</p>
+                </div>
+                <h3>Post</h3>
+                <div class="myPost" ng-repeat="food in feed">
+                    <div class="post-container">
+                            <img id="foodImg" src="././contents/assets/Resource/images/icons/pork-adobo-recipe-320.jpg" alt="" style="width:100px;">
+                            <div class="food-info">
+                                <span>{{food.food_name}}</span>
+                                <p>Price: {{food.currency | uppercase}}.{{food.food_price}}</p>
+                                <p>Delivery: {{food.currency | uppercase}}.{{food.delivery_type}}</p>
+                            </div>
+                            <button>Edit</button>
+                    </div>
+                   
+
+                </div>
         </div>
     </div>
     </div>

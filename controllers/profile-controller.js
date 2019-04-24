@@ -39,6 +39,7 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
         });
     }
 
+    //FOLLOW USER
     $scope.followUser = function(){
         
         if($scope.followStatus.following == true){
@@ -90,9 +91,6 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
         }
     }
 
-    //Follow user
-    
-    
      //UPDATE PROFILE IMAGE
     $scope.imageUpload = function(event){
         var files = event.target.files;

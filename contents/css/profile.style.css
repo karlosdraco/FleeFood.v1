@@ -272,6 +272,14 @@
     padding: 10px;
 }
 
+.postIcon{
+    width: 18px;
+}
+
+.addIcon{
+    width: 37px;
+}
+
 .status{
     color: #44cf62;
     font-size: 20px;
@@ -282,4 +290,37 @@
     background-color: #eeeeee;
     cursor: pointer;
 }
+
+.profile-post h3{
+    color: #6d6d6d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+}
+
+.stallSlider{
+    background-color: #ffffff;
+    border: 1px solid #ececec;
+    height: 180px;
+}
+
+.stallSlider p{
+    color: #6d6d6d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    text-align: center;
+}
+
+.post-container{
+    background-color: #ffffff;
+    margin-bottom: 20px;
+}
+
+#foodImg{
+    float: left;
+}
+
+.post-container span{
+    vertical-align: top;
+}
+
 
