@@ -1,6 +1,6 @@
 app.controller("status-controller", ['$scope', 'RestService', '$timeout', function($scope, RestService, $timeout){
 
-    var loadTime = 5000, //Load the data every second
+    /*var loadTime = 5000, //Load the data every second
     errorCount = 0, //Counter for the server errors
     loadPromise; //Pointer to the promise created by the Angular $timout service
 
@@ -35,7 +35,12 @@ app.controller("status-controller", ['$scope', 'RestService', '$timeout', functi
         cancelNextLoad();
         });
 
-        $scope.data = 'Loading...';
+        $scope.data = 'Loading...';*/
+        RestService.userPost().then(function(response){
+            $scope.feed = response.data;
+        }).catch(function() {
+            $scope.feed = 'Server error';
+        });
 
 
         

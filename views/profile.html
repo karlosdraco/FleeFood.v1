@@ -108,11 +108,12 @@
                     <div class="post-container">
                             <img id="foodImg" src="././contents/assets/Resource/images/icons/pork-adobo-recipe-320.jpg" alt="" style="width:100px;">
                             <div class="food-info">
-                                <span>{{food.food_name}}</span>
+                                <span class="foodName">{{food.food_name}}</span>
+                                <span class="delete_post">&times;</span>
                                 <p>Price: {{food.currency | uppercase}}.{{food.food_price}}</p>
                                 <p>Delivery: {{food.currency | uppercase}}.{{food.delivery_type}}</p>
                             </div>
-                            <button>Edit</button>
+                            <button id="editBtn">Edit</button>
                     </div>
                    
 

@@ -76,6 +76,7 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
         return $http({
             method: 'GET',
             url: url + 'post',
+            params:{name: $routeParams.name},
             withCredentials: true,
             headers : { 
                 'Content-Type': 'application/json'
