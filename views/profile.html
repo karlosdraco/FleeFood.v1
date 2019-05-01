@@ -126,21 +126,28 @@
 
         <div id="followerContainer" class="profileFeed" ng-if="tab[2];" ng-repeat="follower in followers">  
             <div class="followerCard">
-                <img ng-src="{{follower.profile_image}}" style="width: 50px">
-                <p>{{follower.firstname}} {{follower.lastname}}</p>
-                <p>{{follower.email}}</p>
+                <img id="followerImg" ng-src="{{follower.profile_image}}" style="width: 50px">
+                
+                <div class="follower-info">
+                   <a class="followerName" href="#!profile/{{follower.firstname}}">{{follower.firstname}} {{follower.lastname}}</a>
+                    <p class="followerEmail">{{follower.email}}</p>
+                </div>
+                
             </div>
         </div>
 
         <div id="followingContainer" class="profileFeed" ng-if="tab[3];" ng-repeat="fav in following">
                 <div class="followingCard">
-                        <img ng-src="{{fav.profile_image}}" style="width: 50px">
-                        <p>{{fav.firstname}} {{fav.lastname}}</p>
-                        <p>{{fav.email}}</p>
-                    </div>
+                <img id="followingImg" ng-src="{{fav.profile_image}}" style="width: 50px">
+                
+                <div class="following-info">
+                   <a class="followingName" href="#!profile/{{fav.firstname}}">{{fav.firstname}} {{fav.lastname}}</a>
+                    <p class="followingEmail">{{fav.email}}</p>
+                </div>
+                </div>
         </div>
 
-        <div id="followingContainer" class="profileFeed" ng-if="tab[4];">
+        <div id="requestContainer" class="profileFeed" ng-if="tab[4];">
             Food request
         </div>
     </div>

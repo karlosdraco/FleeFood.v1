@@ -124,6 +124,7 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
     }
 
     $scope.tab = [];
+    $scope.tab[0] = 1;
     
    //PROFILE FEED SELECTOR
     $scope.dashboardSelector = function(index){

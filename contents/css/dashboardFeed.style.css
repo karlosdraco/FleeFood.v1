@@ -64,3 +64,71 @@
     cursor: pointer;
 }
 
+.followerCard{
+    background-color: #ffffff;
+    border: 1px solid #ececec;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+#followerImg{
+    float: left;
+    margin-right: 10px;
+}
+
+.follower-info{
+    margin: 10px;
+}
+
+.followerName{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #6d6d6d;
+    margin: 0;
+    text-decoration: none;
+}
+
+.followerEmail{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color:  #57baf3;
+    margin: 0;
+}
+
+
+.followingCard{
+    background-color: #ffffff;
+    border: 1px solid #ececec;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+#followingImg{
+    float: left;
+    margin-right: 10px;
+}
+
+.following-info{
+    margin: 10px;
+}
+
+.followingName{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #6d6d6d;
+    margin: 0;
+    text-decoration: none;
+}
+
+.followingEmail{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color:  #57baf3;
+    margin: 0;
+}
+
+
+
+
