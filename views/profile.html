@@ -124,20 +124,19 @@
             Status
         </div>
 
-        <div id="followerContainer" class="profileFeed" ng-if="tab[2];" ng-repeat="follower in followers">  
-            <div class="followerCard">
+        <div id="followerContainer" class="profileFeed" ng-if="tab[2];" >  
+            <div class="followerCard" ng-repeat="follower in followers">
                 <img id="followerImg" ng-src="{{follower.profile_image}}" style="width: 50px">
                 
                 <div class="follower-info">
                    <a class="followerName" href="#!profile/{{follower.firstname}}">{{follower.firstname}} {{follower.lastname}}</a>
                     <p class="followerEmail">{{follower.email}}</p>
                 </div>
-                
             </div>
         </div>
 
-        <div id="followingContainer" class="profileFeed" ng-if="tab[3];" ng-repeat="fav in following">
-                <div class="followingCard">
+        <div id="followingContainer" class="profileFeed" ng-if="tab[3];">
+                <div class="followingCard" ng-repeat="fav in following">
                 <img id="followingImg" ng-src="{{fav.profile_image}}" style="width: 50px">
                 
                 <div class="following-info">
