@@ -19,7 +19,9 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
 
         RestService.getUserName().then(function(response){
             $scope.profile = response.data;
-            
+            $scope.followers = $scope.profile.profile_data.followers;
+            $scope.following = $scope.profile.profile_data.following;
+
             $scope.user = {
                 bio: $scope.profile.profile_data.bio,
                 birthdate: $scope.profile.profile_data.birthdate,
@@ -121,5 +123,19 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
         });
     }
 
+    $scope.tab = [];
+    
+   //PROFILE FEED SELECTOR
+    $scope.dashboardSelector = function(index){
+        for(var i = 0; i < 5; i++){
+            $scope.tab[i] = 0;
+            if(i == index){
+                $scope.tab[i] = 1;
+            }else{
+                $scope.tab[i] = 0;
+            }
+        }
+    }
+  
   
 }]);

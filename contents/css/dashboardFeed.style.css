@@ -1,0 +1,66 @@
+.profile-post h3{
+    color: #6d6d6d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+}
+
+.stallSlider{
+    background-color: #ffffff;
+    border: 1px solid #ececec;
+    height: 180px;
+}
+
+.stallSlider p{
+    color: #6d6d6d;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    text-align: center;
+}
+
+.post-container{
+    background-color: #ffffff;
+    border: 1px solid #ececec;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.post-container span{
+    vertical-align: top;
+}
+
+#foodImg{
+    float: left;
+    margin-right: 10px;
+}
+
+.foodName{
+    color: #6d6d6d;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#editBtn{
+    float: right;
+    position: relative;
+    top: -30px;
+    padding: 5px;
+    width: 70px;
+    border: 3px solid #44cf62;
+    border-radius: 10px;
+    color: #44cf62;
+    font-weight: bold;
+    background-color: transparent;
+    outline: none;
+}
+
+.delete_post{
+    float: right;
+    font-size: 25px;
+    font-weight: bolder;
+    color: red;
+}
+
+#editBtn, .delete_post:hover{
+    cursor: pointer;
+}
+

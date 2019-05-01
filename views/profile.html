@@ -74,21 +74,21 @@
     <div class="user-activity">
         <div class="activity-header">
                 <div class="widgets" ng-repeat="status in profile">
-                        <span style="border-right: 1px solid #ececec;">
+                        <span style="border-right: 1px solid #ececec;" ng-click="dashboardSelector(0)">
                             <div class="status">
                                 <img class="postIcon" src="./contents/assets/Resource/images/icons/icons8-food-basket-30.png" alt="">
                             </div>
                             Post
-                        </span><span>
+                        </span><span ng-click="dashboardSelector(1)">
                            <div class="status">Starter</div>
                            Status
-                       </span><span>
+                       </span><span ng-click="dashboardSelector(2)">
                            <div class="status">{{status.followerCount}}</div>
                            Followers
-                       </span><span>
+                       </span><span ng-click="dashboardSelector(3)">
                            <div class="status">{{status.followingCount}}</div>
                            Following
-                       </span><span>
+                       </span><span ng-click="dashboardSelector(4)">
                             <div class="status">0</div>
                             Food request
                        </span><span>
@@ -98,7 +98,9 @@
                        </span>
                 </div>
         </div>
-        <div class="profile-post" ng-controller="status-controller">
+
+        <!--PROFILE DATA BINDING-->
+        <div class="profile-post" ng-controller="status-controller" ng-if="tab[0];">
                 <h3>Stalls</h3>
                 <div class="stallSlider">
                     <p>No stalls yet</p>
@@ -115,9 +117,31 @@
                             </div>
                             <button id="editBtn">Edit</button>
                     </div>
-                   
-
                 </div>
+        </div>
+
+        <div id="myStatus" class="profileFeed" ng-if="tab[1];">
+            Status
+        </div>
+
+        <div id="followerContainer" class="profileFeed" ng-if="tab[2];" ng-repeat="follower in followers">  
+            <div class="followerCard">
+                <img ng-src="{{follower.profile_image}}" style="width: 50px">
+                <p>{{follower.firstname}} {{follower.lastname}}</p>
+                <p>{{follower.email}}</p>
+            </div>
+        </div>
+
+        <div id="followingContainer" class="profileFeed" ng-if="tab[3];" ng-repeat="fav in following">
+                <div class="followingCard">
+                        <img ng-src="{{fav.profile_image}}" style="width: 50px">
+                        <p>{{fav.firstname}} {{fav.lastname}}</p>
+                        <p>{{fav.email}}</p>
+                    </div>
+        </div>
+
+        <div id="followingContainer" class="profileFeed" ng-if="tab[4];">
+            Food request
         </div>
     </div>
     </div>
