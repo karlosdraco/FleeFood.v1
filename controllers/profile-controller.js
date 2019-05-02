@@ -48,7 +48,7 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
             RestService.follow().then(function(response){
                 $scope.follow = response.data;
             })
-        }else{
+        }else if($scope.followStatus.following == false){
             RestService.follow().then(function(response){
                 $scope.follow = response.data;
             })
@@ -123,10 +123,10 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
         });
     }
 
+    //PROFILE FEED SELECTOR
     $scope.tab = [];
     $scope.tab[0] = 1;
     
-   //PROFILE FEED SELECTOR
     $scope.dashboardSelector = function(index){
         for(var i = 0; i < 5; i++){
             $scope.tab[i] = 0;

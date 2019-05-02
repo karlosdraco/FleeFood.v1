@@ -1,6 +1,7 @@
 app.controller('home-controller', ['$scope', 'RestService','$http', function($scope, RestService, $http){
      
     $scope.showDropdown = 0;
+   
     
     $scope.dropdown = function(){
         $scope.showDropdown++;
@@ -8,6 +9,4 @@ app.controller('home-controller', ['$scope', 'RestService','$http', function($sc
             $scope.showDropdown = 0;
         }
     }
-
-
 }]);

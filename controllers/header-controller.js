@@ -1,7 +1,8 @@
-app.controller('header-controller', ['$scope','RestService','$cookies',function($scope, RestService, $cookies){
+app.controller('header-controller', ['$scope','$rootScope','RestService','$cookies',function($scope, $rootScope,RestService, $cookies){
   $scope.showDropdown = 0;
   $scope.showUserHeaderIcon = 0;
-  
+  $scope.showHeaderNav = 0;
+ 
     $scope.dropToggle = function(){
         $scope.showDropdown++;
 
@@ -13,7 +14,12 @@ app.controller('header-controller', ['$scope','RestService','$cookies',function(
     if($cookies.get('auth_token')){
         RestService.isloggedIn().then(function(response){
             $scope.data = response.data;
-            $scope.showUserHeaderIcon = 1;
+
+            if($scope.data.loggedIn){
+                $scope.showUserHeaderIcon = 1;
+                $scope.showHeaderNav = 1;
+                location.href="/fleefood.v1/#!/home";
+            }
         });
             
     }else{

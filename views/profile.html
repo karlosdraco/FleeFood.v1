@@ -125,7 +125,7 @@
         </div>
 
         <div id="followerContainer" class="profileFeed" ng-if="tab[2];" >  
-            <div class="followerCard" ng-repeat="follower in followers">
+            <div class="followerCard" ng-repeat="follower in followers | orderBy: 'firstname'">
                 <img id="followerImg" ng-src="{{follower.profile_image}}" style="width: 50px">
                 
                 <div class="follower-info">
@@ -136,7 +136,7 @@
         </div>
 
         <div id="followingContainer" class="profileFeed" ng-if="tab[3];">
-                <div class="followingCard" ng-repeat="fav in following">
+                <div class="followingCard" ng-repeat="fav in following | orderBy: 'firstname'">
                 <img id="followingImg" ng-src="{{fav.profile_image}}" style="width: 50px">
                 
                 <div class="following-info">

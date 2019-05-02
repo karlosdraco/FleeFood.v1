@@ -1,6 +1,6 @@
 <div class="home-wrapper">
     <div class="home-content" >
-        <div class="user-profile-widget" ng-controller="header-controller">
+        <div class="user-profile-widget" ng-controller="header-controller" >
             <img ng-src="{{data.imgUrl}}" alt="">
             <div class="profile-info-container">
                 <p id="name">{{data.firstname + " " + data.lastname}}</p>
@@ -46,7 +46,7 @@
                             <img ng-src="{{step}}" alt="">
                         </div>
 
-                          <div class="food-info" ng-controller="upload-controller">
+                          <div class="food-info" ng-controller="upload-controller" ng-if="0">
                               <!--<form id="foodForm" ng-submit="foodPost(); uploadFoodGallery()">-->
                                     <input id="fd-name" type="text" placeholder="Food Title" ng-model="post.foodName"><br>
                                     <textarea id="fd-desc" type="text" placeholder="Description" ng-model="post.foodDescription"></textarea><br>
@@ -95,8 +95,7 @@
                                        <span>
                                             <form>
                                                 <input type="submit" value="Report" id="reportBtn">
-                                            </form>
-                                            
+                                            </form>  
                                         </span>
                                     </div>
 
