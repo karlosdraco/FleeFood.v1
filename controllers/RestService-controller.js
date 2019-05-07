@@ -98,14 +98,13 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
 
     service.uploadImage = function(fd){
         return $http({
-            method: 'PUT',
+            method: 'POST',
             url: url + 'upload?image=profile',
             data: fd,
             withCredentials: true,
             headers: {
                 'Content-Type': undefined
-            },
-            transformRequest: []
+            }
         })
     }
 

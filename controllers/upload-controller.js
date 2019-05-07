@@ -6,13 +6,13 @@ app.controller("upload-controller",['$scope','RestService','$route',function($sc
 
     $scope.upload = function(){
         
-            var formData = new FormData();
+            var fd = new FormData();
             angular.forEach($scope.uploadfiles, function(file){
-                formData.append('file',file);
+                fd.append("file", file);
             });
           
             $scope.$emit('LOAD');
-            RestService.uploadImage(formData).then(function(response){ 
+            RestService.uploadImage(fd).then(function(response){ 
                 // Store response data
                 $scope.response = response.data;
                 $scope.showResponse = 1;

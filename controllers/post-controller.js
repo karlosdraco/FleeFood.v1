@@ -1,8 +1,10 @@
 app.controller("post-controller",['$scope','RestService',function($scope,RestService){
     $scope.post = {};
     $scope.stepsModel = [];
-
+    $scope.showPost = 0;
+    
     $scope.imageUpload = function(event){
+        
         var files = event.target.files;
 
         for(var i = 0; i < files.length; i++){
@@ -14,6 +16,7 @@ app.controller("post-controller",['$scope','RestService',function($scope,RestSer
                 var reader = new FileReader();
                 reader.onload = $scope.imageIsLoaded;
                 reader.readAsDataURL(file);
+                console.log(file);
             }
         }
     }
@@ -22,6 +25,13 @@ app.controller("post-controller",['$scope','RestService',function($scope,RestSer
         $scope.$apply(function(){
             $scope.stepsModel.push(e.target.result);
         });
+    }
+
+    $scope.PostModal = function(){
+        $scope.showPost++;
+        if($scope.showPost > 1){
+            $scope.showPost = 0;
+        }
     }
 
     $scope.foodPost = function(){

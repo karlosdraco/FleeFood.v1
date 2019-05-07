@@ -13,7 +13,7 @@
                             <img id="imgPreview" ng-src="{{step}}" alt="">
                         </div>
                         <h3>Update profile image</h3>
-                        <input type="file" id="file" onchange="angular.element(this).scope().imageUpload(event)" ng-file="uploadfiles">
+                        <input type="file" id="file" name="file" onchange="angular.element(this).scope().imageUpload(event)" ng-file="uploadfiles">
                         <input type="button" value="Upload" id="upload" ng-click="upload()">
                         <p ng-if="showResponse">{{ response.message }}</p>
                 </div>

@@ -1,4 +1,4 @@
-app.controller('header-controller', ['$scope','$rootScope','RestService','$cookies',function($scope, $rootScope,RestService, $cookies){
+app.controller('header-controller', ['$scope','$rootScope','RestService','$cookies',function($scope,$rootScope,RestService, $cookies){
   $scope.showDropdown = 0;
   $scope.showUserHeaderIcon = 0;
   $scope.showHeaderNav = 0;
@@ -14,7 +14,8 @@ app.controller('header-controller', ['$scope','$rootScope','RestService','$cooki
     if($cookies.get('auth_token')){
         RestService.isloggedIn().then(function(response){
             $scope.data = response.data;
-
+            $rootScope.path = $scope.data.path;
+            
             if($scope.data.loggedIn){
                 $scope.showUserHeaderIcon = 1;
                 $scope.showHeaderNav = 1;

@@ -12,6 +12,7 @@
 
 .post-content{
     max-width: 800px;
+    height: 700px;
     margin: 0 auto;
     background-color:#ffffff;
     padding: 20px;
@@ -57,16 +58,13 @@
     margin: 15px;       
 }
 
-
-
-
 .food-image h3{
     font-family: helvetica;
     color: #4d4d4d;
 }
 
 .food-info{
-    max-width: 450px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
