@@ -2,6 +2,7 @@ app.controller("post-controller",['$scope','RestService',function($scope,RestSer
     $scope.post = {};
     $scope.stepsModel = [];
     $scope.showPost = 0;
+    $scope.showCardPost = 0;
     
     $scope.imageUpload = function(event){
         
@@ -35,12 +36,25 @@ app.controller("post-controller",['$scope','RestService',function($scope,RestSer
     }
 
     $scope.foodPost = function(){
-
-        //var form = document.getElementById('foodForm');
         RestService.foodPost($scope.post).then(function(response){
+            $scope.postCardSelector(0);
+            $scope.postCardSelector(1); 
             $scope.data = response.data;
         })
-        //form.reset();
+    }
+
+    $scope.card = [];
+    $scope.card[0] = 1;
+    
+    $scope.postCardSelector = function(index){
+        for(var i = 0; i < 2; i++){
+            $scope.card[i] = 0;
+            if(i == index){
+                $scope.card[i] = 1;
+            }else{
+                $scope.card[i] = 0;
+            }
+        }
     }
 
 }]);

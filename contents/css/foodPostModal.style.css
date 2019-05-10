@@ -11,11 +11,39 @@
 }
 
 .post-content{
-    max-width: 800px;
-    height: 700px;
+    max-width: 500px;
+    height: 600px;
     margin: 0 auto;
     background-color:#ffffff;
     padding: 20px;
+    overflow-y: scroll;
+}
+
+.post-content::-webkit-scrollbar-track{
+    border-radius: 10px;
+}
+
+.post-content::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #f5f5f5;
+}
+
+.post-content::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    background-color: #b8b8b86e;
+}
+
+.post-header{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #4d4d4d;
+}
+
+.post-note{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #d31d35;
 }
 
 .user-post{
@@ -44,27 +72,8 @@
     cursor: pointer;
 }
 
-.image-uploaded{
-    float: left;
-    padding: 10px;
-}
-
-.image-uploaded img{
-    width: 130px;
-    height: 130px;
-}
-
-.food-image input{
-    margin: 15px;       
-}
-
-.food-image h3{
-    font-family: helvetica;
-    color: #4d4d4d;
-}
-
 .food-info{
-    max-width: 800px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
@@ -102,15 +111,14 @@
     margin: 10px;
 }
 
-.food-info ul{
-    position: relative;
-    left: -50px;
-}
 
 .food-info ul li{
-    float: left;
     margin: 20px;
     list-style-type: none;
+}
+
+.food-info li{
+    display: inline-block;
 }
 
 .food-info p{
@@ -118,23 +126,38 @@
     color: red;
 }
 
-#postBtn{
+.image-uploaded{
+    float: left;
+    padding: 10px;
+}
+
+.image-uploaded img{
+    width: 130px;
+    height: 130px;
+}
+
+.food-image input{
+    margin: 15px;       
+}
+
+.food-image h3{
+    font-family: helvetica;
+    color: #4d4d4d;
+}
+
+#postBtn, #nextBtn{
     float: right;
-    background-color: #44cf62;
+    background-color: #f9fd02;
     color: #ffffff;
     padding: 10px;
-    border-radius: 5px;
 }
 
 #cancelBtn{
     float: right;
-    background-color: #d31d35;
+    background-color: #cccccc;
     color: #ffffff;
     padding: 10px;
-    border-radius: 5px;
 }
-
-
 
 /*Slider rounded*/
 .switch {

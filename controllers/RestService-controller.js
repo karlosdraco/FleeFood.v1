@@ -99,7 +99,7 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
     service.uploadImage = function(fd){
         return $http({
             method: 'POST',
-            url: url + 'upload?image=profile',
+            url: url + 'upload',
             data: fd,
             withCredentials: true,
             headers: {
@@ -123,7 +123,7 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
     service.foodImage = function(fd){
         return $http({
             method: 'POST',
-            url: url + 'upload?image=food',
+            url: url + 'food',
             data: fd,
             withCredentials: true,
             headers : { 

@@ -24,14 +24,13 @@ app.controller("upload-controller",['$scope','RestService','$route',function($sc
     $scope.uploadFoodGallery = function(){
         var fd = new FormData();
         angular.forEach($scope.uploadfiles,function(file){
-            fd.append('file[]',file);
+            fd.append('file',file);
         });
 
         RestService.foodImage(fd).then(function(response){
             $scope.response = response.data;
         });
-
-}
+    }
 
    
 
