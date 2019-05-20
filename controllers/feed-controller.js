@@ -1,20 +1,35 @@
-app.controller("feed-controller", ['$scope', 'RestService', '$timeout', function($scope, RestService, $timeout){
+app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeout', function($scope, $rootScope,RestService, $timeout){
 
     var loadTime = 5000, //Load the data every second
     errorCount = 0, //Counter for the server errors
     loadPromise; //Pointer to the promise created by the Angular $timout service
-
-        var getData = function(){
-            RestService.getFeed().then(function(response){
+    $scope.id;
+    $scope.reportCount;
+    $scope.foodModal = 0;
+    
+    var getData = function(){
+        RestService.getFeed().then(function(response){
             $scope.feed = response.data;
+            $scope.id = $rootScope.data.id;
+            //$scope.viewFood($scope.feed);
             errorCount = 0;
             nextLoad();
         }).catch(function() {
             $scope.feed = 'Server error';
             nextLoad(++errorCount * 2 * loadTime);
         });
-        }
 
+    }
+
+    $scope.foodIndex = 0;
+    $scope.viewFood = function(food){
+        $scope.foodIndex = $scope.feed.indexOf(food);
+        $scope.viewedFood = $scope.feed[$scope.foodIndex];
+        $scope.foodModal = 1;
+        console.log($scope.foodModal);
+    }
+
+   
         var cancelNextLoad = function(){
             $timeout.cancel(loadPromise);
         }

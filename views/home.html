@@ -105,7 +105,7 @@
                                        <span>
                                             <form>
                                                 <input type="submit" value="Report" id="reportBtn">
-                                            </form>  
+                                            </form>
                                         </span>
                                     </div>
 
@@ -117,12 +117,27 @@
                                             <div id="price">{{data.currency | uppercase}}.<span>{{data.food_price}}</span></div>
                                             <p id="delivery">Delivery fee: {{data.currency  + "." + data.delivery_type | uppercase}}</p>
                                             <p id="contact">Contact: {{data.contact}}</p>
-                                            <button id="viewBtn">View</button>
-                                           
+                                            <button id="viewBtn" ng-click='viewFood(data)'>View</button>
                                         </div>
                                     </div>
                                 </div>
                         </div>
+
+                         <!--VIEW FOOD MODAL-->
+                    <div class="view-food-modal" ng-if="foodModal">
+                        <div class="view-food-container">
+                            <span class="food-modal-close" ng-click="foodModal = 0">&times;</span>
+                            <div class="viewedFoodImage">
+                                <img ng-src="{{viewedFood.image_link}}" alt="">
+                            </div>
+                            <div class="viewedFoodDetails">
+                                <h3>{{viewedFood.food_name}}</h3>
+                                <p>{{viewedFood.food_description}}</p>
+                            </div>
+                          
+                        </div>
+                    </div>
+
                 </div>
         </div>
 
