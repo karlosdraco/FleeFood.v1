@@ -26,8 +26,6 @@
                 </div>
             </div>
             
-            
-            
            <div class="user-info">
                 <h3 class="name">{{user.firstname + " " + user.lastname}}</h3>
                 <h4 class="email">{{user.email}}</h3>
@@ -108,7 +106,7 @@
                 <h3>Post</h3>
                 <div class="myPost" ng-repeat="food in feed">
                     <div class="post-container">
-                            <img id="foodImg" src="././contents/assets/Resource/images/icons/pork-adobo-recipe-320.jpg" alt="" style="width:100px;">
+                            <img id="foodImg" ng-src="././contents/assets/Resource/images/icons/pork-adobo-recipe-320.jpg" alt="" style="width:100px;">
                             <div class="food-info">
                                 <span class="foodName">{{food.food_name}}</span>
                                 <span class="delete_post">&times;</span>

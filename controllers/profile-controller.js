@@ -1,4 +1,4 @@
-app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$route', '$routeParams', function($scope, RestService, $cookies, $route, $routeParams){
+app.controller("profile-controller", ['$scope','$rootScope','RestService','$cookies', '$route', '$routeParams', function($scope, $rootScope,RestService, $cookies, $route, $routeParams){
     $scope.showModal = 0;
     $scope.showUpdate = 1;
     $scope.showFollow = 0;
@@ -9,6 +9,7 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
     $scope.autofill = {};
     $scope.stepsModel = [];
     $scope.count = 0;
+    $rootScope.profileCard = {};
     
     //CHECKING IF THERE'S A COOKIE
     if($cookies.get('auth_token')){
@@ -33,6 +34,10 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
                 zipCode: parseInt($scope.profile.profile_data.zipCode)
             };
 
+           $rootScope.profileCard = {
+               following: $scope.profile.profile_data.followingCount,
+               follower: $scope.profile.profile_data.followerCount,
+           }
         }, function error(response){
             $error = response.data;
         });
@@ -138,5 +143,5 @@ app.controller("profile-controller", ['$scope', 'RestService','$cookies', '$rout
         }
     }
   
-  
+    
 }]);

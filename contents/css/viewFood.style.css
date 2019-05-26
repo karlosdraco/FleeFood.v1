@@ -15,10 +15,14 @@
     height: 200px;
     margin: 0 auto;
     background-color:#ffffff;
+    animation-name: wobble;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-in;
 }
 
 .viewedFoodImage img{
     width: 200px;
+    margin-right: 20px;
     float: left;
 }
 
@@ -26,5 +30,102 @@
     float: right;
     font-size: 30px;
     font-weight: bolder;
+    margin-right: 10px;
     color: #777777;
+}
+
+.descriptionWrapper{
+    width: 750px;
+    height: 100px;
+}
+
+.viewedFoodDetails{
+    width: 750px;
+    padding: 5px;
+}
+
+.viewedFoodDetails h3, .descriptionWrapper p{
+    font-family: helvetica;
+    font-weight: 100;
+}
+
+.viewedFoodDetails h3{
+    color: #2c2c2c;
+    margin: 0;
+}
+
+.post-time{
+    color: #777777;
+    font-family: helvetica;
+    font-size: 12px;
+    margin: 0;
+}
+
+.descriptionWrapper p{
+    color: #6e6e6e;
+}
+
+.FoodCardButton button{
+    background-color: #44cf62;
+    border: 1px solid #44cf62;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 15px;
+}
+
+.FoodCardButton{
+    padding: 7px;
+}
+
+
+
+.FoodCardButton table{
+    border-collapse: collapse;
+    position: relative;
+    top: -18px;
+}
+
+.FoodCardButton td{
+    text-align: left;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    width: 200px;
+}
+
+.FoodCardButton td img{
+    width: 30px;
+    padding: 5px;
+    float: left;
+}
+
+.locationDetails{
+    background-color: #ffffff;
+    height: 300px;
+    position: relative;
+    top: -30px;
+}
+
+.FoodCardButtonbutton:hover{
+    cursor: pointer;
+}
+
+.food-modal-close:hover{
+    cursor: pointer;
+}
+
+
+@keyframes wobble{
+    0%{
+        -webkit-transform: scale(0.1);
+        opacity: 0;
+    }
+
+    50%{
+        opacity: 30;
+    }
+
+    100%{
+        -webkit-transform: scale(1.1);
+        opacity: 100;
+    }
 }

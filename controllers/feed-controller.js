@@ -21,12 +21,18 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
 
     }
 
+    $scope.foodModalOn = function(){
+        $scope.foodModal++;
+        if($scope.foodModal > 1){
+            $scope.foodModal = 0;
+        }
+    }
+
     $scope.foodIndex = 0;
     $scope.viewFood = function(food){
         $scope.foodIndex = $scope.feed.indexOf(food);
         $scope.viewedFood = $scope.feed[$scope.foodIndex];
-        $scope.foodModal = 1;
-        console.log($scope.foodModal);
+        $scope.foodModalOn();
     }
 
    
