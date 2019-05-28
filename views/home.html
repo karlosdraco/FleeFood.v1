@@ -112,7 +112,7 @@
                         </div>
 
                          <!--VIEW FOOD MODAL-->
-                    <div class="view-food-modal" ng-if="foodModal">
+                    <div class="view-food-modal" ng-if="foodModal" ng-controller="order-controller">
                         <div class="view-food-container">
                             <span class="food-modal-close" ng-click="foodModalOn();">&times;</span>
                             <div class="viewedFoodImage">
@@ -130,7 +130,7 @@
                                     <td id="foodContact"><img src="./contents/assets/resource/images/icons/icons8-phone-100.png">{{viewedFood.contact}}</td>
                                     <td id="foodPrice"><img src="./contents/assets/resource/images/icons/icons8-price-30.png" alt="">{{viewedFood.currency | uppercase}}.{{viewedFood.food_price}}</td>
                                     <td id="foodDelivery"><img src="./contents/assets/resource/images/icons/icons8-deliver-food-96.png" alt="">{{viewedFood.currency | uppercase}}.{{viewedFood.delivery_type}}</td>
-                                    <td id="foodOrder"><button>ORDER</button></td>
+                                    <td id="foodOrder"><button ng-click="orderRequest()">ORDER</button></td>
                                 </table>
                             </div>
 

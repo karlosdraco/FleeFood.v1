@@ -53,7 +53,7 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
         return $http({
             method: 'GET',
             url: url + 'profile',
-            params:{name: $routeParams.name},
+            params:{name: $routeParams.name, id: $routeParams.id},
             withCredentials: true,
             headers : { 
                 'Content-Type': 'application/json'
@@ -76,7 +76,7 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
         return $http({
             method: 'GET',
             url: url + 'post',
-            params:{name: $routeParams.name},
+            params:{name: $routeParams.name, id: $routeParams.id},
             withCredentials: true,
             headers : { 
                 'Content-Type': 'application/json'
@@ -152,6 +152,18 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
             withCredentials: true,
             headers : { 
                 'Content-Type': undefined
+            } 
+        })
+    }
+
+    service.orderRequest = function(order){
+        return $http({
+            method: 'POST',
+            url: url + 'order',
+            data: order,
+            withCredentials: true,
+            headers : { 
+                'Content-Type': 'application/json'
             } 
         })
     }
