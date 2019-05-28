@@ -127,7 +127,7 @@
                 <img id="followerImg" ng-src="{{follower.profile_image}}" style="width: 50px">
                 
                 <div class="follower-info">
-                   <a class="followerName" href="#!profile/{{follower.firstname}}">{{follower.firstname}} {{follower.lastname}}</a>
+                   <a class="followerName" href="#!profile/{{follower.firstname}}/{{follower.follow_id}}">{{follower.firstname}} {{follower.lastname}}</a>
                     <p class="followerEmail">{{follower.email}}</p>
                 </div>
             </div>
@@ -138,7 +138,7 @@
                 <img id="followingImg" ng-src="{{fav.profile_image}}" style="width: 50px">
                 
                 <div class="following-info">
-                   <a class="followingName" href="#!profile/{{fav.firstname}}">{{fav.firstname}} {{fav.lastname}}</a>
+                   <a class="followingName" href="#!profile/{{fav.firstname}}/{{fav.user_id}}">{{fav.firstname}} {{fav.lastname}}</a>
                     <p class="followingEmail">{{fav.email}}</p>
                 </div>
                 </div>
