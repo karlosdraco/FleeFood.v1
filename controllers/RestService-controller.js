@@ -180,5 +180,17 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
         })
     }
 
+    service.requestStatus = function(food){
+        return $http({
+            method: 'PUT',
+            url: url + 'orders',
+            data: food,
+            withCredentials: true,
+            headers : { 
+                'Content-Type': 'application/json'
+            } 
+        })
+    }
+
     return service;
 }]);

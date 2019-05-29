@@ -60,12 +60,14 @@
                                 </span>
                             </div>
                     </div>
+
                     <div class="edit-btn" ng-click="modal()" ng-if="show_profile_update()">
                         Update profile
                     </div>
-                    <div class="follow-btn" ng-if="showFollow" ng-click="followUser();">
-                        {{followStatus.Status}}
-                    </div>
+
+                <div class="follow-btn" ng-if="showFollow" ng-click="followUser();">
+                    {{followStatus.Status}}
+                </div>
         </div>
     </div>
 
@@ -109,11 +111,11 @@
                         <img id="foodImg" ng-src="{{food.image_link}}" alt="" style="width:100px;">
                         <div class="food-info">
                             <span class="foodName">{{food.food_name}}</span>
-                            <span class="delete_post">&times;</span>
+                            <span class="delete_post" ng-if="showEditBtn">&times;</span>
                             <p>Price: {{food.currency | uppercase}}.{{food.food_price}}</p>
                             <p>Delivery: {{food.currency | uppercase}}.{{food.delivery_type}}</p>
                         </div>
-                        <button id="editBtn">Edit</button>
+                        <button id="editBtn" ng-if="showEditBtn">Edit</button>
                     </div>
                 </div>
         </div>
@@ -147,22 +149,25 @@
         <div id="requestContainer" class="profileFeed" ng-if="tab[4];" ng-controller="order-controller">
             <div class="orderCard" ng-repeat="order in data">
                 <div class="buyerHeader">
-                    <img id="buyerImg" ng-src="{{order.profile_image}}" alt="">
+                    <img id="buyerImg" ng-src="{{order.profile_image}}">
                     <div class="buyerInfo">
-                       <a href="#!profile/{{order.firstname}}/{{order.buyer_id}}"><h3>{{order.firstname}} {{order.lastname}}</h3></a>
-                        <p>{{order.email}}</p>
+                        <a href="#!profile/{{order.firstname}}/{{order.buyer_id}}" id="buyerName">{{order.firstname}} {{order.lastname}}</a>
+                        <p id="buyerNumber">Contact: {{order.contact}}</p>
                     </div>
                   
                 </div>
                 <img id="orderImg" ng-src="{{order.image_link}}" alt="">
-                <h3>{{order.food_name}}</h3>
-                <input type="submit" value="Accept">
-                <input type="submit" value="Decline">
+                <h3 id="orderName">{{order.food_name}}</h3>
+                <div class="requestStatusButtons">
+                    <button type="submit" ng-model="food.request" ng-click="updateRequest(accept, order)">Accept</button>
+                    <button type="submit" ng-model="food.request" ng-click="updateRequest(decline, order)">Decline</button>
+                </div>
+               
             </div>
         </div>
     </div>
     </div>
-
+    <!--PROFILE UPDATE MODALs-->
     <div class="update_profile" ng-if="showModal">
         <div class="modal_content">
             <span class="modal-p-close" ng-click="modal()">&times;</span>

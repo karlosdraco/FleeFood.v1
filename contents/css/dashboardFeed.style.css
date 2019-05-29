@@ -141,19 +141,51 @@
 
 #orderImg{
     width: 90px;
+    padding: 5px;
+}
+
+#orderName{
+    font-family: helvetica;
+    font-size: 17px;
+    position: relative;
+    top: -7px;
 }
 
 .buyerHeader{
     border-bottom: 1px solid #ececec;
+    padding: 5px;
+    height: 40px;
 }
 
 #buyerImg{
     width: 40px;
     float: left;
+    margin-right: 5px;
 }
 
-.buyerInfo h3 p{
+.buyerInfo{
+    width: 400px;
+    position: relative;
+    top: 5px;
+}
+
+.buyerInfo a{
+    color: #6d6d6d;
+    text-decoration: none;
     font-family: helvetica;
+    margin-top: 5px;
+}
+
+.buyerInfo #buyerNumber{
+    position: relative;
+    top: -10px;
+    font-family: helvetica;
+    font-size: 12px;
+}
+
+
+#orderImg{
+    float: left;
 }
 
 

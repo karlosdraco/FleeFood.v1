@@ -2,6 +2,7 @@ app.controller("profile-controller", ['$scope','$rootScope','RestService','$cook
     $scope.showModal = 0;
     $scope.showUpdate = 1;
     $scope.showFollow = 0;
+    $scope.showEditBtn = 0;
     $scope.followbtn = "Follow";
     $scope.showUpdateProfileImageBtn = 0;
     $scope.showProfileImageModal = 0;
@@ -89,11 +90,13 @@ app.controller("profile-controller", ['$scope','$rootScope','RestService','$cook
         if($scope.loggedUser.firstname != $routeParams.name && $scope.loggedUser.id != $routeParams.id){
             $scope.showFollow = 1;
             $scope.showUpdateProfileImageBtn = 0;
+            $scope.showEditBtn = 0;
             return $scope.showUpdate = 0;
         }else{
           
             $scope.showFollow = 0;
             $scope.showUpdateProfileImageBtn = 1;
+            $scope.showEditBtn = 1;
             return $scope.showUpdate = 1;
         }
     }

@@ -10,6 +10,27 @@
     top: 0;
 }
 
+.orderError{
+    max-width: 800px;
+    background-color:#ce2626;
+    border-radius: 5px;
+    animation-name: enter;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-in;
+    position: absolute;
+    top: 20px;
+    left: 35%;
+}
+
+.orderError p{
+    color: #ffffff;
+    text-align: center;
+    font-family: helvetica;
+    font-size: 14px;
+    padding: 5px;
+}
+
+
 .view-food-container{
     max-width: 800px;
     height: 200px;
@@ -77,8 +98,6 @@
     padding: 7px;
 }
 
-
-
 .FoodCardButton table{
     border-collapse: collapse;
     position: relative;
@@ -105,8 +124,6 @@
     top: -30px;
 }
 
-
-
 #foodOrder button:hover{
     cursor: pointer;
 }
@@ -122,12 +139,30 @@
         opacity: 0;
     }
 
-    50%{
-        opacity: 30;
+    100%{
+        -webkit-transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+@keyframes opacity{
+    0%{
+        opacity: 0;
     }
 
     100%{
-        -webkit-transform: scale(1.1);
-        opacity: 100;
+        opacity: 1;
+    }
+}
+
+@keyframes enter{
+    0%{
+        top: -10px;
+        opacity: 0;
+    }
+
+    100%{
+        top: 20px;
+        opacity: 1;
     }
 }

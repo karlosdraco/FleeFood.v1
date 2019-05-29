@@ -113,6 +113,9 @@
 
                          <!--VIEW FOOD MODAL-->
                     <div class="view-food-modal" ng-if="foodModal" ng-controller="order-controller">
+                            <div class="orderError" ng-if="error">
+                                <p>{{orderCallBack.message}}</p>
+                            </div>
                         <div class="view-food-container">
                             <span class="food-modal-close" ng-click="foodModalOn();">&times;</span>
                             <div class="viewedFoodImage">
