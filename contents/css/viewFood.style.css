@@ -105,7 +105,9 @@
     top: -30px;
 }
 
-.FoodCardButtonbutton:hover{
+
+
+#foodOrder button:hover{
     cursor: pointer;
 }
 

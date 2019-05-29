@@ -131,6 +131,30 @@
     margin: 0;
 }
 
+.orderCard{
+    background-color: #ffffff;
+    border: 1px solid #ececec;
+    overflow: hidden;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+#orderImg{
+    width: 90px;
+}
+
+.buyerHeader{
+    border-bottom: 1px solid #ececec;
+}
+
+#buyerImg{
+    width: 40px;
+    float: left;
+}
+
+.buyerInfo h3 p{
+    font-family: helvetica;
+}
 
 
 

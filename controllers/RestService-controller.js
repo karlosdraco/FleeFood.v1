@@ -168,5 +168,17 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
         })
     }
 
+    service.viewOrders = function(){
+        return $http({
+            method: 'GET',
+            url: url + 'orders',
+            params: {name: $routeParams.name, id: $routeParams.id},
+            withCredentials: true,
+            headers : { 
+                'Content-Type': 'application/json'
+            } 
+        })
+    }
+
     return service;
 }]);

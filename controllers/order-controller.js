@@ -1,6 +1,6 @@
 app.controller("order-controller", ['$scope', '$rootScope','RestService',function($scope, $rootScope,RestService){
     
-    $scope.order = {
+    /*$scope.order = {
         foodId: $rootScope.viewedFood.id,
         userId: $rootScope.viewedFood.user_id,
         buyerId: $rootScope.data.id
@@ -8,8 +8,14 @@ app.controller("order-controller", ['$scope', '$rootScope','RestService',functio
    
     $scope.orderRequest = function(){
         RestService.orderRequest($scope.order).then(function(response){
-            $data = response.data;
-        })
-    }
+            $scope.data = response.data;
+        });
+    }*/
+
+    //$rootScope.viewOrderRequest = function(){
+        RestService.viewOrders().then(function(response){
+            $scope.data = response.data;
+        });
+    //}
 
 }]);

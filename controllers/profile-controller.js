@@ -38,9 +38,10 @@ app.controller("profile-controller", ['$scope','$rootScope','RestService','$cook
                following: $scope.profile.profile_data.followingCount,
                follower: $scope.profile.profile_data.followerCount,
            }
-        }, function error(response){
+        },function error(response){
             $error = response.data;
         });
+
         RestService.followStatus().then(function(response){
             $scope.followStatus = response.data;
         });
@@ -85,8 +86,7 @@ app.controller("profile-controller", ['$scope','$rootScope','RestService','$cook
 
     //FETCHING PROFILE DATA
     $scope.show_profile_update = function(){
-        if($scope.loggedUser.firstname != $routeParams.name){
-
+        if($scope.loggedUser.firstname != $routeParams.name && $scope.loggedUser.id != $routeParams.id){
             $scope.showFollow = 1;
             $scope.showUpdateProfileImageBtn = 0;
             return $scope.showUpdate = 0;
@@ -142,6 +142,8 @@ app.controller("profile-controller", ['$scope','$rootScope','RestService','$cook
             }
         }
     }
+
+    
   
     
 }]);

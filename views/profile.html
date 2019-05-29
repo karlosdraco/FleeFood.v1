@@ -86,7 +86,7 @@
                        </span><span ng-click="dashboardSelector(3)">
                            <div class="status">{{status.followingCount}}</div>
                            Following
-                       </span><span ng-click="dashboardSelector(4)">
+                       </span><span ng-click="dashboardSelector(4);">
                             <div class="status">0</div>
                             Food request
                        </span><span>
@@ -144,8 +144,21 @@
                 </div>
         </div>
 
-        <div id="requestContainer" class="profileFeed" ng-if="tab[4];">
-            Food request
+        <div id="requestContainer" class="profileFeed" ng-if="tab[4];" ng-controller="order-controller">
+            <div class="orderCard" ng-repeat="order in data">
+                <div class="buyerHeader">
+                    <img id="buyerImg" ng-src="{{order.profile_image}}" alt="">
+                    <div class="buyerInfo">
+                       <a href="#!profile/{{order.firstname}}/{{order.buyer_id}}"><h3>{{order.firstname}} {{order.lastname}}</h3></a>
+                        <p>{{order.email}}</p>
+                    </div>
+                  
+                </div>
+                <img id="orderImg" ng-src="{{order.image_link}}" alt="">
+                <h3>{{order.food_name}}</h3>
+                <input type="submit" value="Accept">
+                <input type="submit" value="Decline">
+            </div>
         </div>
     </div>
     </div>
