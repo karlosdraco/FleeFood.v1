@@ -5,27 +5,29 @@ app.controller("order-controller", ['$scope', '$rootScope','RestService',functio
     $scope.error = 0;
     $scope.accept = 1;
     $scope.decline = 0;
+    $scope.qty = 1;
    
     $scope.orderRequest = function(){
-        
-        $scope.order = {
-            foodId: $rootScope.viewedFood.id,
-            userId: $rootScope.viewedFood.user_id,
-            buyerId: $rootScope.data.id
-        }
 
-        RestService.orderRequest($scope.order).then(function(response){
-            $scope.orderCallBack = response.data;
-
-            if($scope.orderCallBack.error == true){
-                $scope.error = 1;
-                setInterval(function(){
-                    $scope.error = 0;
-                }, 3000)
-            }else{
-                alert("Order requested");
+            $scope.order = {
+                foodId: $rootScope.viewedFood.id,
+                userId: $rootScope.viewedFood.user_id,
+                buyerId: $rootScope.data.id,
+                quantity: $scope.qty
             }
-        });
+    
+            RestService.orderRequest($scope.order).then(function(response){
+                $scope.orderCallBack = response.data;
+    
+                if($scope.orderCallBack.error == true){
+                    $scope.error = 1;
+                    setInterval(function(){
+                        $scope.error = 0;
+                    }, 3000)
+                }else{
+                    alert("Order requested");
+                }
+            });
     }
 
     //$rootScope.viewOrderRequest = function(){

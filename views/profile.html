@@ -158,6 +158,10 @@
                 </div>
                 <img id="orderImg" ng-src="{{order.image_link}}" alt="">
                 <h3 id="orderName">{{order.food_name}}</h3>
+                <div class="quantity-container">
+                    <div class="qtyHeader">QTY</div>
+                    <p>{{order.quantity}}</p>
+                </div>
                 <div class="requestStatusButtons">
                     <button type="submit" ng-model="food.request" ng-click="updateRequest(accept, order)">Accept</button>
                     <button type="submit" ng-model="food.request" ng-click="updateRequest(decline, order)">Decline</button>

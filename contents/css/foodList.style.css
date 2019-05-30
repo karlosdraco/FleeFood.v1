@@ -1,6 +1,6 @@
 .feed{
     background-color: #ffffff;
-    overflow-y: hidden;
+    overflow: hidden;
     width: 500px;
     height: 170px;
     margin: 0 auto;
@@ -42,7 +42,7 @@
 }
 .foodWrapper #foodImg{
     float: left;
-    margin: 10px;   
+    margin: 10px;  
 }
 
 .foodWrapper #foodName{

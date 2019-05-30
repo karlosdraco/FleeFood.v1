@@ -128,6 +128,16 @@
     cursor: pointer;
 }
 
+#foodContact{
+    font-size: 12px;
+}
+
+#quantity input{
+    width: 50px;
+    padding: 13px;
+    border-radius: 5px;
+    outline: none;
+}
 .food-modal-close:hover{
     cursor: pointer;
 }
