@@ -1,8 +1,9 @@
-app.controller("order-controller", ['$scope', '$rootScope','RestService',function($scope, $rootScope,RestService){
+app.controller("order-controller", ['$scope', '$rootScope','RestService','$routeParams',function($scope, $rootScope,RestService, $routeParams){
    
     $scope.order = {};
     $scope.food = {};
     $scope.error = 0;
+    $scope.requestStatusFeed = false;
     $scope.accept = 1;
     $scope.decline = 0;
     $scope.qty = 1;
@@ -31,9 +32,16 @@ app.controller("order-controller", ['$scope', '$rootScope','RestService',functio
     }
 
     //$rootScope.viewOrderRequest = function(){
-    RestService.viewOrders().then(function(response){
-        $scope.data = response.data;
-    });
+        if($rootScope.data.id != $routeParams.id){
+            $scope.requestStatusFeed = false;
+            $scope.orderMsg = "Order feed private";
+        }else{
+            RestService.viewOrders().then(function(response){
+                $scope.data = response.data;
+                $scope.requestStatusFeed = true;
+            });
+        }
+    
     //}
     
     $scope.orderIndex = 0;
