@@ -6,6 +6,7 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
     $scope.id;
     $scope.reportCount;
     $scope.foodModal = 0;
+    $scope.orderFunc = 0;
     
     var getData = function(){
         RestService.getFeed().then(function(response){
@@ -33,8 +34,14 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
         $scope.foodIndex = $scope.feed.indexOf(food);
         $rootScope.viewedFood = $scope.feed[$scope.foodIndex];
         $scope.foodModalOn();
-    }
 
+        if($rootScope.data.id != $rootScope.viewedFood.user_id){
+            $scope.orderFunc = 1;
+        }else{
+            $scope.orderFunc = 0;
+        }
+    }
+    
    
         var cancelNextLoad = function(){
             $timeout.cancel(loadPromise);

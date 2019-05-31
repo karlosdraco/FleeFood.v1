@@ -103,10 +103,12 @@
 
                                        <div class="food-detail">
                                             <div id="price">{{data.currency | uppercase}}.<span>{{data.food_price}}</span></div>
-                                            <p id="delivery">Delivery fee: {{data.currency  + "." + data.delivery_type | uppercase}}</p>
+                                           <!--<p id="delivery">Delivery fee: {{data.currency  + "." + data.delivery_type | uppercase}}</p>-->
                                             <!--<p id="contact">Contact: {{data.contact}}</p>-->
+                                            <p id="foodDesc">{{data.food_description}}</p>
                                             <button id="viewBtn" ng-click='viewFood(data)'>View</button>
                                         </div>
+                                        
                                     </div>
                                 </div>
                         </div>
@@ -118,34 +120,36 @@
                             </div>
                         <div class="view-food-container">
                             <span class="food-modal-close" ng-click="foodModalOn();">&times;</span>
-                            <div class="viewedFoodImage">
-                                <img ng-src="{{viewedFood.image_link}}" alt="">
+                            <div class="leftCard">
+                                <div class="viewedFoodImage">
+                                    <img id="viewImage" ng-src="{{viewedFood.image_link}}" alt="">
+                                    <div class="FoodCardButton">
+                                        <div id="foodContact"><img src="./contents/assets/resource/images/icons/icons8-phone-100.png">{{viewedFood.contact}}</div>
+                                        <div id="foodPrice"><img src="./contents/assets/resource/images/icons/icons8-price-30.png" alt="">{{viewedFood.currency | uppercase}}.{{viewedFood.food_price}}</div>
+                                        <div id="foodDelivery"><img src="./contents/assets/resource/images/icons/icons8-deliver-food-96.png" alt="">{{viewedFood.currency | uppercase}}.{{viewedFood.delivery_type}}</div>
+                                    </div>
+                                </div>
                             </div>
+                           
                             <div class="viewedFoodDetails">
                                 <h3>{{viewedFood.food_name}}</h3>
-                                <div class="post-time">{{viewedFood.post_date}}</div>
+                                <div class="post-time">Posted: {{viewedFood.post_date}}</div>
                                 <div class="descriptionWrapper">
                                     <p>{{viewedFood.food_description}}</p>
                                 </div>
+                                <div class="order" ng-if="orderFunc">
+                                    <span id="quantity"><input type="number" min="1" ng-model="qty" placeholder="Qty."></span>
+                                    <span id="foodOrder"><button ng-click="orderRequest()">ORDER</button></span>
+                                </div>
+                                
                             </div>
-                            <div class="FoodCardButton">
-                                <table>
-                                    <td id="foodContact"><img src="./contents/assets/resource/images/icons/icons8-phone-100.png">{{viewedFood.contact}}</td>
-                                    <td id="foodPrice"><img src="./contents/assets/resource/images/icons/icons8-price-30.png" alt="">{{viewedFood.currency | uppercase}}.{{viewedFood.food_price}}</td>
-                                    <td id="foodDelivery"><img src="./contents/assets/resource/images/icons/icons8-deliver-food-96.png" alt="">{{viewedFood.currency | uppercase}}.{{viewedFood.delivery_type}}</td>
-                                    <td id="quantity"><input type="number" min="1" ng-model="qty" placeholder="Qty."></td>
-                                    <td id="foodOrder"><button ng-click="orderRequest()">ORDER</button></td>
-                                </table>
-                            </div>
-
+                            
                             <div class="locationDetails">
                                 <h2>Address/Location</h2>
                                 <span>Vendor address: {{viewedFood.addressLine1 + " " + viewedFood.addressLine2}}</span>
                             </div>
-                          
                         </div>
                     </div>
-
                 </div>
         </div>
 

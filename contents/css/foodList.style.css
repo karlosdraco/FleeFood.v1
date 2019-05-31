@@ -47,10 +47,11 @@
 
 .foodWrapper #foodName{
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
+    font-weight: 500;
     color: #303030;
     position: relative;
     top: 10px;
+    
 }
 
 #price{
@@ -85,6 +86,15 @@
     width: 350px;
 }
 
+#foodDesc{
+    height: 75px;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: 100;
+    color: #505050;
+}
+
 #viewBtn{
     padding: 10px;
     border: 1px solid #f9fd02;
@@ -92,10 +102,11 @@
     background-color: #f9fd02;
     color: #ffffff;
     outline: none;
-    margin: 10px;
+    float: right;
     position: relative;
-    right: -310px;
-    top: -20px;
+    top: -47px;
+    margin-right: 10px;
+    
 }
 
 #viewBtn:hover{
