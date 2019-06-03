@@ -65,4 +65,14 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
 
         $scope.data = 'Loading...';
 
+        $scope.reportButton = function(index){
+            var feedIndex = $scope.feed.indexOf(index);
+            var listOrder = $scope.feed[feedIndex];
+    
+            if($rootScope.data.id != listOrder.user_id){
+                return true;
+            }else{
+                return false;
+            }
+        }
 }]);

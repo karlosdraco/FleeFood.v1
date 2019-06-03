@@ -162,9 +162,14 @@
                     <div class="qtyHeader">QTY</div>
                     <p>{{order.quantity}}</p>
                 </div>
-                <div class="requestStatusButtons">
+                <div class="requestStatusButtons" ng-if="requestButton(order)">
                     <button type="submit" ng-model="food.request" ng-click="updateRequest(accept, order)">Accept</button>
                     <button type="submit" ng-model="food.request" ng-click="updateRequest(decline, order)">Decline</button>
+                </div>
+
+                <div class="requestStatusButtons" ng-if="!requestButton(order)">
+                    <button type="submit" ng-model="food.request" ng-click="updateRequest(claimed, order)">Claimed</button>
+                    <button type="submit" ng-model="food.request" ng-click="updateRequest(cancel, order)">Cancel</button>
                 </div>
             </div>
 

@@ -6,6 +6,8 @@ app.controller("order-controller", ['$scope', '$rootScope','RestService','$route
     $scope.requestStatusFeed = false;
     $scope.accept = 1;
     $scope.decline = 0;
+    $scope.claimed = 1;
+    $scope.cancel = 0;
     $scope.qty = 1;
    
     $scope.orderRequest = function(){
@@ -41,25 +43,36 @@ app.controller("order-controller", ['$scope', '$rootScope','RestService','$route
                 $scope.requestStatusFeed = true;
             });
         }
-    
     //}
+
     
     $scope.orderIndex = 0;
     $scope.updateRequest = function(element, index){
         
         $scope.orderIndex = $scope.data.indexOf(index);
         $rootScope.getOrder = $scope.data[$scope.orderIndex];
-           
+
         $scope.food = {
                 request: element,
                 foodId: $rootScope.getOrder.food_id,
                 userId: $rootScope.getOrder.user_id,
                 buyerId: $rootScope.getOrder.buyer_id
         }
+           
+        RestService.requestStatus($scope.food).then(function(response){
+            $scope.request = response.data;
+        });
+    }
 
-            RestService.requestStatus($scope.food).then(function(response){
-                $scope.request = response.data;
-            })
+    $scope.requestButton = function(index){
+        var listIndex = $scope.data.indexOf(index);
+        var listOrder = $scope.data[listIndex];
+
+        if(listOrder.request == "accepted"){
+            return false;
+        }else{
+            return true;
+        }
     }
 
 }]);
