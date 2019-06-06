@@ -1,8 +1,11 @@
-app.controller("upload-controller",['$scope','RestService','$route',function($scope,RestService, $route){
+app.controller("upload-controller",['$scope','$rootScope','RestService','$route',function($scope,$rootScope,RestService, $route){
     
     $scope.$on('LOAD',function(){$scope.loading=1});
     $scope.$on('UNLOAD',function(){$scope.loading=0});
     $scope.showResponse = 0;
+    $scope.showModal = 0;
+    $scope.uploadResponse = "";
+    $scope.errMsg = "";
 
     $scope.upload = function(){
         
@@ -21,14 +24,23 @@ app.controller("upload-controller",['$scope','RestService','$route',function($sc
             });
     }
 
+    
     $scope.uploadFoodGallery = function(){
         var fd = new FormData();
+        
         angular.forEach($scope.uploadfiles,function(file){
             fd.append('file',file);
         });
 
         RestService.foodImage(fd).then(function(response){
-            $scope.response = response.data;
+            $scope.uploadResponse = response.data;
+
+            if($scope.uploadResponse.message_code == 1){
+                $rootScope.showPost = 0;
+                $scope.errMsg = $scope.uploadResponse.message;
+            }else if($scope.uploadResponse.message_code == 0){
+                $scope.errMsg = $scope.uploadResponse.message;
+            }
         });
     }
 

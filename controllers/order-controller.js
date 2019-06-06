@@ -6,8 +6,8 @@ app.controller("order-controller", ['$scope', '$rootScope','RestService','$route
     $scope.requestStatusFeed = false;
     $scope.accept = 1;
     $scope.decline = 0;
-    $scope.claimed = 1;
-    $scope.cancel = 0;
+    $scope.claimed = 2;
+    $scope.cancel = 3;
     $scope.qty = 1;
    
     $scope.orderRequest = function(){

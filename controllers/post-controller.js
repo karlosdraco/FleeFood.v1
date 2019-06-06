@@ -1,24 +1,31 @@
-app.controller("post-controller",['$scope','RestService',function($scope,RestService){
-    $scope.post = {};
+app.controller("post-controller",['$scope','$rootScope','RestService',function($scope,$rootScope,RestService){
+    $scope.post = {
+        foodName: null,
+        foodDescription: null,
+        foodPrice: null,
+        currency: null,
+        foodAvailability: null,
+        deliveryFee: null,
+        addressLine1: null,
+        addressLine2: null
+    }
     $scope.stepsModel = [];
-    $scope.showPost = 0;
+    $rootScope.showPost = 0;
     $scope.showCardPost = 0;
-    
+    $scope.showErrorMsg = 0;
+    $scope.errMsg = "";
+    $scope.disable = true;
+
     $scope.imageUpload = function(event){
         
         var files = event.target.files;
 
         for(var i = 0; i < files.length; i++){
-
-            if(files.length > 5){
-                alert("Maximum photo 5");
-            }else{
-                var file = files[i];
-                var reader = new FileReader();
-                reader.onload = $scope.imageIsLoaded;
-                reader.readAsDataURL(file);
-                console.log(file);
-            }
+            var file = files[i];
+            var reader = new FileReader();
+            reader.onload = $scope.imageIsLoaded;
+            reader.readAsDataURL(file);
+            //console.log(file);
         }
     }
 
@@ -28,20 +35,52 @@ app.controller("post-controller",['$scope','RestService',function($scope,RestSer
         });
     }
 
+    $scope.removeImage = function(image){
+        var remove = $scope.stepsModel.indexOf(image);
+        $scope.stepsModel.splice(remove, 1);
+    }
+
     $scope.PostModal = function(){
-        $scope.showPost++;
-        if($scope.showPost > 1){
-            $scope.showPost = 0;
+        $rootScope.showPost++;
+        if($rootScope.showPost > 1){
+            $rootScope.showPost = 0;
         }
     }
 
-    $scope.foodPost = function(){
-        RestService.foodPost($scope.post).then(function(response){
-            $scope.postCardSelector(0);
-            $scope.postCardSelector(1); 
-            $scope.data = response.data;
-        })
+    /*function isEmpty(obj){
+        for(var key in obj) {
+            if(obj.hasOwnProperty(key))
+                return false;
+        }
+        return true;
+    }*/
+
+    function errorMsgFunc(msg){
+            $scope.showErrorMsg = 1;
+            $scope.errMsg = msg;
+            setInterval(function(){
+                $scope.showErrorMsg = 0;
+            },3000);
     }
+
+    $scope.foodInput = document.getElementsByClassName("foodInput")[0];
+    
+    $scope.foodPost = function(){
+
+            RestService.foodPost($scope.post).then(function(response){
+                $scope.data = response.data;
+                
+                if($scope.data.error == false){
+                    $scope.postCardSelector(0);
+                    $scope.postCardSelector(1);
+                    errorMsgFunc($scope.data.message);
+                
+                }else if($scope.data.error == true){
+                    errorMsgFunc($scope.data.message);
+                    
+                }
+            })
+        }
 
     $scope.card = [];
     $scope.card[0] = 1;

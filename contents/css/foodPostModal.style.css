@@ -10,9 +10,25 @@
     top: -80px;
 }
 
+.errorMsg{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    padding: 10px;
+    color: #ffffff;
+    width: 500px;
+    z-index: 2;
+    position: fixed;
+    top: 30px;
+    left: 415px;
+    animation-name: enter;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-in;
+}
+
 .post-content{
     max-width: 500px;
-    height: 600px;
+    height: 550px;
     margin: 0 auto;
     background-color:#ffffff;
     padding: 20px;
@@ -68,7 +84,7 @@
     padding: 5px;
 }
 
-.post-food, #postBtn:hover, #cancelBtn{
+.post-food, #postBtn, #cancelBtn:hover{
     cursor: pointer;
 }
 
@@ -145,11 +161,55 @@
     color: #4d4d4d;
 }
 
-#postBtn, #nextBtn{
+.removeImgBtn{
     float: right;
+    position: relative;
+    top: -3px;
+    left: -20px;
+    text-align: center;
+    width: 20px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #ffffff;
+    padding: 5px;
+    background-color: #d31d35;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 50%;
+}
+
+.removeImgBtn:hover{
+    cursor: pointer;
+}
+
+.uploadErrMsg{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    padding: 5px;
+    color: #ffffff;
+}
+
+#postBtn{
+    width: 150px;
     background-color: #f9fd02;
+    border: 1px solid #f9fd02;
+    border-radius: 2px;
     color: #ffffff;
     padding: 10px;
+    position: relative;
+    bottom: -20px;
+}
+
+#nextBtn{
+    float: right;
+    background-color: #f9fd02;
+    border: 1px solid #f9fd02;
+    border-radius: 2px;
+    color: #ffffff;
+    padding: 10px;
+}
+
+#nextBtn:hover{
+    cursor: pointer;
 }
 
 #cancelBtn{
@@ -200,11 +260,11 @@
   }
   
   input:checked + .slider {
-    background-color:rgb(68, 216, 9);
+    background-color:#44d809;
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px rgb(68, 216, 9);
+    box-shadow: 0 0 1px #44d809;
   }
   
   input:checked + .slider:before {
@@ -238,5 +298,17 @@
 
     100%{
         opacity: 100;
+    }
+}
+
+@keyframes enter{
+    0%{
+        top: -10px;
+        opacity: 0;
+    }
+
+    100%{
+        top: 20px;
+        opacity: 1;
     }
 }

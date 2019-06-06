@@ -14,8 +14,6 @@
                 </div>
         </div>
 
-         
-
         <div class="user-activity-feed" ng-controller="post-controller">
                 <div class="user-post">
                     <div class="post-food" ng-click="PostModal();">
@@ -27,20 +25,26 @@
                     </div>
                 </div>
                 
+                <div class="errorWrapper">
+                        <div class="errorMsg" ng-style="{'background-color': data.msgColor }" ng-if="showErrorMsg">
+                            {{errMsg}}
+                        </div>
+                </div>
+                
                 <div class="post-modal" ng-if="showPost">
                     <div class="post-content">
-                            <div class="errorMsg">{{data.message}}</div>
+                           
                             <h2 class="post-header">Start sharing food</h2>
                             <p class="post-note">Note: Food related post only or your post will be reported and removed.</p>
                           
                             <div class="food-info" ng-if="card[0]">
 
                                    <div class="post-sub-container">
-                                       <input id="fd-name" type="text" placeholder="Food Title" ng-model="post.foodName"><br>
-                                       <textarea id="fd-desc" type="text" placeholder="Description" ng-model="post.foodDescription"></textarea><br>
-                                       <input id="fd-price" type="text" placeholder="Price" value="0" ng-model="post.foodPrice">
+                                       <input class="foodInput" id="fd-name" type="text" placeholder="Food Title" ng-model="post.foodName"><br>
+                                       <textarea class="foodInput" id="fd-desc" type="text" placeholder="Description" ng-model="post.foodDescription"></textarea><br>
+                                       <input type="number" min="0" class="foodInput" id="fd-price" placeholder="Price" value="0" ng-model="post.foodPrice">
                                        
-                                       <select id="fd-currency" ng-model="post.currency">
+                                       <select class="foodInput" id="fd-currency" ng-model="post.currency">
                                            <option value="php">PHP</option>
                                            <option value="usd">USD</option>
                                        </select> <br>
@@ -48,43 +52,47 @@
                                    
                                    <div class="post-sub2-container">
                                     <ul>
-            
                                         <li>
                                             <h3>Availability</h3>
                                             <label class="switch">
-                                                <input type="checkbox" ng-model="post.foodAvailability">
+                                                <input class="foodInput" type="checkbox" ng-model="post.foodAvailability">
                                                 <span class="slider round"></span>
                                             </label>
                                         </li>
                     
                                         <li>
                                             <h3>Delivery fee: </h3>
-                                            <input id="deliveryBox" type="text" value="0" ng-model="post.deliveryFee">
+                                            <input type="number" min="0" class="foodInput" id="deliveryBox" value="0" ng-model="post.deliveryFee">
                                         </li>
                                     </ul>
                                    </div>
                                    
                                     <div class="post-sub3-container">
-                                        <input id="fd-add1" type="text" placeholder="Address line 1" ng-model="post.addressLine1">
-                                        <input id="fd-add2" type="text" placeholder="Address line 2" ng-model="post.addressLine2">
+                                        <input class="foodInput" id="fd-add1" type="text" placeholder="Address line 1" ng-model="post.addressLine1">
+                                        <input class="foodInput" id="fd-add2" type="text" placeholder="Address line 2" ng-model="post.addressLine2">
                                         <p>Edit address or use your profile address</p>
     
                                         <input id="cancelBtn" type="submit" value="Cancel" ng-click="PostModal();">
-                                        <input id="nextBtn" type="button" value="Next" ng-click='foodPost();'>
+                                        <input id="nextBtn" type="submit" value="Next" ng-click='foodPost();'>
                                     </div>
                           </div>
 
                           <div class="imagePostCard" ng-if="card[1]" ng-controller="upload-controller">
                                 <div class="food-image">
-                                        <h3>Upload food images</h3>
-                                        <input type='file' name="file" onchange="angular.element(this).scope().imageUpload(event)" ng-file='uploadfiles'>
+                                    <h3>Now upload food image to finish</h3>
+                                    <input type='file' name="file" onchange="angular.element(this).scope().imageUpload(event)" ng-file='uploadfiles'>
+
+                                    <div class="uploadErrMsg" ng-style="{'background-color': uploadResponse.msgColor}">
+                                       {{errMsg}}
+                                    </div>
                                 </div>
-                                        <div class="image-uploaded" ng-repeat="step in stepsModel">
-                                        <img ng-src="{{step}}" alt="">
+                                
+                                <div class="image-uploaded" ng-repeat="step in stepsModel">
+                                    <img ng-src="{{step}}" alt="">
+                                    <span class="removeImgBtn" ng-click="removeImage(step)">&times;</span>
                                 </div>
                                 <input id="postBtn" type="button" value="Post" ng-click='uploadFoodGallery();'>
                           </div>
-                          
                     </div>
                 </div>
 
