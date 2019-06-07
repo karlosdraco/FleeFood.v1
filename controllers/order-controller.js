@@ -10,8 +10,9 @@ app.controller("order-controller", ['$scope', '$rootScope','RestService','$route
     $scope.cancel = 3;
     $scope.qty = 1;
    
-    $scope.orderRequest = function(){
 
+
+    $scope.orderRequest = function(){
             $scope.order = {
                 foodId: $rootScope.viewedFood.id,
                 userId: $rootScope.viewedFood.user_id,

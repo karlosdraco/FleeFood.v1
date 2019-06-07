@@ -28,6 +28,14 @@
     vertical-align: top;
 }
 
+.postMsg{
+    font-family: helvetica;
+    font-size: 20px;
+    font-weight: bold;
+    color: #6d6d6d;
+    text-align: center;
+}
+
 #foodImg{
     float: left;
     margin-right: 10px;

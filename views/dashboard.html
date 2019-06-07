@@ -106,12 +106,13 @@
                     <p>No stalls yet</p>
                 </div>
                 <h3>Post tracker</h3>
-                <div class="myPost" ng-repeat="food in feed">
-                    <div class="post-container">
+                <div class="postMsg">{{feed.message}}</div>
+                <div class="myPost" ng-repeat="food in feed" ng-if="showMyPost">
+                    <div class="post-container" ng-controller="post-controller">
                         <img id="foodImg" ng-src="{{food.image_link}}" alt="" style="width:100px;">
                         <div class="food-info">
                             <span class="foodName">{{food.food_name}}</span>
-                            <span class="delete_post" ng-if="showEditBtn">&times;</span>
+                            <span class="delete_post" ng-if="showEditBtn" ng-click="deleteFood(food)">&times;</span>
                             <p>Price: {{food.currency | uppercase}}.{{food.food_price}}</p>
                             <p>Delivery: {{food.currency | uppercase}}.{{food.delivery_type}}</p>
                         </div>
@@ -129,7 +130,7 @@
                 <img id="followerImg" ng-src="{{follower.profile_image}}" style="width: 50px">
                 
                 <div class="follower-info">
-                   <a class="followerName" href="#!profile/{{follower.firstname}}/{{follower.follow_id}}">{{follower.firstname}} {{follower.lastname}}</a>
+                   <a class="followerName" href="#!dashboard/{{follower.firstname}}/{{follower.follow_id}}">{{follower.firstname}} {{follower.lastname}}</a>
                    <p class="followerEmail">{{follower.email}}</p>
                 </div>
             </div>
@@ -140,7 +141,7 @@
                 <img id="followingImg" ng-src="{{fav.profile_image}}" style="width: 50px">
                 
                 <div class="following-info">
-                   <a class="followingName" href="#!profile/{{fav.firstname}}/{{fav.user_id}}">{{fav.firstname}} {{fav.lastname}}</a>
+                   <a class="followingName" href="#!dashboard/{{fav.firstname}}/{{fav.user_id}}">{{fav.firstname}} {{fav.lastname}}</a>
                     <p class="followingEmail">{{fav.email}}</p>
                 </div>
                 </div>
@@ -151,7 +152,7 @@
                 <div class="buyerHeader">
                     <img id="buyerImg" ng-src="{{order.profile_image}}">
                     <div class="buyerInfo">
-                        <a href="#!profile/{{order.firstname}}/{{order.buyer_id}}" id="buyerName">{{order.firstname}} {{order.lastname}}</a>
+                        <a href="#!dashboard/{{order.firstname}}/{{order.buyer_id}}" id="buyerName">{{order.firstname}} {{order.lastname}}</a>
                         <p id="buyerNumber">Contact: {{order.contact}}</p>
                     </div>
                   

@@ -1,9 +1,15 @@
-app.controller("status-controller", ['$scope', 'RestService', '$timeout', function($scope, RestService, $timeout){
+app.controller("status-controller", ['$scope', 'RestService', '$rootScope', function($scope, RestService, $rootScope){
+    $scope.showMyPost = 1;
+
 
         RestService.userPost().then(function(response){
-            $scope.feed = response.data;
+            $rootScope.feed = response.data;
+            
+            if($rootScope.feed.count == 0){
+                $scope.showMyPost = 0;
+            }
         }).catch(function() {
-            $scope.feed = 'Server error';
+            $rootScope.feed = 'Server error';
         });
 
 

@@ -1,4 +1,4 @@
-app.controller('header-controller', ['$scope','$rootScope','RestService','$cookies',function($scope,$rootScope,RestService, $cookies){
+app.controller('header-controller', ['$scope','$rootScope','RestService','$cookies','$window',function($scope,$rootScope,RestService, $cookies,$window){
   $scope.showDropdown = 0;
   $scope.showUserHeaderIcon = 0;
   $scope.showHeaderNav = 0;
@@ -16,16 +16,16 @@ app.controller('header-controller', ['$scope','$rootScope','RestService','$cooki
             $rootScope.data = response.data;
             $rootScope.path = $scope.data.path;
             
-            if($rootScope.data.loggedIn){
+            if($rootScope.data.loggedIn ){
                 $scope.showUserHeaderIcon = 1;
                 $scope.showHeaderNav = 1;
-                location.href="/fleefood.v1/#!/home";
+                $window.location.href="/fleefood.v1/#!/home";
             }
         });
             
     }else{
         $scope.showUserHeaderIcon = 0;
-        location.href="/fleefood.v1/#!/";
+        $window.location.href="/fleefood.v1/#!/";
     }
 
     $scope.logout = function(){

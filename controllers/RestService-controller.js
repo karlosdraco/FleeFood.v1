@@ -132,6 +132,18 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
         })
     }
 
+    service.deletePost = function(fd){
+        return $http({
+            method: 'DELETE',
+            url: url + 'post',
+            data: fd,
+            withCredentials: true,
+            headers : { 
+                'Content-Type': undefined
+            } 
+        })
+    }
+
     service.followStatus = function(){
         return $http({
             method: 'GET',

@@ -15,6 +15,7 @@ app.controller("post-controller",['$scope','$rootScope','RestService',function($
     $scope.showErrorMsg = 0;
     $scope.errMsg = "";
     $scope.disable = true;
+    $scope.delete = {}; 
 
     $scope.imageUpload = function(event){
         
@@ -45,6 +46,28 @@ app.controller("post-controller",['$scope','$rootScope','RestService',function($
         if($rootScope.showPost > 1){
             $rootScope.showPost = 0;
         }
+    }
+
+    $scope.postIndex = 0;
+    
+    $scope.deleteFood = function(index){
+        $scope.postIndex = $rootScope.feed.indexOf(index);
+        var removePost = $rootScope.feed[$scope.postIndex];
+
+        $scope.delete = {
+            foodId: removePost.id,
+            userId: removePost.user_id,
+        }
+        console.log("id: " + removePost.id);
+        RestService.deletePost($scope.delete).then(function(response){
+             $scope.data = response.data;
+
+             if($scope.data.errorCode == 0){
+                 $rootScope.feed.splice(removePost, 1);
+             }
+        })
+
+        
     }
 
     /*function isEmpty(obj){

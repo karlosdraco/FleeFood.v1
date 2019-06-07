@@ -7,7 +7,7 @@
         <div class="header-content" ng-if="showHeaderNav">
             <span><a href="#!home">Home</a></span>
             <span><a href="#!home">Notification</a></span>
-            <span><a href="#!profile/{{data.firstname}}/{{data.id}}">Requests</a></span>
+            <span><a href="#!dashboard/{{data.firstname}}/{{data.id}}">Requests</a></span>
         </div>
 
         <div class="searchBar">
@@ -18,7 +18,7 @@
         </div>
         
         <div class="user_icon_dropdown" ng-if="showUserHeaderIcon">
-          <a href="#!profile/{{data.firstname}}/{{data.id}}"">
+          <a href="#!dashboard/{{data.firstname}}/{{data.id}}"">
             <div class="user_icon">
                 <img ng-src="{{data.imgUrl}}" alt="">
                 <p>{{data.firstname}}</p>

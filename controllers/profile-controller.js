@@ -11,7 +11,7 @@ app.controller("profile-controller", ['$scope','$rootScope','RestService','$cook
     $scope.stepsModel = [];
     $scope.count = 0;
     $rootScope.profileCard = {};
-    
+   
     //CHECKING IF THERE'S A COOKIE
     if($cookies.get('auth_token')){
 

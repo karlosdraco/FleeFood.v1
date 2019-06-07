@@ -1,3 +1,3 @@
-app.controller('home-controller', ['$scope','$rootScope', 'RestService','$http', function($scope, $rootScope,RestService, $http){
-     //$scope.profileCardStatus = $rootScope.profileCard;
+app.controller('home-controller', ['$scope','$rootScope','$window','$location', function($scope, $rootScope,$window, $location){
+    
 }]);
