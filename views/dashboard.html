@@ -1,5 +1,6 @@
 <div class="profile-wrapper">
     <div class="profile-content">
+       <!--USER PROFILE LEFT CONTAINER-->
        <div class="user-profile-head" ng-repeat="user in profile">
             
             <div class="updateProfileImageModal" ng-if="showProfileImageModal" ng-controller="upload-controller">
@@ -71,6 +72,7 @@
         </div>
     </div>
 
+     <!--USER ACTIVITY MIDDLE CONTAINER-->
     <div class="user-activity">
         <div class="activity-header">
                 <div class="widgets" ng-repeat="status in profile">
@@ -116,7 +118,7 @@
                             <p>Price: {{food.currency | uppercase}}.{{food.food_price}}</p>
                             <p>Delivery: {{food.currency | uppercase}}.{{food.delivery_type}}</p>
                         </div>
-                        <button id="editBtn" ng-if="showEditBtn">Edit</button>
+                        <button id="editBtn" ng-if="showEditBtn" ng-click="editPost(food)">Edit</button>
                     </div>
                 </div>
         </div>
@@ -179,8 +181,15 @@
             </div>
         </div>
     </div>
+
+     <!--USER SETTINGS RIGHT CONTAINER-->
+    <div>
+        <p><a href="#">Stalls</a></p>
+        <p><a href="#">Account settings</a></p>
     </div>
-    <!--PROFILE UPDATE MODALs-->
+
+    </div>
+    <!--PROFILE UPDATE MODALS-->
     <div class="update_profile" ng-if="showModal">
         <div class="modal_content">
             <span class="modal-p-close" ng-click="modal()">&times;</span>
@@ -208,4 +217,39 @@
              </form>
         </div>
     </div>
+
+<div class="update_post_wrapper" ng-controller="post-controller">
+    <div class="edit_post_modal" ng-if="showEditModal">
+        <div class="edit_post_container"> 
+            <span class="edit-p-close" ng-click="editModalOn()">&times;</span>
+            <div class="update_food_image">
+                <img ng-src="{{toUpdate.image_link}}" alt="">
+                <input type="file"> 
+            </div>
+            
+            <div class="postInfo">
+                <input type="text" ng-model="update.foodName"><br>
+                <textarea ng-model="update.foodDesc"></textarea><br>
+                <input type="number" min="0" ng-model="update.foodPrice"><br>
+                                
+                <select ng-model="update.foodCurency">
+                    <option value="php">PHP</option>
+                    <option value="usd">USD</option>
+                </select><br>
+
+                <h3>Availability</h3>
+                <label class="switch" ng-model="update.foodAvailability">
+                    <input class="foodInput" type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                    
+                <input type="number" min="0" ng-model="update.foodDelivery">
+                <input type="text" ng-model="update.foodAdd1">
+                <input type="text" ng-model="update.foodAdd2">
+                <input type="submit" value="Save" ng-click="saveUpdate()">
+            </div>
+        </div>
+    </div>
+</div>
+  
 </div>

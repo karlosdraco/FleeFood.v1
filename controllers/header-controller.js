@@ -14,9 +14,11 @@ app.controller('header-controller', ['$scope','$rootScope','RestService','$cooki
     if($cookies.get('auth_token')){
         RestService.isloggedIn().then(function(response){
             $rootScope.data = response.data;
+
             $rootScope.path = $scope.data.path;
             
-            if($rootScope.data.loggedIn ){
+            if($rootScope.data.loggedIn){
+                $rootScope.loggedUser = 1;
                 $scope.showUserHeaderIcon = 1;
                 $scope.showHeaderNav = 1;
                 $window.location.href="/fleefood.v1/#!/home";

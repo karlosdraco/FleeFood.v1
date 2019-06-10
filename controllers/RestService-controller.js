@@ -132,6 +132,18 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
         })
     }
 
+    service.updatePost = function(fd){
+        return $http({
+            method: 'PUT',
+            url: url + 'post',
+            data: fd,
+            withCredentials: true,
+            headers : { 
+                'Content-Type': 'application/json'
+            } 
+        })
+    }
+
     service.deletePost = function(fd){
         return $http({
             method: 'DELETE',

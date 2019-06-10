@@ -19,7 +19,6 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
             $scope.feed = 'Server error';
             nextLoad(++errorCount * 2 * loadTime);
         });
-
     }
 
     $scope.foodModalOn = function(){

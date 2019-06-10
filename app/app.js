@@ -21,7 +21,6 @@ app.config(['$routeProvider','$httpProvider',function($routeProvider, $httpProvi
       .when("/",{
         templateUrl: 'views/landing-page.html',
         controller: 'landing-page-controller',
-        resolve: resolver(false)
       })
 
       .when("/home",{
@@ -32,11 +31,21 @@ app.config(['$routeProvider','$httpProvider',function($routeProvider, $httpProvi
       
       .when("/dashboard/:name/:id",{
         templateUrl: 'views/dashboard.html',
-        controller: 'profile-controller',
+        controller: 'dashboard-controller',
+        resolve: resolver(true)
+      })
+      
+      .when("/notification",{
+        templateUrl: 'views/notifications.html',
+        controller: 'notification-controller',
+        resolve: resolver(true)
+      })
+      
+      .when("/page",{
+        templateUrl: 'views/page.html',
         resolve: resolver(true)
       }).otherwise({
-        redirectTo: '/'
+        redirectTo: '/page',
+        resolve: resolver(false)
       });
 }]);
-
-

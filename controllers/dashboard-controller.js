@@ -1,4 +1,4 @@
-app.controller("profile-controller", ['$scope','$rootScope','RestService','$cookies', '$route', '$routeParams', function($scope, $rootScope,RestService, $cookies, $route, $routeParams){
+app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$cookies', '$route', '$routeParams', function($scope, $rootScope,RestService, $cookies, $route, $routeParams){
     $scope.showModal = 0;
     $scope.showUpdate = 1;
     $scope.showFollow = 0;
@@ -11,12 +11,14 @@ app.controller("profile-controller", ['$scope','$rootScope','RestService','$cook
     $scope.stepsModel = [];
     $scope.count = 0;
     $rootScope.profileCard = {};
+    $scope.showEditModal = 0;
    
     //CHECKING IF THERE'S A COOKIE
     if($cookies.get('auth_token')){
 
         RestService.isloggedIn().then(function(response){
             $scope.loggedUser = response.data;
+
         });
 
         RestService.getUserName().then(function(response){
@@ -128,6 +130,38 @@ app.controller("profile-controller", ['$scope','$rootScope','RestService','$cook
             }else{
                 alert("There's an error updating your account");
             }
+        });
+    }
+
+    $scope.editModalOn = function(){
+        $scope.showEditModal++;
+        if($scope.showEditModal > 1){
+            $scope.showEditModal = 0;
+        }
+    }
+
+    $scope.editPost = function(index){
+        $scope.editIndex = $rootScope.feed.indexOf(index);
+        $scope.toUpdate = $rootScope.feed[$scope.editIndex];
+        $scope.editModalOn();
+        
+        $scope.update = {
+            userId: $rootScope.data.id,
+            foodId: $scope.toUpdate.id,
+            foodName:  $scope.toUpdate.food_name,
+            foodDesc:  $scope.toUpdate.food_description,
+            foodPrice:  parseInt($scope.toUpdate.food_price),
+            foodCurrency: $scope.toUpdate.currency,
+            foodAvailability: $scope.toUpdate.food_availability,
+            foodDelivery: parseInt($scope.toUpdate.delivery_type),
+            foodAdd1: $scope.toUpdate.addressLine1,
+            foodAdd2: $scope.toUpdate.addressLine2
+        }
+    }
+
+    $scope.saveUpdate = function(){
+        RestService.updatePost($scope.update).then(function(response){
+            $scope.data = response.data;
         });
     }
 

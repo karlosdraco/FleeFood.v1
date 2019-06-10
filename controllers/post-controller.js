@@ -16,6 +16,7 @@ app.controller("post-controller",['$scope','$rootScope','RestService',function($
     $scope.errMsg = "";
     $scope.disable = true;
     $scope.delete = {}; 
+   
 
     $scope.imageUpload = function(event){
         
@@ -58,7 +59,6 @@ app.controller("post-controller",['$scope','$rootScope','RestService',function($
             foodId: removePost.id,
             userId: removePost.user_id,
         }
-        console.log("id: " + removePost.id);
         RestService.deletePost($scope.delete).then(function(response){
              $scope.data = response.data;
 
@@ -66,10 +66,9 @@ app.controller("post-controller",['$scope','$rootScope','RestService',function($
                  $rootScope.feed.splice(removePost, 1);
              }
         })
-
-        
     }
 
+    
     /*function isEmpty(obj){
         for(var key in obj) {
             if(obj.hasOwnProperty(key))
