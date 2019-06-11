@@ -72,7 +72,9 @@
 .post-food{
     background-color: #fa2d72;
     width: 120px;
-    border-radius: 22px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-right: 10px;
 }
 
 .post-food p{
@@ -81,7 +83,21 @@
     font-family: helvetica;
     font-weight: bold;
     text-align: center;
-    padding: 5px;
+}
+
+.feedLocationFilter{
+   display: inline-block;
+}
+
+#filterSearch{
+    padding: 10px;
+    width: 270px;
+    border-top: none;
+    border-right: none;
+    border-bottom: 0.3px solid #ececec;
+    border-left: none;
+    outline: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .post-food, #postBtn, #cancelBtn:hover{

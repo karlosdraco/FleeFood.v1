@@ -73,32 +73,29 @@
     cursor: pointer;
 }
 
-.user_icon{
-    width: 95px;
-    float: right;
-    margin-top: 6px;
+.user_icon_card{
+    float: left;
+    width: 150px;
     position: relative;
-    left: -130px;
-    
-}
-
-.user_icon p{
-    display: inline;
-    position: relative;
-    top: -12px;
-    color: #ffffff;
+    left: -12px;
 }
 
 .user_icon img{
     width: 32px;
-    height: 32px;
-    border: 3px solid #f9fd02;
-    border-radius: 5px;
-    margin-top: 2px;
+    margin-top: 10px;
+    margin-right: 5px;
+    float: left;
+}
+
+.user_icon span{
+    float: left;
+    margin-top: 20px;
+    color: #ffffff;
+    width: 100px;
     overflow: hidden;
 }
 
-.arrow-down {
+.arrow-down{
     float: right;
     width: 0; 
     height: 0; 
@@ -106,9 +103,9 @@
     border-right: 7px solid transparent;
     border-top: 7px solid #ffffff;
     position: relative;
+    top: -12px;
     left: -20px;
-    top: 26px;
-  }
+}
 
   .arrow-up {
     width: 0; 
@@ -124,7 +121,7 @@
       padding: 10px;
       float: right;
       position: relative;
-      left: -105px;
+      left: -11px;
       top: -2px;
       box-shadow: 0 2px 5px rgba(54, 54, 54, 0.2); 
   }

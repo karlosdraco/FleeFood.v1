@@ -82,5 +82,29 @@
     color: #6d6d6d;
 }
 
+#acceptBtn, #claimBtn{
+    padding: 5px;
+    width: 70px;
+    border-radius: 3px;
+    border: none;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #f9fd02;
+    border: 1px solid #f9fd02;
+    outline: none;
+}
+
+#declineBtn, #cancelBtn{
+    padding: 5px;
+    width: 70px;
+    border-radius: 3px;
+    border: none;
+    color: #6d6d6d;
+    font-weight: bold;
+    background-color: #f5f3f3;
+    border: 1px solid #cecece;
+    outline: none;
+}
+
 
 

@@ -112,14 +112,15 @@
                 <div class="postMsg">{{feed.message}}</div>
                 <div class="myPost" ng-repeat="food in feed" ng-if="showMyPost">
                     <div class="post-container" ng-controller="post-controller">
-                        <img id="foodImg" ng-src="{{food.image_link}}" alt="" style="width:100px;">
+                        <span class="delete_post" ng-if="showEditBtn" ng-click="deleteFood(food)">&times;</span>
+                        <img id="foodImg" ng-src="{{food.image_link}}" alt="">
                         <div class="food-info">
                             <span class="foodName">{{food.food_name}}</span>
-                            <span class="delete_post" ng-if="showEditBtn" ng-click="deleteFood(food)">&times;</span>
-                            <p>Price: {{food.currency | uppercase}}.{{food.food_price}}</p>
-                            <p>Delivery: {{food.currency | uppercase}}.{{food.delivery_type}}</p>
+                            <!--<p>Price: {{food.currency | uppercase}}.{{food.food_price}}</p>
+                            <p>Delivery: {{food.currency | uppercase}}.{{food.delivery_type}}</p>-->
                         </div>
                         <button id="editBtn" ng-if="showEditBtn" ng-click="editPost(food)">Edit</button>
+                        <button id="trackBtn" ng-if="showEditBtn">Track</button>
                     </div>
                 </div>
         </div>
@@ -167,13 +168,13 @@
                     <p>{{order.quantity}}</p>
                 </div>
                 <div class="requestStatusButtons" ng-if="requestButton(order)">
-                    <button type="submit" ng-model="food.request" ng-click="updateRequest(accept, order)">Accept</button>
-                    <button type="submit" ng-model="food.request" ng-click="updateRequest(decline, order)">Decline</button>
+                    <button id="acceptBtn" type="submit" ng-model="food.request" ng-click="updateRequest(accept, order)">Accept</button>
+                    <button id="declineBtn" type="submit" ng-model="food.request" ng-click="updateRequest(decline, order)">Decline</button>
                 </div>
 
                 <div class="requestStatusButtons" ng-if="!requestButton(order)">
-                    <button type="submit" ng-model="food.request" ng-click="updateRequest(claimed, order)">Claimed</button>
-                    <button type="submit" ng-model="food.request" ng-click="updateRequest(cancel, order)">Cancel</button>
+                    <button id="claimBtn" type="submit" ng-model="food.request" ng-click="updateRequest(claimed, order)">Claimed</button>
+                    <button id="cancelBtn" type="submit" ng-model="food.request" ng-click="updateRequest(cancel, order)">Cancel</button>
                 </div>
             </div>
 
@@ -184,7 +185,7 @@
     </div>
 
      <!--USER SETTINGS RIGHT CONTAINER-->
-    <div>
+    <div class="settings-wrapper">
         <p><a href="#">Stalls</a></p>
         <p><a href="#">Account settings</a></p>
     </div>
@@ -229,7 +230,11 @@
             <p class="errorLabel" ng-style="{'background-color': editCallBack.msgColor}" ng-if="showErrorLabel">{{editCallBack.message}}</p>
             <div class="update_food_image">
                 <img ng-src="{{toUpdate.image_link}}" alt="">
-                <input type="file"> 
+                <span class="upload_tools">
+                    <input type="file">
+                    <input type="submit" value="Upload">
+                </span>
+                
             </div>
             
             <div class="postInfo">

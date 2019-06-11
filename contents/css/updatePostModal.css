@@ -64,9 +64,21 @@
     background-color: #b8b8b86e;
 }
 
+.update_food_image{
+    background-color: #f5f3f3;
+    border: 1px solid #cecece;
+    padding: 10px;
+    margin: 0px;
+}
+
+.upload_tools{
+    height: 70px;
+    position: relative;
+    top: -30px;
+}
+
 .update_food_image img{
-    width: 150px;
-    margin-top: 20px;
+    width: 70px;
 }
 
 .edit-p-close{

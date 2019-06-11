@@ -164,6 +164,7 @@ app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$co
     $scope.saveUpdate = function(){
         RestService.updatePost($scope.update).then(function(response){
             $scope.editCallBack = response.data;
+            $scope.showErrorLabel = 1;
         });
     }
 

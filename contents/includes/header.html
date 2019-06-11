@@ -17,13 +17,14 @@
             </form>
         </div>
         
-        <div class="user_icon_dropdown" ng-if="showUserHeaderIcon">
-          <a href="#!dashboard/{{data.firstname}}/{{data.id}}"">
-            <div class="user_icon">
-                <img ng-src="{{data.imgUrl}}" alt="">
-                <p>{{data.firstname}}</p>
-            </div>
-          </a>
+        <div class="user_icon_card" ng-if="showUserHeaderIcon">
+          
+            <a href="#!dashboard/{{data.firstname}}/{{data.id}}">
+                <div class="user_icon">
+                    <img ng-src="{{data.imgUrl}}" alt="">
+                    <span>{{data.firstname}}</span>
+                </div>
+            </a>
             <div class="arrow-down" ng-click="dropToggle()"></div>
 
             <div class="dropdown_content" ng-if="showDropdown">
@@ -32,6 +33,7 @@
                 <span>Account Settings</span>
                 <span ng-click="logout()">Logout</span>
             </div>
+            
         </div>
     </div>
 </div>
