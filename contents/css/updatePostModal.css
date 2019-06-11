@@ -15,10 +15,58 @@
     margin: 0 auto;
     background-color:#ffffff;
     padding: 20px;
+    overflow-y: scroll;
+}
+
+.edit_post_container h3, .Label{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    color: #5a5959;
+}
+
+.errorLabel{
+    padding: 10px;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.edit_post_container::-webkit-scrollbar-track{
+    border-radius: 10px;
+}
+
+.edit_post_container::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #f5f5f5;
+}
+
+.edit_post_container::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    background-color: #b8b8b86e;
+}
+
+.edit_post_container textarea::-webkit-scrollbar-track{
+    border-radius: 10px;
+}
+
+.edit_post_container textarea::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #f5f5f5;
+}
+
+.edit_post_container textarea::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    background-color: #b8b8b86e;
 }
 
 .update_food_image img{
-    width: 200px;
+    width: 150px;
+    margin-top: 20px;
 }
 
 .edit-p-close{
@@ -30,5 +78,40 @@
 }
 
 .edit-p-close:hover{
+    cursor: pointer;
+}
+
+.postInfo input,textarea, select{
+    font-family: helvetica;
+    font-size: 15px;
+    outline: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: 0.3px solid #d4d4d4;
+    border-left: none;
+    margin: 10px;
+    padding: 10px;
+}
+
+.postInfo textarea{
+    height: 70px;
+    width: 700px;
+}
+
+#editPrice, select{
+    width: 90px;
+}
+
+.switch{
+    margin-right: 25px;
+}
+
+#savePost{
+    background-color: #f9fd02;
+    color: #ffffff;
+    border: none;
+}
+
+#savePost:hover{
     cursor: pointer;
 }

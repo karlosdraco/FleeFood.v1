@@ -106,6 +106,7 @@
                 <h3>Stalls</h3>
                 <div class="stallSlider">
                     <p>No stalls yet</p>
+                    <p>Coming soon</p>
                 </div>
                 <h3>Post tracker</h3>
                 <div class="postMsg">{{feed.message}}</div>
@@ -189,6 +190,8 @@
     </div>
 
     </div>
+
+    <!----------------------------------------HTML MODALS HERE-------------------------------------------------------------->
     <!--PROFILE UPDATE MODALS-->
     <div class="update_profile" ng-if="showModal">
         <div class="modal_content">
@@ -222,31 +225,38 @@
     <div class="edit_post_modal" ng-if="showEditModal">
         <div class="edit_post_container"> 
             <span class="edit-p-close" ng-click="editModalOn()">&times;</span>
+            <h3>Edit post</h3>
+            <p class="errorLabel" ng-style="{'background-color': editCallBack.msgColor}" ng-if="showErrorLabel">{{editCallBack.message}}</p>
             <div class="update_food_image">
                 <img ng-src="{{toUpdate.image_link}}" alt="">
                 <input type="file"> 
             </div>
             
             <div class="postInfo">
+                <span class="Label">Food name </span>
                 <input type="text" ng-model="update.foodName"><br>
                 <textarea ng-model="update.foodDesc"></textarea><br>
-                <input type="number" min="0" ng-model="update.foodPrice"><br>
-                                
+                <span class="Label">Price</span>
+                <input id="editPrice" type="number" min="0" ng-model="update.foodPrice">
+
+                <span class="Label">Delivery fee</span>
+                <input type="number" min="0" ng-model="update.foodDelivery">                
+                
                 <select ng-model="update.foodCurency">
                     <option value="php">PHP</option>
                     <option value="usd">USD</option>
                 </select><br>
 
-                <h3>Availability</h3>
+                <span class="Label">Availability </span>
                 <label class="switch" ng-model="update.foodAvailability">
                     <input class="foodInput" type="checkbox">
                     <span class="slider round"></span>
                 </label>
-                    
-                <input type="number" min="0" ng-model="update.foodDelivery">
+                
+                <span class="Label">Address</span>
                 <input type="text" ng-model="update.foodAdd1">
                 <input type="text" ng-model="update.foodAdd2">
-                <input type="submit" value="Save" ng-click="saveUpdate()">
+                <input type="submit" id="savePost" value="Save" ng-click="saveUpdate()">
             </div>
         </div>
     </div>

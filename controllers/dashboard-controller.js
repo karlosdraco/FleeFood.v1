@@ -12,6 +12,7 @@ app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$co
     $scope.count = 0;
     $rootScope.profileCard = {};
     $scope.showEditModal = 0;
+    $scope.showErrorLabel = 1;
    
     //CHECKING IF THERE'S A COOKIE
     if($cookies.get('auth_token')){
@@ -137,6 +138,7 @@ app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$co
         $scope.showEditModal++;
         if($scope.showEditModal > 1){
             $scope.showEditModal = 0;
+            $scope.showErrorLabel = 0;
         }
     }
 
@@ -150,10 +152,10 @@ app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$co
             foodId: $scope.toUpdate.id,
             foodName:  $scope.toUpdate.food_name,
             foodDesc:  $scope.toUpdate.food_description,
-            foodPrice:  parseInt($scope.toUpdate.food_price),
+            foodPrice:  parseFloat($scope.toUpdate.food_price),
             foodCurrency: $scope.toUpdate.currency,
             foodAvailability: $scope.toUpdate.food_availability,
-            foodDelivery: parseInt($scope.toUpdate.delivery_type),
+            foodDelivery: parseFloat($scope.toUpdate.delivery_type),
             foodAdd1: $scope.toUpdate.addressLine1,
             foodAdd2: $scope.toUpdate.addressLine2
         }
@@ -161,7 +163,7 @@ app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$co
 
     $scope.saveUpdate = function(){
         RestService.updatePost($scope.update).then(function(response){
-            $scope.data = response.data;
+            $scope.editCallBack = response.data;
         });
     }
 
