@@ -69,11 +69,18 @@
 }
 
 .post-food{
-    background-color: #fa2d72;
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3);
     width: 120px;
     border-radius: 3px;
     display: inline-block;
     margin-right: 10px;
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, #fa2d72),
+        color-stop(1,#fa2d72)
+    );
 }
 
 .post-food p{
@@ -224,6 +231,7 @@
     font-weight: bold;
     background-color: #f9fd02;
     border: 1px solid #f9fd02;
+    box-shadow: inset 0px 1px 0px rgba(255,255,255,.3);
     outline: none;
 }
 

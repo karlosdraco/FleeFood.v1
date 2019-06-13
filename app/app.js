@@ -40,6 +40,18 @@ app.config(['$routeProvider','$httpProvider',function($routeProvider, $httpProvi
         controller: 'notification-controller',
         resolve: resolver(true)
       })
+
+      .when("/stalls",{
+        templateUrl: 'views/stalls.html',
+        controller: 'stall-controller',
+        resolve: resolver(true)
+      })
+
+      .when("/account_settings",{
+        templateUrl: 'views/account-settings.html',
+        controller: 'accountSet-controller',
+        resolve: resolver(true)
+      })
       
       .when("/page",{
         templateUrl: 'views/page.html',

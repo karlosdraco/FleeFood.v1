@@ -98,7 +98,14 @@
     padding: 10px;
     border: 1px solid #f9fd02;
     border-radius: 5px;
-    background-color: #f9fd02;
+    box-shadow: inset 0px 1px 0px rgba(255,255,255,.3);
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, #f9fd02),
+        color-stop(1, #f9fd02)
+    );
     color: #ffffff;
     outline: none;
     float: right;
