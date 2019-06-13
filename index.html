@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="contents/css/orderList.style.css">
     <link rel="stylesheet" type="text/css" href="contents/css/footer.style.css">
     <link rel="stylesheet" type="text/css" href="contents/css/updatePostModal.css">
+    <link rel="stylesheet" type="text/css" href="contents/css/map.css">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 
     <!--ANGULARJS LIBRARIES-->
@@ -42,17 +43,21 @@
     <script src="controllers/upload-controller.js"></script>
     <script src="controllers/user-dashboard-status-controller.js"></script>
     <script src="controllers/order-controller.js"></script>
+    <script src="controllers/map-controller.js"></script>
 
     <!--SERVICES-->
     <script src="app/upload.directive.js"></script>
     <script src="app/timeconvert.filter.js"></script>
+    <script src="app/maps.factory.js"></script>
 </head>
 <body>
 
     <header ng-include="'contents/includes/header.html'" ng-controller="header-controller"></header>
   
     <main ng-view></main>
+
     <!--<footer>Copyright © 2019 Flee Food</footer>-->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNwQWDwZHfRcbGYSUjXdHBVWsIwxg20Wc&callback=initMap"></script>
 </body>
-  
+
 </html>

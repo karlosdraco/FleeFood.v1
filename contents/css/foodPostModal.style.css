@@ -16,11 +16,10 @@
     text-align: center;
     padding: 10px;
     color: #ffffff;
-    width: 500px;
+    width: 450px;
     z-index: 2;
     position: fixed;
-    top: 30px;
-    left: 415px;
+    margin: 0 auto;
     animation-name: enter;
     animation-duration: 0.2s;
     animation-timing-function: ease-in;
@@ -217,11 +216,15 @@
 
 #nextBtn{
     float: right;
+    padding: 5px;
+    width: 70px;
+    border-radius: 3px;
+    border: none;
+    color: #ffffff;
+    font-weight: bold;
     background-color: #f9fd02;
     border: 1px solid #f9fd02;
-    border-radius: 2px;
-    color: #ffffff;
-    padding: 10px;
+    outline: none;
 }
 
 #nextBtn:hover{
@@ -230,9 +233,15 @@
 
 #cancelBtn{
     float: right;
-    background-color: #cccccc;
-    color: #ffffff;
-    padding: 10px;
+    padding: 5px;
+    width: 70px;
+    border-radius: 3px;
+    border: none;
+    color: #6d6d6d;
+    font-weight: bold;
+    background-color: #f5f3f3;
+    border: 1px solid #cecece;
+    outline: none;
 }
 
 /*Slider rounded*/

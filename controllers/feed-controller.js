@@ -36,6 +36,7 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
 
         if($rootScope.data.id != $rootScope.viewedFood.user_id){
             $scope.orderFunc = 1;
+        
         }else{
             $scope.orderFunc = 0;
         }
@@ -72,6 +73,16 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
                 return true;
             }else{
                 return false;
+            }
+        }
+
+        $scope.free = "FREE";
+        $scope.freeSign = function(index){
+            var freeIndex = $scope.feed.indexOf(index);
+            var priceFree = $scope.feed[freeIndex];
+
+            if(priceFree.food_price == 0){
+                priceFree.food_price = $scope.free;
             }
         }
 }]);

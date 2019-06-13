@@ -174,7 +174,7 @@
 
                 <div class="requestStatusButtons" ng-if="!requestButton(order)">
                     <button id="claimBtn" type="submit" ng-model="food.request" ng-click="updateRequest(claimed, order)">Claimed</button>
-                    <button id="cancelBtn" type="submit" ng-model="food.request" ng-click="updateRequest(cancel, order)">Cancel</button>
+                    <button id="cancelOrdBtn" type="submit" ng-model="food.request" ng-click="updateRequest(cancel, order)">Cancel</button>
                 </div>
             </div>
 
@@ -210,7 +210,6 @@
                  <input required class="update_input" type="text"  placeholder="Country" ng-model="user.country" >
                  <input required class="update_input" type="number"  placeholder="Zip Code" ng-model="user.zipCode">
 
-                  
                  <select required name="gender" id="gender" ng-model="user.gender">
                         <option value="" disabled selected>Gender</option>
                         <option value="male">Male</option>
@@ -234,7 +233,6 @@
                     <input type="file">
                     <input type="submit" value="Upload">
                 </span>
-                
             </div>
             
             <div class="postInfo">

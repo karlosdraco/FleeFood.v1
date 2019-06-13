@@ -25,14 +25,14 @@
                     </div>
                 </div>
                 
-                <div class="errorWrapper">
-                        <div class="errorMsg" ng-style="{'background-color': data.msgColor }" ng-if="showErrorMsg">
-                            {{errMsg}}
-                        </div>
-                </div>
-                
+               
                 <div class="post-modal" ng-if="showPost">
                     <div class="post-content">
+                            <div class="errorWrapper">
+                                    <div class="errorMsg" ng-style="{'background-color': data.msgColor }" ng-if="showErrorMsg">
+                                        {{errMsg}}
+                                    </div>
+                            </div>
                            
                             <h2 class="post-header">Start sharing food</h2>
                             <p class="post-note">Note: Food related post only or your post will be reported and removed.</p>
@@ -127,10 +127,11 @@
 
                          <!--VIEW FOOD MODAL-->
                     <div class="view-food-modal" ng-if="foodModal" ng-controller="order-controller">
-                            <div class="orderError" ng-if="error">
-                                <p>{{orderCallBack.message}}</p>
-                            </div>
+                           
                         <div class="view-food-container">
+                                <div class="orderError" ng-if="error">
+                                        <p>{{orderCallBack.message}}</p>
+                                </div>
                             <span class="food-modal-close" ng-click="foodModalOn();">&times;</span>
                             <div class="leftCard">
                                 <div class="viewedFoodImage">
@@ -156,9 +157,14 @@
                                 
                             </div>
                             
-                            <div class="locationDetails">
+                            <div class="locationDetails" ng-controller="map-controller">
+                                
                                 <h2>Address/Location</h2>
-                                <span>Vendor address: {{viewedFood.addressLine1 + " " + viewedFood.addressLine2}}</span>
+                                <span><p>Vendor address:</p> {{viewedFood.addressLine1 + " " + viewedFood.addressLine2}}</span>
+                                <input type="hidden"  id="addressLine1" ng-model="fullAddress.add1"> 
+                                <input type="hidden"  id="addressLine2" ng-model="fullAddress.add2">
+                                <div id="map"></div>
+                               
                             </div>
                         </div>
                     </div>
@@ -166,4 +172,5 @@
         </div>
 
     </div>
+   
 </div>
