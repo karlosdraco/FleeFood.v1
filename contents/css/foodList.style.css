@@ -68,8 +68,8 @@
 }
 
 #delivery{
-    background-color: #f9fd02;
-    border: 1px solid#f9fd02;
+    background-color: #ffe228;
+    border: 1px solid #ffe228;
     border-radius: 10px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -96,15 +96,15 @@
 
 #viewBtn{
     padding: 10px;
-    border: 1px solid #f9fd02;
+    border: 1px solid #ffe228;
     border-radius: 5px;
     box-shadow: inset 0px 1px 0px rgba(255,255,255,.3);
     background-image: -webkit-gradient(
         linear,
         left bottom,
         left top,
-        color-stop(0, #f9fd02),
-        color-stop(1, #f9fd02)
+        color-stop(0,#ffe228),
+        color-stop(1, #ffe228)
     );
     color: #ffffff;
     outline: none;

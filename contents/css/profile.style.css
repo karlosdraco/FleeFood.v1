@@ -30,7 +30,7 @@
 }
 .updateProfileImgBtn{
    display: none;
-   background-color: #f9fd02;
+   background-color: #ffe228;
    margin: 0;
    padding: 5px;
    position: absolute;
@@ -106,8 +106,8 @@
 
 .edit-btn{
     text-align: center;
-    border: 1px solid  #f9fd02;
-    background-color:  #f9fd02;
+    border: 1px solid  #ffe228;
+    background-color:  #ffe228;
     border-radius: 5px;
     padding: 5px;
     font-family: helvetica;
@@ -196,8 +196,8 @@
 .update_profile_btn{
     position: relative;
     margin-left: 390px;
-    background-color:  #f9fd02;
-    border: 1px solid  #f9fd02;
+    background-color:  #ffe228;
+    border: 1px solid  #ffe228;
     border-radius: 3px;
     padding: 10px;
     color: #ffffff;
