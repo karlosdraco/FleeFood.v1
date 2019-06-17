@@ -147,5 +147,15 @@
   }
 
 
-
+#notifCount{
+    position: relative;
+    top: -5px;
+    background-color: red;
+    color: #ffffff;
+    padding: 3px;
+    border: 1px solid red;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 100;
+}
 

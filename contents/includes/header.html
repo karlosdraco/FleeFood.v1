@@ -4,9 +4,9 @@
             <h1>FleeFood</h1>
         </div>
 
-        <div class="header-content" ng-if="showHeaderNav">
+        <div class="header-content" ng-if="showHeaderNav" ng-controller="notifications-controller">
             <span><a href="#!home">Home</a></span>
-            <span><a href="#!notification">Notification</a></span>
+            <span><a href="#!notification" ng-click="viewNotification()">Notification<span id="notifCount" ng-if="showCountIcon">{{dataFeed.notificationCount}}</span></a></span>
             <span><a href="#!dashboard/{{data.firstname}}/{{data.id}}">Requests</a></span>
         </div>
 

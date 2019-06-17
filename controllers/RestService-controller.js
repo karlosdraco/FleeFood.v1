@@ -1,9 +1,9 @@
 app.factory("RestService", ['$http','$routeParams',function($http, $routeParams){
      
     var service = {};
-    //var url = 'http://127.0.0.1/fleefood_API/';
+    var url = 'http://127.0.0.1/fleefood_API/';
     //var url = 'https://c76c87f8.ngrok.io/fleefood_API/';
-    var url = 'https://aufero.serveo.net/fleefood_API/';
+    //var url = 'https://aufero.serveo.net/fleefood_API/';
     service.loginUser = function(user){
         return $http({
             method: 'POST',
@@ -43,6 +43,17 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
         return $http({
             method: 'GET',
             url: url + 'loggedIn',
+            withCredentials: true,
+            headers : { 
+                'Content-Type': 'application/json'
+            } 
+        })
+    }
+
+    service.asyncData = function(){
+        return $http({
+            method: 'GET',
+            url: url + 'getAsyncData',
             withCredentials: true,
             headers : { 
                 'Content-Type': 'application/json'
@@ -216,6 +227,30 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
             } 
         })
     }
+
+    service.notifications = function(){
+        return $http({
+            method: 'GET',
+            url: url + 'getAsyncNotifications',
+            withCredentials: true,
+            headers : { 
+                'Content-Type': 'application/json'
+            } 
+        })
+    }
+
+    service.fetchView = function(){
+        return $http({
+            method: 'PUT',
+            url: url + 'fetchedView',
+            withCredentials: true,
+            headers : { 
+                'Content-Type': 'application/json'
+            } 
+        })
+    }
+
+    
 
     return service;
 }]);

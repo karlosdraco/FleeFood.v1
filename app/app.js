@@ -37,7 +37,7 @@ app.config(['$routeProvider','$httpProvider',function($routeProvider, $httpProvi
       
       .when("/notification",{
         templateUrl: 'views/notifications.html',
-        controller: 'notification-controller',
+        controller: 'notifications-controller',
         resolve: resolver(true)
       })
 

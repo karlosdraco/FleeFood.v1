@@ -1,0 +1,8 @@
+<div class="notifications-wrapper">
+    <div class="notifications-container">
+       <div class="notification-list" ng-repeat="data in notifCallBack">
+           <img ng-src="{{data.profile_image}}" alt="" style="width: 70px;">
+           <span>{{data.firstname + " " + data.lastname + " " + data.verb + " " + data.food_name}}</span>
+       </div>
+    </div>
+</div>
