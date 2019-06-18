@@ -24,9 +24,9 @@
     position: relative;
     top: -15px;
     color: #ffffff;
-    border: 2px solid rgb(231, 38, 54);
+    border: 2px solid #e72636;
     border-radius: 10px;
-    background-color: rgba(231, 38, 54, 0.6);
+    background-color: #e7263699;
     outline: none;
 }
 

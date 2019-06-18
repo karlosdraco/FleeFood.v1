@@ -13,7 +13,7 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
         }).catch(function() {
             $scope.feed = 'Server error';
         });
-
+       
     $scope.foodModalOn = function(){
         $scope.foodModal++;
         if($scope.foodModal > 1){

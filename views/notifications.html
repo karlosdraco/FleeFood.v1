@@ -1,8 +1,19 @@
 <div class="notifications-wrapper">
     <div class="notifications-container">
-       <div class="notification-list" ng-repeat="data in notifCallBack">
-           <img ng-src="{{data.profile_image}}" alt="" style="width: 70px;">
-           <span>{{data.firstname + " " + data.lastname + " " + data.verb + " " + data.food_name}}</span>
-       </div>
+        <h3>Notifications</h3>
+       <div class="notifications-list" ng-repeat="data in notifCallBack">
+           <div class="notifIcon">
+                <img id="verbIcon" ng-src="{{verbStatusIcon}}" ng-if="notifIcon(data)">
+                <img id="notifProfileImg" ng-src="{{data.profile_image}}" alt="">
+           </div>
+          
+           <div class="notifInfo">
+               <span id="notifName"><a href="#!dashboard/{{data.firstname}}/{{data.agent_id}}">{{data.firstname + " " + data.lastname + " "}}</a></span>
+               <span id="marked"></span>
+               <span id="verbStatus">{{data.verb}}</span>
+               <span id="foodSubject">{{data.food_name}}</span><br>
+               <span id="notifDate">{{data.notif_date}}</span>
+           </div>
+        </div>
     </div>
 </div>

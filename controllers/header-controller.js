@@ -9,6 +9,16 @@ app.controller('header-controller', ['$scope','$rootScope','RestService','$cooki
   $scope.showCountIcon = 1;
   $scope.incrementTrigger = 0;
   $scope.isFetched = 0;
+  $scope.notifCount = 0;
+
+  var playNotificationSound = function(notifCountPrev, notifCountNext){
+
+    if(notifCountPrev > notifCountNext){
+        let audio = new Audio('contents/assets/resource/audio/notification_sound.mp3');
+        audio.play();
+    }
+   
+}
 
   ///////////////////////////////ASYNC DATA///////////////////////////////////////
 var getData = function(){
@@ -19,6 +29,16 @@ var getData = function(){
         if($scope.dataFeed.fetched == 0){
             $scope.showCountIcon = 1;
             $scope.isFetched = $scope.dataFeed.fetched;
+            $scope.notifCount = $scope.dataFeed.notificationCount - 1
+
+            if($scope.dataFeed.notificationCount > $scope.notifCount){
+                
+                if($scope.notifCount > 0){
+                    $scope.notifCount + 1;
+                }
+                let audio = new Audio('contents/assets/resource/audio/notification_sound.mp3');
+                audio.play();
+            }
            
         }else if($scope.dataFeed.fetched == 1){
             $scope.showCountIcon = 0;
@@ -56,16 +76,9 @@ getData();
 
     ///////////////////////////////ASYNC DATA END///////////////////////////////////////
  
-    var playNotificationSound = function(){
+    
 
-        if($scope.isFetched == 0){
-            let audio = new Audio('contents/assets/resource/audio/notification_sound.mp3');
-            audio.play();
-        }
-       
-    }
-
-    playNotificationSound();
+   
     
     $scope.dropToggle = function(){
         $scope.showDropdown++;
