@@ -1,4 +1,4 @@
-app.controller("order-controller", ['$scope', '$rootScope','RestService','$routeParams',function($scope, $rootScope,RestService, $routeParams){
+app.controller("order-controller", ['$scope', '$rootScope','RestService','$routeParams','$route',function($scope, $rootScope,RestService, $routeParams,$route){
    
     $scope.order = {};
     $scope.food = {};
@@ -10,14 +10,25 @@ app.controller("order-controller", ['$scope', '$rootScope','RestService','$route
     $scope.cancel = 3;
     $scope.qty = 1;
    
-
+    //$rootScope.viewOrderRequest = function(){
+        if($rootScope.data.id != $routeParams.id){
+            $scope.requestStatusFeed = false;
+            $scope.orderMsg = "Order feed private";
+        }else{
+            RestService.viewOrders().then(function(response){
+                $scope.data = response.data;
+                $rootScope.globalOrderId = $scope.data.id;
+                $scope.requestStatusFeed = true;
+            });
+        }
+    //}
 
     $scope.orderRequest = function(){
             $scope.order = {
                 foodId: $rootScope.viewedFood.id,
                 userId: $rootScope.viewedFood.user_id,
                 buyerId: $rootScope.data.id,
-                quantity: $scope.qty
+                quantity:$scope.qty
             }
     
             RestService.orderRequest($scope.order).then(function(response){
@@ -34,17 +45,7 @@ app.controller("order-controller", ['$scope', '$rootScope','RestService','$route
             });
     }
 
-    //$rootScope.viewOrderRequest = function(){
-        if($rootScope.data.id != $routeParams.id){
-            $scope.requestStatusFeed = false;
-            $scope.orderMsg = "Order feed private";
-        }else{
-            RestService.viewOrders().then(function(response){
-                $scope.data = response.data;
-                $scope.requestStatusFeed = true;
-            });
-        }
-    //}
+    
 
     
     $scope.orderIndex = 0;
@@ -57,12 +58,14 @@ app.controller("order-controller", ['$scope', '$rootScope','RestService','$route
                 request: element,
                 foodId: $rootScope.getOrder.food_id,
                 userId: $rootScope.getOrder.user_id,
-                buyerId: $rootScope.getOrder.buyer_id
+                buyerId: $rootScope.getOrder.buyer_id,
+                orderId: $rootScope.getOrder.id
         }
            
         RestService.requestStatus($scope.food).then(function(response){
             $scope.request = response.data;
         });
+        $route.reload();
     }
 
     $scope.requestButton = function(index){

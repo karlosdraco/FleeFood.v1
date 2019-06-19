@@ -68,7 +68,6 @@ app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$co
             $scope.followStatus = response.data;
         });
         $route.reload();
-        
     }
    
     //MODAL FUNCTIONALITY
