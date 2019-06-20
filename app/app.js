@@ -1,4 +1,4 @@
-var app = angular.module("fleefood_app",['ngRoute','ngCookies']);
+var app = angular.module("fleefood_app",['ngRoute','ngCookies','ngAnimate']);
 
 app.config(['$routeProvider','$httpProvider',function($routeProvider, $httpProvider){
   $httpProvider.defaults.withCredentials = true;

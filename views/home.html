@@ -21,10 +21,18 @@
                     </div>
 
                     <div class="feedLocationFilter">
-                        <input type="text" id="filterSearch" placeholder="Filter food by location">
+                        <input type="text" id="filterSearch" placeholder="Filter food by location" ng-model="filterSearch.addressLine2">
                     </div>
                 </div>
-                
+
+                <!--DISCOVER | FOLLOWING-->
+                <div class="globalFeedSwitch">
+                    <button id="discoverButton" ng-click="switchSelector(0)" ng-style="{'background-color': switchColor[0], 'color': switchText[0]}">
+                        Discover
+                    </button><button id="followingButton" ng-click="switchSelector(1)" ng-style="{'background-color': switchColor[1], 'color': switchText[1]}">
+                        Following
+                    </button>
+                </div>
                
                 <div class="post-modal" ng-if="showPost">
                     <div class="post-content">
@@ -97,7 +105,7 @@
                 </div>
 
                 <div class="post-feed" ng-controller="feed-controller">
-                        <div class="feed" ng-repeat="data in feed">
+                        <div class="feed" ng-repeat="data in feed | filter: filterSearch">
                                 <div class="foodList">
                                     <div class="foodCardHeader">
                                        <span id="imgTag"><img ng-src="{{data.profile_image}}" alt="" style="width:30px;"></span>

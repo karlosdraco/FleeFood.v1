@@ -79,4 +79,16 @@
     cursor: pointer;
 }
 
+.notifications-list.ng-enter{
+    transition:0.1s linear all;
+    opacity:0;
+}
 
+.notifications-list.ng-enter-stagger{
+    transition-delay: 0.1s;
+}
+  
+  /* The finishing CSS styles for the enter animation */
+.notifications-list.ng-enter.ng-enter-active {
+    opacity:1;
+}

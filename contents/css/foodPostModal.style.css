@@ -61,55 +61,6 @@
     color: #d31d35;
 }
 
-.user-post{
-    background-color: #ffffff;
-    border: 1px solid #ececec;
-    padding: 5px; 
-    margin-bottom: 20px;
-}
-
-.post-food{
-    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3);
-    width: 120px;
-    border-radius: 3px;
-    display: inline-block;
-    margin-right: 10px;
-    background-image: -webkit-gradient(
-        linear,
-        left bottom,
-        left top,
-        color-stop(0, #fa2d72),
-        color-stop(1,#fa2d72)
-    );
-}
-
-.post-food p{
-    color: #ffffff;
-    margin: 10px;
-    font-family: helvetica;
-    font-weight: bold;
-    text-align: center;
-}
-
-.feedLocationFilter{
-   display: inline-block;
-}
-
-#filterSearch{
-    padding: 10px;
-    width: 270px;
-    border-top: none;
-    border-right: none;
-    border-bottom: 0.3px solid #ececec;
-    border-left: none;
-    outline: none;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.post-food, #postBtn, #cancelBtn:hover{
-    cursor: pointer;
-}
-
 .food-info{
     max-width: 500px;
     margin: 0 auto;
@@ -258,14 +209,14 @@
     display: inline-block;
     width: 60px;
     height: 34px;
-  }
+}
   
 
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
+}
 
   .slider {
     position: absolute;

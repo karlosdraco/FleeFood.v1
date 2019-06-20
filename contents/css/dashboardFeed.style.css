@@ -28,6 +28,23 @@
     float: left;
 }
 
+.post-container.ng-leave{
+    transition:0.2s linear all;
+    opacity:1;
+    -webkit-transform: translateX(0);
+}
+
+.post-container.ng-leave-stagger{
+    transition-delay: 0.1s;
+}
+  
+  /* The finishing CSS styles for the enter animation */
+.post-container.ng-leave.ng-leave-active {
+    opacity:0;
+    -webkit-transform: translateX(-100%);
+}
+
+
 .post-container span{
     vertical-align: top;
 }

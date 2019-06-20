@@ -4,8 +4,8 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
     $scope.reportCount;
     $scope.foodModal = 0;
     $scope.orderFunc = 0;
-    
-    
+
+
         RestService.getFeed().then(function(response){
             $scope.feed = response.data;
             $scope.id = $rootScope.data.id;
