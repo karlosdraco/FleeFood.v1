@@ -8,6 +8,7 @@ app.controller('home-controller', ['$scope','$rootScope','$window','$location', 
     $scope.switchSelector = function(index){
         for(var i = 0; i < 2; i++){
             $scope.switch[i] = 0;
+
             if(i == index){
                 $scope.switch[i] = 1;
                 $scope.switchColor[i] = '#cecece';

@@ -8,6 +8,12 @@
     margin-bottom: 15px;
 }
 
+.followingFeed h3{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #8f8f8f;
+    text-align: center;
+}
+
 .foodCardHeader{
     border-bottom: 1px solid #ececec;
     padding: 10px;

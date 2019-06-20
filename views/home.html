@@ -26,10 +26,10 @@
                 </div>
 
                 <!--DISCOVER | FOLLOWING-->
-                <div class="globalFeedSwitch">
-                    <button id="discoverButton" ng-click="switchSelector(0)" ng-style="{'background-color': switchColor[0], 'color': switchText[0]}">
+                <div class="globalFeedSwitch" ng-controller="feed-controller">
+                    <button id="discoverButton" ng-click="switchSelector(0); discover()" ng-style="{'background-color': switchColor[0], 'color': switchText[0]}">
                         Discover
-                    </button><button id="followingButton" ng-click="switchSelector(1)" ng-style="{'background-color': switchColor[1], 'color': switchText[1]}">
+                    </button><button id="followingButton" ng-click="switchSelector(1); followingPost()" ng-style="{'background-color': switchColor[1], 'color': switchText[1]}">
                         Following
                     </button>
                 </div>
@@ -104,8 +104,9 @@
                     </div>
                 </div>
 
-                <div class="post-feed" ng-controller="feed-controller">
-                        <div class="feed" ng-repeat="data in feed | filter: filterSearch">
+                <div class="post-feed" ng-controller="feed-controller" ng-init="discover()">
+                        
+                        <div class="feed" ng-repeat="data in feed | filter: filterSearch" ng-if="switch[0]">
                                 <div class="foodList">
                                     <div class="foodCardHeader">
                                        <span id="imgTag"><img ng-src="{{data.profile_image}}" alt="" style="width:30px;"></span>
@@ -131,6 +132,37 @@
                                         
                                     </div>
                                 </div>
+                        </div>
+
+                        <div class="followingFeed" ng-if="switch[1]">
+                                <h3>View posts of user you followed</h3>
+                            <div class="feed" ng-repeat="data in feed | filter: filterSearch">
+                                <div class="foodList">
+                                    <div class="foodCardHeader">
+                                       <span id="imgTag"><img ng-src="{{data.profile_image}}" alt="" style="width:30px;"></span>
+                                       <span id="nameTag"><a href="#!dashboard/{{data.firstname}}/{{data.user_id}}">{{data.firstname + " " + data.lastname}}</a></span>
+                                       <span>
+                                            <div>
+                                                <input type="submit" value="Report" id="reportBtn" ng-if="reportButton(data)">
+                                            </div>
+                                        </span>
+                                    </div>
+
+                                    <div class="foodWrapper">
+                                       <span><img id="foodImg" ng-src="{{data.image_link}}" alt="" style="width:100px;"></span>
+                                       <span id="foodName">{{data.food_name}}</span>
+
+                                       <div class="food-detail">
+                                            <div id="price">{{data.currency | uppercase}}.<span>{{data.food_price}}</span></div>
+                                           <!--<p id="delivery">Delivery fee: {{data.currency  + "." + data.delivery_type | uppercase}}</p>-->
+                                            <!--<p id="contact">Contact: {{data.contact}}</p>-->
+                                            <p id="foodDesc">{{data.food_description}}</p>
+                                            <button id="viewBtn" ng-click='viewFood(data)'>View</button>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                        </div>
                         </div>
 
                          <!--VIEW FOOD MODAL-->

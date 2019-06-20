@@ -5,7 +5,7 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
     $scope.foodModal = 0;
     $scope.orderFunc = 0;
 
-
+    $rootScope.discover = function(){
         RestService.getFeed().then(function(response){
             $scope.feed = response.data;
             $scope.id = $rootScope.data.id;
@@ -13,7 +13,18 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
         }).catch(function() {
             $scope.feed = 'Server error';
         });
-       
+    }
+
+    $rootScope.followingPost = function(){
+        RestService.getFollowingFeed().then(function(response){
+            $scope.feed = response.data;
+            $scope.id = $rootScope.data.id;
+        }).catch(function() {
+            $scope.feed = 'Server error';
+        });
+    }
+    
+
     $scope.foodModalOn = function(){
         $scope.foodModal++;
         if($scope.foodModal > 1){

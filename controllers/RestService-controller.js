@@ -84,6 +84,17 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
         })
     }
 
+    service.getFollowingFeed = function(){
+        return $http({
+            method: 'GET',
+            url: url + 'getFollowingPost',
+            withCredentials: true,
+            headers : { 
+                'Content-Type': 'application/json'
+            } 
+        })
+    }
+
     service.userPost = function(){
         return $http({
             method: 'GET',
