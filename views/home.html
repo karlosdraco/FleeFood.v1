@@ -184,15 +184,15 @@
                                 </div>
                             </div>
                            
-                            <div class="viewedFoodDetails">
+                            <div class="viewedFoodDetails" >
                                 <h3>{{viewedFood.food_name}}</h3>
-                                <div class="post-time">Posted: {{viewedFood.post_date + " |  " + viewedFood.post_expiration}}</div>
+                                <div class="post-time">Posted: {{viewedFood.post_date + " | " + viewedFood.post_expiration}}</div>
                                 <div class="descriptionWrapper">
                                     <p>{{viewedFood.food_description}}</p>
                                 </div>
                                 <div class="order" ng-if="orderFunc">
                                     <span id="quantity"><input type="number" min="1" ng-model="qty" placeholder="Qty."></span>
-                                    <span id="foodOrder"><button ng-click="orderRequest()">ORDER</button></span>
+                                    <span id="foodOrder"><button ng-click="orderRequest(qty)">ORDER</button></span>
                                 </div>
                                 
                             </div>

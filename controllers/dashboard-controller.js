@@ -167,12 +167,18 @@ app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$co
         });
     }
 
+    $scope.viewMyOrder = function(){
+        RestService.myOrder().then(function(response){
+            $scope.cart = response.data;
+        })
+    }
+
     //PROFILE FEED SELECTOR
     $scope.tab = [];
     $scope.tab[0] = 1;
     
     $scope.dashboardSelector = function(index){
-        for(var i = 0; i < 5; i++){
+        for(var i = 0; i < 6; i++){
             $scope.tab[i] = 0;
             if(i == index){
                 $scope.tab[i] = 1;

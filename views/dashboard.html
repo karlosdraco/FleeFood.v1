@@ -94,8 +94,8 @@
                             <div class="status">{{status.requestOrderCount}}</div>
                             Food request
                        </span><span>
-                            <div class="addStall">
-                                <img class="addIcon" src="./contents/assets/Resource/images/icons/icons8-add-48.png" alt="">
+                            <div class="showCart" ng-click="dashboardSelector(5); viewMyOrder();">
+                                <img class="cartIcon" src="./contents/assets/resource/images/icons/cart.png" alt="">
                             </div>
                        </span>
                 </div>
@@ -180,6 +180,23 @@
 
             <div class="orderFeedPrivacy" ng-if="!requestStatusFeed">
                 <h3>{{orderMsg}}</h3>
+            </div>
+        </div>
+
+        <div ng-if="tab[5]">
+            <h3 id="myOrderTitle">My orders</h3>
+            <div class="cartContainer" ng-repeat="items in cart">
+               
+                <img id="cart-order-img" ng-src="{{items.image_link}}" alt="">
+               
+                <div class="cart-order-info">
+                    <h3 id="cart-order-name">{{items.food_name}}</h3>
+                    <p>Quantity: {{items.quantity}}</p>
+                    <p id="cart-order-price">{{items.currency + " " + items.food_price}}</p>
+                    <p id="total">Total: {{items.quantity * items.food_price}}</p>
+                </div>
+               
+                <p>Request status: {{items.request}}</p>
             </div>
         </div>
     </div>

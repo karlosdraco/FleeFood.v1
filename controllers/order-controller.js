@@ -9,7 +9,7 @@ app.controller("order-controller", ['$scope', '$rootScope','RestService','$route
     $scope.claimed = 2;
     $scope.cancel = 3;
     $scope.qty = 1;
-   
+
     //$rootScope.viewOrderRequest = function(){
         if($rootScope.data.id != $routeParams.id){
             $scope.requestStatusFeed = false;
@@ -23,14 +23,15 @@ app.controller("order-controller", ['$scope', '$rootScope','RestService','$route
         }
     //}
 
-    $scope.orderRequest = function(){
-            $scope.order = {
-                foodId: $rootScope.viewedFood.id,
-                userId: $rootScope.viewedFood.user_id,
-                buyerId: $rootScope.data.id,
-                quantity:$scope.qty
+    $scope.orderRequest = function(qty){
+            
+        $scope.order = {
+               foodId: $rootScope.viewedFood.id,
+               userId: $rootScope.viewedFood.user_id,
+               buyerId: $rootScope.data.id,
+               quantity: qty
             }
-    
+          
             RestService.orderRequest($scope.order).then(function(response){
                 $scope.orderCallBack = response.data;
     
@@ -44,10 +45,7 @@ app.controller("order-controller", ['$scope', '$rootScope','RestService','$route
                 }
             });
     }
-
-    
-
-    
+ 
     $scope.orderIndex = 0;
     $scope.updateRequest = function(element, index){
         

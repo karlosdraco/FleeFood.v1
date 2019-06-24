@@ -227,6 +227,17 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
         })
     }
 
+    service.myOrder = function(){
+        return $http({
+            method: 'GET',
+            url: url + 'myOrder',
+            withCredentials: true,
+            headers : { 
+                'Content-Type': 'application/json'
+            } 
+        })
+    }
+
     service.requestStatus = function(food){
         return $http({
             method: 'PUT',

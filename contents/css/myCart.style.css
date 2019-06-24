@@ -1,0 +1,44 @@
+.cartContainer{
+    background-color: #ffffff;
+    border: 1px solid #ececec;
+    margin: 10px;
+    height: 100px;
+}
+
+#myOrderTitle{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #6d6d6d;
+    text-align: center;
+}
+
+#cart-order-img{
+   width: 100px;
+   float: left;
+   margin-right: 10px;
+}
+
+.cart-order-info h3{
+    color: #696969;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cart-order-info p{
+   color: #35aa4e;
+   display: inline;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-weight: 600;
+   margin-right: 10px;
+}
+
+.cartContainer p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#cart-order-name{
+    vertical-align: top;
+}
+
+#cart-order-price{
+    vertical-align: top;
+}
