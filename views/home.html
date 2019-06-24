@@ -9,8 +9,8 @@
                 <br/><br/><br/>
                 <div class="profile-stats">
                    <span><p class="statsCard">Starter</p><p>Status</p>
-                   </span><span><p class="statsCard">{{profileCard.follower}}</p><p>Followers</p>
-                   </span><span><p class="statsCard">{{profileCard.following}}</p><p>Following</p></span>
+                   </span><span><p class="statsCard">{{dataFeed.followerCount}}</p><p>Followers</p>
+                   </span><span><p class="statsCard">{{dataFeed.followingCount}}</p><p>Following</p></span>
                 </div>
         </div>
 
@@ -37,9 +37,9 @@
                 <div class="post-modal" ng-if="showPost">
                     <div class="post-content">
                             <div class="errorWrapper">
-                                    <div class="errorMsg" ng-style="{'background-color': data.msgColor }" ng-if="showErrorMsg">
-                                        {{errMsg}}
-                                    </div>
+                                <div class="errorMsg" ng-style="{'background-color': data.msgColor }" ng-if="showErrorMsg">
+                                    {{errMsg}}
+                                </div>
                             </div>
                            
                             <h2 class="post-header">Start sharing food</h2>
@@ -123,7 +123,7 @@
                                        <span id="foodName">{{data.food_name}}</span>
 
                                        <div class="food-detail">
-                                            <div id="price">{{data.currency | uppercase}}.<span>{{data.food_price}}</span></div>
+                                           <div id="price" ng-if="freeSign(data)">{{data.currency | uppercase}}.<span>{{data.food_price}}</span></div>
                                            <!--<p id="delivery">Delivery fee: {{data.currency  + "." + data.delivery_type | uppercase}}</p>-->
                                             <!--<p id="contact">Contact: {{data.contact}}</p>-->
                                             <p id="foodDesc">{{data.food_description}}</p>

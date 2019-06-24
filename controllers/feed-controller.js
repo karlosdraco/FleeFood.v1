@@ -4,6 +4,7 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
     $scope.reportCount;
     $scope.foodModal = 0;
     $scope.orderFunc = 0;
+    $scope.isFree = 0;
 
     $rootScope.discover = function(){
         RestService.getFeed().then(function(response){
@@ -63,8 +64,11 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
             var freeIndex = $scope.feed.indexOf(index);
             var priceFree = $scope.feed[freeIndex];
 
-            if(priceFree.food_price == 0){
+            if(priceFree.food_price == 0.00){
                 priceFree.food_price = $scope.free;
+                return $scope.isFree == 1;
+            }else{
+                return $scope.isFree == 0;
             }
         }
 }]);

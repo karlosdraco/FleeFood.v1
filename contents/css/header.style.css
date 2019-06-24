@@ -148,8 +148,8 @@
 
 
 #notifCount{
-    position: relative;
-    top: -5px;
+    position: absolute;
+    top: 20px;
     background-color: red;
     color: #ffffff;
     padding: 3px;
