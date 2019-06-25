@@ -31,8 +31,15 @@
    margin-right: 10px;
 }
 
+#cart-order-date{
+    color: #7a7a7a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+}
+
 .cartContainer p{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
 }
 
 #cart-order-name{

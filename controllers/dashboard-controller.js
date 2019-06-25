@@ -86,7 +86,6 @@ app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$co
         }
     }
 
-
     //FETCHING PROFILE DATA
     $scope.show_profile_update = function(){
         if($scope.loggedUser.firstname != $routeParams.name && $scope.loggedUser.id != $routeParams.id){
@@ -140,6 +139,7 @@ app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$co
             $scope.showErrorLabel = 0;
         }
     }
+
 
     $scope.editPost = function(index){
         $scope.editIndex = $rootScope.feed.indexOf(index);

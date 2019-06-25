@@ -11,15 +11,10 @@ app.controller('header-controller', ['$scope','$rootScope','RestService','$cooki
   $scope.isFetched = 0;
   $scope.notifCount = 0;
 
-  var playNotificationSound = function(notifCountPrev, notifCountNext){
-
-    if(notifCountPrev > notifCountNext){
-        let audio = new Audio('contents/assets/resource/audio/notification_sound.mp3');
-        audio.play();
-    }
-   
+  $scope.key = ($event) => {
+    $scope.showDropdown--;
+    //console.log('got key ' + $event.code);
 }
-
   ///////////////////////////////ASYNC DATA///////////////////////////////////////
 var getData = function(){
     

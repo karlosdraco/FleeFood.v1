@@ -49,6 +49,14 @@ app.controller("post-controller",['$scope','$rootScope','RestService',function($
         }
     }
 
+    $scope.key = ($event) => {
+        if($event.keyCode == 27){
+            $rootScope.showPost--;
+        }
+        //console.log('got key ' + $event.code);
+    }
+
+
     $scope.postIndex = 0;
     
     $scope.deleteFood = function(index){

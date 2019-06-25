@@ -191,7 +191,8 @@
                
                 <div class="cart-order-info">
                     <h3 id="cart-order-name">{{items.food_name}}</h3>
-                    <p>Quantity: {{items.quantity}}</p>
+                    <p id="cart-order-date">Date ordered: {{items.order_date}}</p><br>
+                    <p id="cart-order-quantity">Quantity: {{items.quantity}}</p>
                     <p id="cart-order-price">{{items.currency + " " + items.food_price}}</p>
                     <p id="total">Total: {{items.quantity * items.food_price}}</p>
                 </div>
@@ -211,7 +212,7 @@
 
     <!----------------------------------------HTML MODALS HERE-------------------------------------------------------------->
     <!--PROFILE UPDATE MODALS-->
-    <div class="update_profile" ng-if="showModal">
+    <div class="update_profile" ng-if="showModal" ng-keydown="key($event)" tabindex="0">
         <div class="modal_content">
             <span class="modal-p-close" ng-click="modal()">&times;</span>
              <h2>Update profile</h2>
@@ -238,7 +239,7 @@
         </div>
     </div>
 
-<div class="update_post_wrapper" ng-controller="post-controller">
+<div class="update_post_wrapper" ng-controller="post-controller" ng-keydown="key($event)" tabindex="0">
     <div class="edit_post_modal" ng-if="showEditModal">
         <div class="edit_post_container"> 
             <span class="edit-p-close" ng-click="editModalOn()">&times;</span>

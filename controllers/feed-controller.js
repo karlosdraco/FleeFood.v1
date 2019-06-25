@@ -5,6 +5,7 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
     $scope.foodModal = 0;
     $scope.orderFunc = 0;
     $scope.isFree = 0;
+    $scope.showFollowFeed = true;
 
     $rootScope.discover = function(){
         RestService.getFeed().then(function(response){
@@ -20,6 +21,11 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
         RestService.getFollowingFeed().then(function(response){
             $scope.feed = response.data;
             $scope.id = $rootScope.data.id;
+          
+            if($scope.feed.count == 0){
+                $scope.showFollowFeed = false;
+            }
+           
         }).catch(function() {
             $scope.feed = 'Server error';
         });
@@ -31,6 +37,13 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
         if($scope.foodModal > 1){
             $scope.foodModal = 0;
         }
+    }
+
+    $scope.key = ($event) => {
+        if($event.keyCode == 27){
+            $scope.foodModal--;
+        }
+        //console.log('got key ' + $event.code);
     }
 
     $scope.foodIndex = 0;

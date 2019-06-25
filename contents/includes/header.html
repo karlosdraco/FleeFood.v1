@@ -27,7 +27,7 @@
             </a>
             <div class="arrow-down" ng-click="dropToggle()"></div>
 
-            <div class="dropdown_content" ng-if="showDropdown">
+            <div class="dropdown_content" ng-if="showDropdown" ng-keydown="key($event)" tabindex="0">
                 <div class="arrow-up"></div>
                 <span><a href="#!stalls">Stalls</a></span>
                 <span><a href="#!account_settings">Account Settings</a></span>

@@ -34,7 +34,7 @@
                     </button>
                 </div>
                
-                <div class="post-modal" ng-if="showPost">
+                <div class="post-modal" ng-if="showPost" ng-keydown="key($event)" tabindex="0"> 
                     <div class="post-content">
                             <div class="errorWrapper">
                                 <div class="errorMsg" ng-style="{'background-color': data.msgColor }" ng-if="showErrorMsg">
@@ -135,8 +135,9 @@
                         </div>
 
                         <div class="followingFeed" ng-if="switch[1]">
-                                <h3>View posts of user you followed</h3>
-                            <div class="feed" ng-repeat="data in feed | filter: filterSearch">
+                                <h3 ng-if="showFollowFeed">View posts of user you followed</h3>
+                                <h3 ng-if="!showFollowFeed">You are not following a vendor</h3>
+                            <div class="feed" ng-repeat="data in feed | filter: filterSearch" ng-if="showFollowFeed">
                                 <div class="foodList">
                                     <div class="foodCardHeader">
                                        <span id="imgTag"><img ng-src="{{data.profile_image}}" alt="" style="width:30px;"></span>
@@ -166,8 +167,7 @@
                         </div>
 
                          <!--VIEW FOOD MODAL-->
-                    <div class="view-food-modal" ng-if="foodModal" ng-controller="order-controller">
-                           
+                    <div class="view-food-modal" ng-keydown="key($event)" tabindex="0" ng-if="foodModal" ng-controller="order-controller">
                         <div class="view-food-container">
                                 <div class="orderError" ng-if="error">
                                         <p>{{orderCallBack.message}}</p>
