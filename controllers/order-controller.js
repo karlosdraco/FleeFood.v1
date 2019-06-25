@@ -29,7 +29,8 @@ app.controller("order-controller", ['$scope', '$rootScope','RestService','$route
                foodId: $rootScope.viewedFood.id,
                userId: $rootScope.viewedFood.user_id,
                buyerId: $rootScope.data.id,
-               quantity: qty
+               quantity: qty,
+               price: $rootScope.viewedFood.food_price
             }
           
             RestService.orderRequest($scope.order).then(function(response){
