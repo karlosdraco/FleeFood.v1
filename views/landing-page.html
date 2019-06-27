@@ -1,13 +1,16 @@
-<div class="page-wrapper">
-   
+<div class="page-wrapper" ng-controller="signup-controller">
+        <div class="accountCreatedMsg" ng-controller="signup-controller" ng-if="showSuccess">
+            <h2>{{signup.message}}</h2>
+        </div>
     <div class="form-banner">
             <div class="s-in-out-toggler">
                     <div class="toggle-btn" id="sign-up-toggle" ng-click="userCardSelector(0)">SIGN UP
                     </div><div class="toggle-btn" id="log-in-toggle" ng-click="userCardSelector(1)">LOGIN</div>
             </div>
-        <div class="signup" ng-controller="signup-controller">
+        <div class="signup">
+            
                 <div class="error-call" ng-if="showSignUpErr">
-                        <p>{{errors.error}}</p>
+                        <p>{{signup.message}}</p>
                 </div>
             <form id="signupForm" ng-if="card[0]" ng-submit="submitSignUpForm()">
                     <div class="header">
@@ -43,9 +46,9 @@
        
     </div>
      
-    <div class="right-tag-line">
+    <div class="right-tag-line" ng-if="hide_element">
         <h2>Don't waste your food, just sell it for less or give it for free!</h2>
-        <h2>And make your food stall business be known all around the world</h2>
+        <h2>Make your food business be known all around the world</h2>
     </div>  
    
 </div>

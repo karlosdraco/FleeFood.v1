@@ -10,13 +10,15 @@ app.controller('header-controller', ['$scope','$rootScope','RestService','$cooki
   $scope.incrementTrigger = 0;
   $scope.isFetched = 0;
   $scope.notifCount = 0;
-
-  $scope.key = ($event) => {
+  
+  
+  
+$scope.key = ($event) => {
     $scope.showDropdown--;
     //console.log('got key ' + $event.code);
 }
   ///////////////////////////////ASYNC DATA///////////////////////////////////////
-var getData = function(){
+var getData = function(){ 
     
     RestService.asyncData().then(function(response){
         $scope.dataFeed = response.data;

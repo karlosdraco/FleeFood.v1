@@ -1,6 +1,6 @@
 <div class="home-wrapper">
     <div class="home-content" >
-        <div class="user-profile-widget" ng-controller="header-controller" >
+        <div class="user-profile-widget" ng-controller="header-controller" ng-if="hide_element">
                 <img id="userimgCard" ng-src="{{data.imgUrl}}" alt="">
                 <div class="profile-info-container">
                         <p id="name">{{data.firstname + " " + data.lastname}}</p>

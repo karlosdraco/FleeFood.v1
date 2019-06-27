@@ -1,16 +1,20 @@
 <div class="header-wrapper">
     <div class="header-container">
-        <div class="logo-container">
-            <h1>FleeFood</h1>
-        </div>
 
+        <div class="logo-res-controls">
+            <div class="logo-container">
+                <h1>FleeFood</h1>
+               
+            </div>
+        </div>
+       
         <div class="header-content" ng-if="showHeaderNav" ng-controller="notifications-controller">
             <span><a href="#!home">Home</a></span>
             <span><a href="#!notification" ng-click="viewNotification()">Notification<span id="notifCount" ng-if="showCountIcon">{{dataFeed.notificationCount}}</span></a></span>
             <span><a href="#!dashboard/{{data.firstname}}/{{data.id}}">Requests</a></span>
         </div>
 
-        <div class="searchBar">
+        <div class="searchBar" ng-if="hide_element">
             <form action="">
                 <input id="search-bar" type="text" placeholder="Search food or place">
                 <input id="search-button" type="submit" value="Search">

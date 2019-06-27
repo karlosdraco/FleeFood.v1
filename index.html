@@ -49,6 +49,7 @@
     <script src="controllers/order-controller.js"></script>
     <script src="controllers/map-controller.js"></script>
     <script src="controllers/notifications-controller.js"></script>
+    <script src="controllers/responsive-controller.js"></script>
 
     <!--DIRECTIVES AND FILTERS-->
     <script src="app/upload.directive.js"></script>
@@ -56,9 +57,10 @@
     <script src="app/maps.factory.js"></script>
     <script src="app/scrollPos.directive.js"></script>
     <script src="app/clickoutside.directive.js"></script>
+    <script src="app/windowSize.directive.js"></script>
 
 </head>
-<body ng-animate-children="true">
+<body ng-controller="responsive-controller">
 
     <header ng-include="'contents/includes/header.html'" ng-controller="header-controller"></header>
   

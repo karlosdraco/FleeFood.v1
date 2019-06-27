@@ -78,16 +78,6 @@
     animation-duration: 0.3s;
 }
 
-@keyframe opacity{
-    0%{
-        opacity: 0;
-    }
-
-    100%{
-        opacity: 100;
-    }
-}
-
 .error-call p{
     font-family: helvetica;
     font-size: 15px;
@@ -177,4 +167,59 @@
     font-size: 35px;
     color: #FFFFFF;
     text-shadow: 2px 3px 0 #525252;
+}
+
+.accountCreatedMsg{
+    position: fixed;
+    top: 70px;
+    z-index: 3;
+    background-color: #ffffff;
+    margin-left: 250px;
+    border: 1px solid #d3d3d3;
+    animation-name: opacity;
+    animation-duration: 0.3s;
+    animation-timing-function: ease;
+    
+}
+
+.accountCreatedMsg h2{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:  #2ccc34;
+    font-weight: 400;
+    margin: 10px;
+}
+
+
+@keyframe opacity{
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 100;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .form-banner{
+        width: 400px;
+        margin-left: 40px;
+        
+    }
+
+    .toggle-btn{
+        padding: 8px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .form-banner{
+        width: 200px;
+        margin-left: 40px;
+        
+    }
+
+    .toggle-btn{
+        padding: 2px;
+    }
 }
