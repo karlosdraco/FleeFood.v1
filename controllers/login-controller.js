@@ -1,6 +1,6 @@
-app.controller("login-controller", ['$scope','RestService','$window',function($scope,RestService, $window){
+app.controller("login-controller", ['$scope','$rootScope','RestService','$window',function($scope,$rootScope,RestService, $window){
         $scope.user = {};
-        $scope.showError = 0;
+        $rootScope.showError = 0;
         $scope.userHeaderIcon = 0;
 
         $scope.submitLoginForm = function(){
@@ -12,7 +12,7 @@ app.controller("login-controller", ['$scope','RestService','$window',function($s
                     $window.location.reload();
             
                 }else{
-                    $scope.showError++;
+                    $rootScope.showError++;
                 }
             });
         }

@@ -11,6 +11,12 @@
     text-align: center;
 }
 
+#cartMsg{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #6d6d6d;
+    text-align: center;
+}
+
 #cart-order-img{
    width: 100px;
    float: left;
@@ -49,3 +55,4 @@
 #cart-order-price{
     vertical-align: top;
 }
+

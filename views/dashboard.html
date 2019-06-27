@@ -185,7 +185,8 @@
 
         <div ng-if="tab[5]">
             <h3 id="myOrderTitle">My orders</h3>
-            <div class="cartContainer" ng-repeat="items in cart">
+            <p id="cartMsg">{{cart.message}}</p>
+            <div class="cartContainer" ng-repeat="items in cart" ng-if="showCart">
                
                 <img id="cart-order-img" ng-src="{{items.image_link}}" alt="">
                

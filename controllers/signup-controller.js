@@ -1,6 +1,6 @@
-app.controller("signup-controller", ['$scope','RestService',function($scope,RestService){
+app.controller("signup-controller", ['$scope','$rootScope','RestService',function($scope,$rootScope,RestService){
     $scope.user = {};
-    $scope.showSignUpErr = false;
+    $rootScope.showSignUpErr = 0;
 
     $scope.submitSignUpForm = function(){
         var form = document.getElementById('signupForm');
@@ -8,9 +8,9 @@ app.controller("signup-controller", ['$scope','RestService',function($scope,Rest
         RestService.signupUser($scope.user).then(function(response){
             $scope.errors = response.data;
             if($scope.errors.errorFlag){
-                $scope.showSignUpErr = true;
+                $rootScope.showSignUpErr = 1;
             }else{
-                $scope.showSignUpErr = false;
+                $rootScope.showSignUpErr = 0;
                 form.reset();
             }
             form.reset();

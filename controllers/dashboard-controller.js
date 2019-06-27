@@ -13,6 +13,7 @@ app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$co
     $rootScope.profileCard = {};
     $scope.showEditModal = 0;
     $scope.showErrorLabel = 1;
+    $scope.showCart = 1;
    
     //CHECKING IF THERE'S A COOKIE
     if($cookies.get('auth_token')){
@@ -88,7 +89,7 @@ app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$co
 
     //FETCHING PROFILE DATA
     $scope.show_profile_update = function(){
-        if($scope.loggedUser.firstname != $routeParams.name && $scope.loggedUser.id != $routeParams.id){
+        if($scope.loggedUser.firstname != $routeParams.name || $scope.loggedUser.id != $routeParams.id){
             $scope.showFollow = 1;
             $scope.showUpdateProfileImageBtn = 0;
             $scope.showEditBtn = 0;
@@ -170,6 +171,9 @@ app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$co
     $scope.viewMyOrder = function(){
         RestService.myOrder().then(function(response){
             $scope.cart = response.data;
+            if($scope.cart.count == 0){
+                $scope.showCart = 0;
+            }
         })
     }
 

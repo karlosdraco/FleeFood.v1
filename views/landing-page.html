@@ -1,14 +1,15 @@
 <div class="page-wrapper">
+   
     <div class="form-banner">
             <div class="s-in-out-toggler">
-                    <div class="toggle-btn" id="sign-up-toggle" ng-click="showSignUp = 1;showSignIn = 0;">SIGN UP
-                    </div><div class="toggle-btn" id="log-in-toggle" ng-click="showSignIn = 1;showSignUp = 0;">LOGIN</div>
+                    <div class="toggle-btn" id="sign-up-toggle" ng-click="userCardSelector(0)">SIGN UP
+                    </div><div class="toggle-btn" id="log-in-toggle" ng-click="userCardSelector(1)">LOGIN</div>
             </div>
         <div class="signup" ng-controller="signup-controller">
                 <div class="error-call" ng-if="showSignUpErr">
                         <p>{{errors.error}}</p>
                 </div>
-            <form id="signupForm" ng-if="showSignUp" ng-submit="submitSignUpForm()">
+            <form id="signupForm" ng-if="card[0]" ng-submit="submitSignUpForm()">
                     <div class="header">
                         Sign up and start sharing food
                     </div>
@@ -25,7 +26,7 @@
                 <div class="error-call" ng-if="showError">
                     <p>{{error.message}}</p>
                 </div>
-                <form ng-if="showSignIn" ng-submit="submitLoginForm()">
+                <form ng-if="card[1]" ng-submit="submitLoginForm()">
                         <div class="header">
                             Let's start sharing food
                         </div>
@@ -39,9 +40,16 @@
                 </form>
         </div>
         <div class="sign-in-out-footer"><p>By proceeding, you agree to our <a href="#">Privacy Policy</a> and <a href="#">Terms of Use</a>.</p></div>
+       
     </div>
+     
+    <div class="right-tag-line">
+        <h2>Don't waste your food, just sell it for less or give it for free!</h2>
+        <h2>And make your food stall business be known all around the world</h2>
+    </div>  
+   
 </div>
 
 <div class="img-banner">
-        <img src="./contents/assets/Resource/images/web-resource-img/background.jpg" alt="">
+        <img src="./contents/assets/Resource/images/web-resource-img/bowl.jpg" alt="">
 </div>

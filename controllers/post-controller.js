@@ -110,7 +110,7 @@ app.controller("post-controller",['$scope','$rootScope','RestService',function($
                     
                 }
             })
-        }
+    }
 
     $scope.card = [];
     $scope.card[0] = 1;
