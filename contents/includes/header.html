@@ -4,7 +4,6 @@
         <div class="logo-res-controls">
             <div class="logo-container">
                 <h1>FleeFood</h1>
-               
             </div>
         </div>
        
@@ -20,25 +19,44 @@
                 <input id="search-button" type="submit" value="Search">
             </form>
         </div>
-        
-        <div class="user_icon_card" ng-if="showUserHeaderIcon">
+       
+        <div class="user_card_header_responsive_controls" ng-if="hide_element">
+            <div class="user_icon_card" ng-if="showUserHeaderIcon">
           
-            <a href="#!dashboard/{{data.firstname}}/{{data.id}}">
-                <div class="user_icon">
-                    <img ng-src="{{data.imgUrl}}" alt="">
-                    <span>{{data.firstname}}</span>
+                <a href="#!dashboard/{{data.firstname}}/{{data.id}}">
+                    <div class="user_icon">
+                        <img ng-src="{{data.imgUrl}}" alt="">
+                        <span>{{data.firstname}}</span>
+                    </div>
+                </a>
+                <div class="arrow-down" ng-click="dropToggle()"></div>
+    
+                <div class="dropdown_content" ng-if="showDropdown" ng-keydown="key($event)" tabindex="0">
+                    <div class="arrow-up"></div>
+                    <span><a href="#!stalls">Stalls</a></span>
+                    <span><a href="#!account_settings">Account Settings</a></span>
+                    <span ng-click="logout()">Logout</span>
                 </div>
-            </a>
-            <div class="arrow-down" ng-click="dropToggle()"></div>
-
-            <div class="dropdown_content" ng-if="showDropdown" ng-keydown="key($event)" tabindex="0">
-                <div class="arrow-up"></div>
-                <span><a href="#!stalls">Stalls</a></span>
-                <span><a href="#!account_settings">Account Settings</a></span>
-                <span ng-click="logout()">Logout</span>
             </div>
-            
         </div>
+        <!--TEMPORARY CODES FOR RESPONSIVE DESIGN-->
+        <div class="mobileNavBar">
+           <img src="../assets/resource/images/icons/menu-bar.png" alt="">
+
+           <div class="menuSlider">
+
+                <a href="#!dashboard/{{data.firstname}}/{{data.id}}">
+                    <div class="user_icon">
+                        <img ng-src="{{data.imgUrl}}" alt="">
+                        <span style="color: black">{{data.firstname}}</span>
+                    </div>
+                </a>
+                <div><a href="#!stalls">Stalls</a></div>
+                <div><a href="#!account_settings">Account Settings</a></div>
+                <div id="logoutBtn" ng-click="logout()">Logout</div>
+           </div>
+        </div>
+      
     </div>
 </div>
 

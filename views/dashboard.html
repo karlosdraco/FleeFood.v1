@@ -1,7 +1,7 @@
 <div class="profile-wrapper" keep-scroll-pos>
     <div class="profile-content">
        <!--USER PROFILE LEFT CONTAINER-->
-       <div class="user-profile-head" ng-repeat="user in profile">
+       <div class="user-profile-head" ng-repeat="user in profile" ng-if="hide_element">
             
             <div class="updateProfileImageModal" ng-if="showProfileImageModal" ng-controller="upload-controller">
                 <div class="updateImageButton">

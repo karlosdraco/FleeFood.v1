@@ -1,0 +1,60 @@
+
+@media only screen and (max-width: 700px) {
+    .form-banner{
+        width: 400px;
+        margin-left: 40px;
+        
+    }
+
+    .toggle-btn{
+        padding: 8px;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    .logo-container{
+        width: 120px;
+    }
+
+    .logo-container h1{
+        font-size: 20px;
+    }
+
+    .user_icon_card{
+        width: 70px;
+    }
+
+    .arrow-down{
+        top: 25px;
+    }
+
+}
+
+@media only screen and (max-width: 400px) {
+    .header-content{
+        background-color: #ffffff;
+        padding: 20px;
+        margin: 25px;
+        position: relative;
+        top: -20px;
+        border: 1px solid #ececec;
+    }
+
+    .header-content a{
+        color:black;
+    }
+}
+
+
+@media only screen and (max-width: 300px) {
+    .form-banner{
+        width: 200px;
+        margin-left: 40px;
+        
+    }
+
+    .toggle-btn{
+        padding: 2px;
+    }
+}
