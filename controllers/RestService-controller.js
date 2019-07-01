@@ -3,7 +3,7 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
     var service = {};
     var url = 'http://127.0.0.1/fleefood_API/';
     //var url = 'https://c76c87f8.ngrok.io/fleefood_API/';
-    //var url = 'https://valde.serveo.net/fleefood_API/';
+    //var url = ' https://orior.serveo.net/fleefood_API/';
     service.loginUser = function(user){
         return $http({
             method: 'POST',

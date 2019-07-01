@@ -34,10 +34,12 @@
 @media only screen and (max-width: 400px) {
     .header-content{
         background-color: #ffffff;
-        padding: 20px;
+        padding: 15px;
         margin: 25px;
         position: relative;
-        top: -20px;
+        top: -33px;
+        left: -30px;
+        width: 100%;
         border: 1px solid #ececec;
     }
 
@@ -46,8 +48,51 @@
     }
 }
 
+@media only screen and (max-width: 330px){
+    .header-content a{
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .user-post{
+        position: relative;
+        left: -23px;
+        width: 315px;
+    }
+
+    #filterSearch{
+        width: 180px;
+    }
+
+    .post-food{
+        width: 70px;
+       
+    }
+
+    .post-food p{
+        font-size: 12px;
+    }
+
+    .home-wrapper{
+        max-width: 330px;
+        margin: 0 auto;
+    }
+
+    .feed{
+        width: 320px;
+        position: relative;
+        left: -110px;
+    }
+
+    .foodWrapper #foodImg{
+        float: none;
+        background-color: red;
+    }
+}
 
 @media only screen and (max-width: 300px) {
+
+  
     .form-banner{
         width: 200px;
         margin-left: 40px;

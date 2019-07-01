@@ -1,4 +1,4 @@
-app.controller("order-controller", ['$scope', '$rootScope','RestService','$routeParams','$route',function($scope, $rootScope,RestService, $routeParams,$route){
+app.controller("order-controller", ['$scope', '$rootScope','RestService','$routeParams','$route','$q',function($scope, $rootScope,RestService, $routeParams,$route,$q){
    
     $scope.order = {};
     $scope.food = {};
@@ -50,6 +50,8 @@ app.controller("order-controller", ['$scope', '$rootScope','RestService','$route
     $scope.orderIndex = 0;
     $scope.updateRequest = function(element, index){
         
+        var q = q.defer();
+
         $scope.orderIndex = $scope.data.indexOf(index);
         $rootScope.getOrder = $scope.data[$scope.orderIndex];
 
@@ -63,10 +65,11 @@ app.controller("order-controller", ['$scope', '$rootScope','RestService','$route
            
         RestService.requestStatus($scope.food).then(function(response){
             $scope.request = response.data;
-        });
+        })
         $route.reload();
     }
 
+    
     $scope.requestButton = function(index){
         var listIndex = $scope.data.indexOf(index);
         var listOrder = $scope.data[listIndex];

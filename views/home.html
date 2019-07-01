@@ -105,15 +105,16 @@
                 </div>
 
                 <div class="post-feed" ng-controller="feed-controller" ng-init="discover()">
-                        
+
                         <div class="feed" ng-repeat="data in feed | filter: filterSearch" ng-if="switch[0]">
                                 <div class="foodList">
                                     <div class="foodCardHeader">
                                        <span id="imgTag"><img ng-src="{{data.profile_image}}" alt="" style="width:30px;"></span>
-                                       <span id="nameTag"><a href="#!dashboard/{{data.firstname}}/{{data.user_id}}">{{data.firstname + " " + data.lastname}}</a></span>
+                                       <span id="nameTag"><a href="#!dashboard/{{data.firstname}}/{{data.user_id}}">{{data.firstname + " " + data.lastname}}</a></span><br>
+                                       <span id="postDate">Posted: {{data.post_date}}</span>
                                        <span>
                                             <div>
-                                                <input type="submit" value="Report" id="reportBtn" ng-if="reportButton(data)">
+                                                <input type="submit" value="Report" id="reportBtn" ng-if="reportButton(data)" click="reportModal(data)">
                                             </div>
                                         </span>
                                     </div>
@@ -126,7 +127,7 @@
                                            <div id="price" ng-if="freeSign(data)">{{data.currency | uppercase}}.<span>{{data.food_price}}</span></div>
                                            <!--<p id="delivery">Delivery fee: {{data.currency  + "." + data.delivery_type | uppercase}}</p>-->
                                             <!--<p id="contact">Contact: {{data.contact}}</p>-->
-                                            <p id="foodDesc">{{data.food_description}}</p>
+                                            <p id="foodDesc" ng-if="hide_element">{{data.food_description}}</p>
                                             <button id="viewBtn" ng-click='viewFood(data)'>View</button>
                                         </div>
                                         
@@ -141,7 +142,8 @@
                                 <div class="foodList">
                                     <div class="foodCardHeader">
                                        <span id="imgTag"><img ng-src="{{data.profile_image}}" alt="" style="width:30px;"></span>
-                                       <span id="nameTag"><a href="#!dashboard/{{data.firstname}}/{{data.user_id}}">{{data.firstname + " " + data.lastname}}</a></span>
+                                       <span id="nameTag"><a href="#!dashboard/{{data.firstname}}/{{data.user_id}}">{{data.firstname + " " + data.lastname}}</a></span><br>
+                                       <span id="postDate">Posted: {{data.post_date}}</span>
                                        <span>
                                             <div>
                                                 <input type="submit" value="Report" id="reportBtn" ng-if="reportButton(data)">
@@ -160,13 +162,21 @@
                                             <p id="foodDesc">{{data.food_description}}</p>
                                             <button id="viewBtn" ng-click='viewFood(data)'>View</button>
                                         </div>
-                                        
                                     </div>
                                 </div>
                         </div>
                         </div>
-
-                         <!--VIEW FOOD MODAL-->
+                     <!--REPORT FOOD MODAL-->
+                     <div class="report-modal" ng-if="showReportModal">
+                            <div class="report-content">
+                                <span>{{showReportModal}}</span>
+                                <span>Troll</span>
+                                <span>Inappropriate</span>
+                                <span>Not food</span>
+                                <span>Spam</span>
+                            </div>                      
+                    </div>
+                    <!--VIEW FOOD MODAL-->
                     <div class="view-food-modal" ng-keydown="key($event)" tabindex="0" ng-if="foodModal" ng-controller="order-controller">
                         <div class="view-food-container">
                                 <div class="orderError" ng-if="error">
@@ -183,7 +193,7 @@
                                     </div>
                                 </div>
                             </div>
-                           
+                            
                             <div class="viewedFoodDetails" >
                                 <h3>{{viewedFood.food_name}}</h3>
                                 <div class="post-time">Posted: {{viewedFood.post_date + " | " + viewedFood.post_expiration}}</div>
@@ -204,10 +214,10 @@
                                 <input type="hidden"  id="addressLine1" ng-model="fullAddress.add1"> 
                                 <input type="hidden"  id="addressLine2" ng-model="fullAddress.add2">
                                 <div id="map"></div>
-                               
                             </div>
                         </div>
                     </div>
+                    
                 </div>
         </div>
 

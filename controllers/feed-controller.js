@@ -3,6 +3,7 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
     $scope.id;
     $scope.reportCount;
     $scope.foodModal = 0;
+    $scope.showReportModal = 0;
     $scope.orderFunc = 0;
     $scope.isFree = 0;
     $scope.showFollowFeed = true;
@@ -59,17 +60,29 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
             $scope.orderFunc = 0;
         }
     }
-    
+
+    $scope.reportModalOn = function(){
+        $scope.showReportModal++;
+        if($scope.showReportModal > 1){
+            $scope.showReportModal = 0;
+        }
+    }
 
         $scope.reportButton = function(index){
             var feedIndex = $scope.feed.indexOf(index);
             var listOrder = $scope.feed[feedIndex];
-    
+
             if($rootScope.data.id != listOrder.user_id){
                 return true;
             }else{
                 return false;
             }
+        }
+
+        $scope.reportModal = function(index){
+            var feedIndex = $scope.feed.indexOf(index);
+            var listOrder = $scope.feed[feedIndex];
+            $scope.reportModalOn();
         }
 
         $scope.free = "FREE";
