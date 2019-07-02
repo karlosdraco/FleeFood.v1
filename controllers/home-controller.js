@@ -22,5 +22,6 @@ app.controller('home-controller', ['$scope','$rootScope','$window','$location', 
     }
 
     
+    
 
 }]);

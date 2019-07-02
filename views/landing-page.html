@@ -1,4 +1,4 @@
-<div class="page-wrapper" ng-controller="signup-controller">
+<div class="page-wrapper" ng-controller="signup-controller" ng-if="showLandingPage">
         <div class="accountCreatedMsg" ng-controller="signup-controller" ng-if="showSuccess">
             <h2>{{signup.message}}</h2>
         </div>
@@ -10,7 +10,7 @@
         <div class="signup">
             
                 <div class="error-call" ng-if="showSignUpErr">
-                        <p>{{signup.message}}</p>
+                    <p>{{signup.error}}</p>
                 </div>
             <form id="signupForm" ng-if="card[0]" ng-submit="submitSignUpForm()">
                     <div class="header">

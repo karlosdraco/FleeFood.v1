@@ -10,7 +10,7 @@ app.controller('header-controller', ['$scope','$rootScope','RestService','$cooki
   $scope.incrementTrigger = 0;
   $scope.isFetched = 0;
   $scope.notifCount = 0;
-  
+  $rootScope.showLandingPage = 1;
   
   
 $scope.key = ($event) => {
@@ -74,9 +74,6 @@ getData();
     ///////////////////////////////ASYNC DATA END///////////////////////////////////////
  
     
-
-   
-    
     $scope.dropToggle = function(){
         $scope.showDropdown++;
 
@@ -106,24 +103,22 @@ getData();
 
     
     if($cookies.get('auth_token')){
-        
         RestService.isloggedIn().then(function(response){
             $rootScope.data = response.data;
            
-            if($rootScope.data.loggedIn){
+            if(!$rootScope.isloggedin == $rootScope.data.loggedIn){
                 $rootScope.loggedUser = 1;
                 $scope.showUserHeaderIcon = 1;
                 $scope.showHeaderNav = 1;
-                $window.location.href="/fleefood.v1/#!/home";
+                //$window.location.href="/fleefood.v1/#!/home";
+                $rootScope.showLandingPage = 0;
             }
         });
             
     }else{
         $scope.showUserHeaderIcon = 0;
-        $window.location.href="/fleefood.v1/#!/";
+        //$window.location.href="/fleefood.v1/#!/";
     }
    
-    
 
-    
 }]);

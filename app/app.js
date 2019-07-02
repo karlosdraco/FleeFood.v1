@@ -60,4 +60,13 @@ app.config(['$routeProvider','$httpProvider',function($routeProvider, $httpProvi
         redirectTo: '/page',
         resolve: resolver(false)
       });
-}]);
+}]).run(function($rootScope, $location){
+  $rootScope.$on("$routeChangeStart", function(event, next, current){
+    if($rootScope.isloggedin == false){
+      if(next.templateUrl === 'views/landing-page.html'){
+      }else{
+        $location.path("/");
+      }
+    }
+  })
+});

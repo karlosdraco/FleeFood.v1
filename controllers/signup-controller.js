@@ -1,6 +1,6 @@
 app.controller("signup-controller", ['$scope','$rootScope','RestService',function($scope,$rootScope,RestService){
     $scope.user = {};
-    $rootScope.showSignUpErr = 0;
+    $scope.showSignUpErr = 0;
     $scope.showSuccess = 0;
 
 
@@ -11,9 +11,9 @@ app.controller("signup-controller", ['$scope','$rootScope','RestService',functio
             $scope.signup = response.data;
 
             if($scope.signup.errorFlag){
-                $rootScope.showSignUpErr = 1;
+                $scope.showSignUpErr = 1;
             }else{
-                $rootScope.showSignUpErr = 0;
+                $scope.showSignUpErr = 0;
                 $scope.showSuccess = 1;
                 form.reset();
             }
