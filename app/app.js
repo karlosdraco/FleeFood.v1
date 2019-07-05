@@ -61,6 +61,21 @@ app.config(['$routeProvider','$httpProvider',function($routeProvider, $httpProvi
         resolve: resolver(false)
       });
 }]).run(function($rootScope, $location){
+  $rootScope.$on("$routeChangeStart", function (event, next, current) {
+    if (next.access) {
+      event.preventDefault();
+      $rootScope.$evalAsync(function() {
+        $location.path('/');
+      });
+    }
+  });
+})
+
+
+
+
+/*
+.run(function($rootScope, $location){
   $rootScope.$on("$routeChangeStart", function(event, next, current){
     if($rootScope.isloggedin == false){
       if(next.templateUrl === 'views/landing-page.html'){
@@ -70,3 +85,5 @@ app.config(['$routeProvider','$httpProvider',function($routeProvider, $httpProvi
     }
   })
 });
+
+*/

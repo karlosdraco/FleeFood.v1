@@ -68,33 +68,33 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
         }
     }
 
-        $scope.reportButton = function(index){
-            var feedIndex = $scope.feed.indexOf(index);
-            var listOrder = $scope.feed[feedIndex];
+    $scope.reportButton = function(index){
+        var feedIndex = $scope.feed.indexOf(index);
+        var listOrder = $scope.feed[feedIndex];
 
-            if($rootScope.data.id != listOrder.user_id){
-                return true;
-            }else{
-                return false;
-            }
+        if($rootScope.data.id != listOrder.user_id){
+            return true;
+        }else{
+            return false;
         }
+    }
 
-        $scope.reportModal = function(index){
-            var feedIndex = $scope.feed.indexOf(index);
-            var listOrder = $scope.feed[feedIndex];
-            $scope.reportModalOn();
+    $scope.reportModal = function(index){
+        var feedIndex = $scope.feed.indexOf(index);
+        var listOrder = $scope.feed[feedIndex];
+        $scope.reportModalOn();
+    }
+
+    $scope.free = "FREE";
+    $scope.freeSign = function(index){
+        var freeIndex = $scope.feed.indexOf(index);
+        var priceFree = $scope.feed[freeIndex];
+
+        if(priceFree.food_price == 0.00){
+            priceFree.food_price = $scope.free;
+            return $scope.isFree == 1;
+         }else{
+            return $scope.isFree == 0;
         }
-
-        $scope.free = "FREE";
-        $scope.freeSign = function(index){
-            var freeIndex = $scope.feed.indexOf(index);
-            var priceFree = $scope.feed[freeIndex];
-
-            if(priceFree.food_price == 0.00){
-                priceFree.food_price = $scope.free;
-                return $scope.isFree == 1;
-            }else{
-                return $scope.isFree == 0;
-            }
-        }
+    }
 }]);

@@ -2,7 +2,31 @@
     background-color: #ffffff;
     border: 1px solid #ececec;
     margin: 10px;
-    height: 100px;
+    height: 148px;
+}
+
+#sellerName{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    vertical-align: top;
+    text-decoration: none;
+    color: black;
+}
+
+.myOrderHeader{
+    border-bottom-width: 0.5px;
+    border-bottom-style: solid;
+    border-bottom-color: #e6e6e6; 
+    padding: 5px;
+}
+
+.myOrderHeader img{
+    width: 35px;
+    float: left;
+    margin-right: 5px;
+}
+
+.myOrderHeader p{
+    font-size: 12px;
 }
 
 #myOrderTitle{

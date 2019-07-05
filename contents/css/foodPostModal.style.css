@@ -242,6 +242,11 @@
     -webkit-transition: .4s;
     transition: .4s;
   }
+
+  #avlContainer{
+      position: relative;
+      top: -12px;
+  }
   
   input:checked + .slider {
     background-color:#44d809;

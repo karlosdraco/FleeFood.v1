@@ -1,4 +1,4 @@
-app.controller('home-controller', ['$scope','$rootScope','$window','$location', function($scope, $rootScope,$window, $location){
+app.controller('home-controller', ['$scope','$rootScope','$location','$location', function($scope, $rootScope,$location, $location){
     $scope.switchColor = ['#cecece','#ffffff'];
     $scope.switchText = ['#ffffff', 'black'];
     $scope.switch = [];
@@ -22,6 +22,4 @@ app.controller('home-controller', ['$scope','$rootScope','$window','$location', 
     }
 
     
-    
-
 }]);

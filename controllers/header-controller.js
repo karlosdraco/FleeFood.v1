@@ -1,4 +1,4 @@
-app.controller('header-controller', ['$scope','$rootScope','RestService','$cookies','$window','$timeout',function($scope,$rootScope,RestService, $cookies,$window, $timeout){
+app.controller('header-controller', ['$scope','$rootScope','RestService','$cookies','$location','$timeout',function($scope,$rootScope,RestService, $cookies,$location, $timeout){
   
   var loadTime = 5000, //Load the data every second
   errorCount = 0, //Counter for the server errors
@@ -11,6 +11,7 @@ app.controller('header-controller', ['$scope','$rootScope','RestService','$cooki
   $scope.isFetched = 0;
   $scope.notifCount = 0;
   $rootScope.showLandingPage = 1;
+  $rootScope.userloggedIn = false;
   
   
 $scope.key = ($event) => {
@@ -72,8 +73,7 @@ getData();
  //$scope.data = 'Loading...';
 
     ///////////////////////////////ASYNC DATA END///////////////////////////////////////
- 
-    
+
     $scope.dropToggle = function(){
         $scope.showDropdown++;
 
@@ -89,6 +89,7 @@ getData();
             if(!$scope.error.error){
                 //$window.location.href = '#!/home';
                 location.href = "/fleefood.v1";
+                $rootScope.userloggedIn = false;
             }else{
                 $scope.showError = true;
             }
@@ -101,24 +102,33 @@ getData();
         });
     }
 
-    
-    if($cookies.get('auth_token')){
+    //if($cookies.get('auth_token')){
         RestService.isloggedIn().then(function(response){
             $rootScope.data = response.data;
-           
-            if(!$rootScope.isloggedin == $rootScope.data.loggedIn){
+
+            if($rootScope.data.loggedIn){
+                $rootScope.userloggedIn = true;
                 $rootScope.loggedUser = 1;
                 $scope.showUserHeaderIcon = 1;
                 $scope.showHeaderNav = 1;
                 //$window.location.href="/fleefood.v1/#!/home";
+            
                 $rootScope.showLandingPage = 0;
+            }else{
+                $scope.showUserHeaderIcon = 0;
+            }
+
+            if($rootScope.userloggedIn || $location.path('#/!')){
+                $location.path('home');
             }
         });
-            
-    }else{
-        $scope.showUserHeaderIcon = 0;
+
+       
+    //}else{
+        //$scope.showUserHeaderIcon = 0;
+       
         //$window.location.href="/fleefood.v1/#!/";
-    }
+   // }
    
 
 }]);

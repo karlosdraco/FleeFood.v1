@@ -60,7 +60,7 @@
                                    
                                    <div class="post-sub2-container">
                                     <ul>
-                                        <li>
+                                        <li id="avlContainer">
                                             <h3>Availability</h3>
                                             <label class="switch">
                                                 <input class="foodInput" type="checkbox" ng-model="post.foodAvailability">
@@ -74,7 +74,7 @@
                                         </li>
                                     </ul>
                                    </div>
-                                   
+                                    <p class="post-note">Payment method is cash on delivery or pickup only</p>
                                     <div class="post-sub3-container">
                                         <input class="foodInput" id="fd-add1" type="text" placeholder="Address line 1" ng-model="post.addressLine1">
                                         <input class="foodInput" id="fd-add2" type="text" placeholder="Address line 2" ng-model="post.addressLine2">
@@ -114,7 +114,7 @@
                                        <span id="postDate">Posted: {{data.post_date}}</span>
                                        <span>
                                             <div>
-                                                <input type="submit" value="Report" id="reportBtn" ng-if="reportButton(data)" click="reportModal(data)">
+                                                <input type="submit" value="Report" id="reportBtn" ng-if="reportButton(data)" ng-click="reportModal(data)">
                                             </div>
                                         </span>
                                     </div>
@@ -146,7 +146,7 @@
                                        <span id="postDate">Posted: {{data.post_date}}</span>
                                        <span>
                                             <div>
-                                                <input type="submit" value="Report" id="reportBtn" ng-if="reportButton(data)">
+                                                <input type="submit" value="Report" id="reportBtn" ng-if="reportButton(data)" ng-click="reportModal(data)">
                                             </div>
                                         </span>
                                     </div>
@@ -167,14 +167,13 @@
                         </div>
                         </div>
                      <!--REPORT FOOD MODAL-->
-                     <div class="report-modal" ng-if="showReportModal">
-                            <div class="report-content">
-                                <span>{{showReportModal}}</span>
-                                <span>Troll</span>
-                                <span>Inappropriate</span>
-                                <span>Not food</span>
-                                <span>Spam</span>
-                            </div>                      
+                    <div class="report-modal" ng-if="showReportModal" ng-click="reportModal(data)">
+                        <div class="report-content">
+                            <span>Troll</span>
+                            <span>Inappropriate</span>
+                            <span>Not food</span>
+                            <span>Spam</span>
+                        </div>                      
                     </div>
                     <!--VIEW FOOD MODAL-->
                     <div class="view-food-modal" ng-keydown="key($event)" tabindex="0" ng-if="foodModal" ng-controller="order-controller">
