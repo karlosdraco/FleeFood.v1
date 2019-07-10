@@ -17,7 +17,9 @@ app.controller("post-controller",['$scope','$rootScope','RestService',function($
     $scope.disable = true;
     $scope.delete = {}; 
    
-
+    $scope.selectedFilter = '$';
+    $scope.filterSearch = {};
+    
     $scope.imageUpload = function(event){
         
         var files = event.target.files;

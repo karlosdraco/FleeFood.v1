@@ -104,13 +104,17 @@
 
 #filterSearch{
     padding: 10px;
-    width: 270px;
+    width: 210px;
     border-top: none;
     border-right: none;
     border-bottom: 0.3px solid #ececec;
     border-left: none;
     outline: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#filters{
+    width: 100px;
 }
 
 .post-food, #postBtn, #cancelBtn:hover{

@@ -7,6 +7,7 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
     $scope.orderFunc = 0;
     $scope.isFree = 0;
     $scope.showFollowFeed = true;
+   
 
     $rootScope.discover = function(){
         RestService.getFeed().then(function(response){

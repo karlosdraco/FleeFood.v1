@@ -75,6 +75,7 @@
 
 .leftCard{
     float: left;
+    
 }
 
 .viewedFoodImage img{
@@ -114,6 +115,13 @@
 .viewedFoodDetails .descriptionWrapper p{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 100;
+}
+
+.foodCardButton{
+    background-color: #f1f1f1;
+    width: 300px;
+    height: 500px;
+    
 }
 
 #quantity input{
