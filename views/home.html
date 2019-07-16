@@ -177,10 +177,10 @@
                      <!--REPORT FOOD MODAL-->
                     <div class="report-modal" ng-if="showReportModal" ng-click="reportModal(data)">
                         <div class="report-content">
-                            <span>Troll</span>
-                            <span>Inappropriate</span>
-                            <span>Not food</span>
-                            <span>Spam</span>
+                            <span ng-click="statusCode(0)">Troll</span>
+                            <span ng-click="statusCode(1)">Inappropriate</span>
+                            <span ng-click="statusCode(2)">Not food</span>
+                            <span ng-click="statusCode(3)">Spam</span>
                         </div>                      
                     </div>
                     <!--VIEW FOOD MODAL-->

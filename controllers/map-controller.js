@@ -2,7 +2,7 @@ app.controller("map-controller", ['$scope', '$rootScope','MapService','$window',
   $scope.fullOnAddress = "";
   $scope.mapResult;
   $scope.geoResult;
-  $scope.location;
+  var location;
 
 
     $scope.fullAddress = {
@@ -16,8 +16,8 @@ app.controller("map-controller", ['$scope', '$rootScope','MapService','$window',
         if(status == google.maps.GeocoderStatus.OK && result.length > 0){
             $rootScope.mapResult = result.data;
             $scope.geoResult = result.data.results;
-            $scope.location = $scope.geoResult[0].geometry.location;
-            console.log("lat: " + $scope.location.lat);
+            location = $scope.geoResult[0].geometry.location;
+            console.log("lat: " + $scope.geoResult);
         }
     }).then(function(error){
         $scope.mapError = error.data;

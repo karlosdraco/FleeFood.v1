@@ -273,7 +273,17 @@ app.factory("RestService", ['$http','$routeParams',function($http, $routeParams)
         })
     }
 
-    
+    service.report = function(data){
+        return $http({
+            method: 'POST',
+            url: url + 'report',
+            data: data,
+            withCredentials: true,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+    }
 
     return service;
 }]);

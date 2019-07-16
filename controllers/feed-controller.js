@@ -7,6 +7,7 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
     $scope.orderFunc = 0;
     $scope.isFree = 0;
     $scope.showFollowFeed = true;
+    $scope.reportStatus = {};
    
 
     $rootScope.discover = function(){
@@ -62,6 +63,7 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
         }
     }
 
+    //REPORT FUNCTIONALITY
     $scope.reportModalOn = function(){
         $scope.showReportModal++;
         if($scope.showReportModal > 1){
@@ -80,11 +82,27 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
         }
     }
 
+
     $scope.reportModal = function(index){
         var feedIndex = $scope.feed.indexOf(index);
-        var listOrder = $scope.feed[feedIndex];
+        $scope.report = $scope.feed[feedIndex];
         $scope.reportModalOn();
     }
+
+    $scope.statusCode = function(code){
+        $scope.reportStatus = {
+            'user_id': $scope.report.user_id,
+            'buyer_id': $rootScope.data.id,
+            'food_id': $scope.report.id,
+            'status_code': code
+        }
+        
+        RestService.report($scope.reportStatus).then(function(response){
+            $scope.reportCallBack = response.data;
+        })
+    }
+     //REPORT FUNCTIONALITY END
+
 
     $scope.free = "FREE";
     $scope.freeSign = function(index){

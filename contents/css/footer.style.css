@@ -1,9 +1,10 @@
 footer{
-    background-color: #f9fd02;
+    background-color: #ffe228;
+    color: #ffffff;
     padding: 20px;
     position: relative;
     bottom: 0;
     width: 100%;
     text-align: center;
-    font-family: helvetica;
+    font-family: 'Josefin Sans', sans-serif;
 }
