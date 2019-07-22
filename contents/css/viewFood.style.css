@@ -75,7 +75,12 @@
 
 .leftCard{
     float: left;
-    
+}
+
+#paymentNote{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: red;
+    padding: 10px;
 }
 
 .viewedFoodImage img{

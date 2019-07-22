@@ -1,4 +1,4 @@
-app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$cookies', '$route', '$routeParams', function($scope, $rootScope,RestService, $cookies, $route, $routeParams){
+app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$cookies', '$route', '$routeParams','globals', function($scope, $rootScope,RestService, $cookies, $route, $routeParams, globals){
     $scope.showModal = 0;
     $scope.showUpdate = 1;
     $scope.showFollow = 0;
@@ -17,7 +17,6 @@ app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$co
    
     //CHECKING IF THERE'S A COOKIE
     if($cookies.get('auth_token')){
-
         RestService.isloggedIn().then(function(response){
             $scope.loggedUser = response.data;
 
@@ -39,6 +38,9 @@ app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$co
                 zipCode: parseInt($scope.profile.profile_data.zipCode)
             };
 
+            globals.globalUserAddress().address1 = $scope.profile.profile_data.addressLine1;
+            globals.globalUserAddress().address2 = $scope.profile.profile_data.addressLine2;
+
            $rootScope.profileCard = {
                following: $scope.profile.profile_data.followingCount,
                follower: $scope.profile.profile_data.followerCount,
@@ -51,7 +53,6 @@ app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$co
             $scope.followStatus = response.data;
         });
     }
-
     //FOLLOW USER
     $scope.followUser = function(){
         
