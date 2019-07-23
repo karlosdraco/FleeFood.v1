@@ -38,9 +38,6 @@ app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$co
                 zipCode: parseInt($scope.profile.profile_data.zipCode)
             };
 
-            globals.globalUserAddress().address1 = $scope.profile.profile_data.addressLine1;
-            globals.globalUserAddress().address2 = $scope.profile.profile_data.addressLine2;
-
            $rootScope.profileCard = {
                following: $scope.profile.profile_data.followingCount,
                follower: $scope.profile.profile_data.followerCount,
