@@ -1,4 +1,4 @@
-app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$cookies', '$route', '$routeParams','globals', function($scope, $rootScope,RestService, $cookies, $route, $routeParams, globals){
+app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$cookies', '$route', '$routeParams', function($scope, $rootScope,RestService, $cookies, $route, $routeParams){
     $scope.showModal = 0;
     $scope.showUpdate = 1;
     $scope.showFollow = 0;

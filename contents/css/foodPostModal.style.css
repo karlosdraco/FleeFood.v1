@@ -176,6 +176,7 @@
     float: right;
     padding: 5px;
     width: 70px;
+    height: 27px;
     border-radius: 3px;
     border: none;
     color: #ffffff;
@@ -184,6 +185,13 @@
     border: 1px solid#ffe228;
     box-shadow: inset 0px 1px 0px rgba(255,255,255,.3);
     outline: none;
+    margin-right: 10px;
+}
+
+#nextPreload{
+    width: 30px;
+    position: relative;
+    top: -7px;
 }
 
 #nextBtn:hover{

@@ -52,6 +52,11 @@ app.config(['$routeProvider','$httpProvider',function($routeProvider, $httpProvi
         controller: 'accountSet-controller',
         resolve: resolver(true)
       })
+
+      .when("/about",{
+        templateUrl: 'views/about.html',
+        resolve: resolver(true)
+      })
       
       .when("/page",{
         templateUrl: 'views/page.html',

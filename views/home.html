@@ -87,8 +87,10 @@
                                         <input class="foodInput" id="fd-add2" type="text" placeholder="Address line 2" ng-model="post.addressLine2">
                                         <p>Edit address or use your profile address</p>
     
-                                        <input id="cancelBtn" type="submit" value="Cancel" ng-click="PostModal();">
-                                        <input id="nextBtn" type="submit" value="Next" ng-click='foodPost();'>
+                                        <!--<input id="cancelBtn" type="submit" value="Cancel" ng-click="PostModal();">
+                                        <input id="nextBtn" type="submit" value="Next" ng-click='foodPost();'>-->
+                                        <button id="cancelBtn" type="submit" value="Cancel" ng-click="PostModal();">Cancel</button>
+                                        <button id="nextBtn" type="submit" ng-click="foodPost();" ng-disabled="disableNextButton">{{buttonText}}<img src="./contents/assets/resource/images/preloaders/horizontal-preloader.svg" id="nextPreload" ng-if="showPreloader"></button>
                                     </div>
                           </div>
 

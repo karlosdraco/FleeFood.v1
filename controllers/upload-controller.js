@@ -6,6 +6,8 @@ app.controller("upload-controller",['$scope','$rootScope','RestService','$route'
     $scope.showModal = 0;
     $scope.uploadResponse = "";
     $scope.errMsg = "";
+    $scope.disablePostButton = false;
+    $scope.showPreloader = false;
 
     $scope.upload = function(){
         

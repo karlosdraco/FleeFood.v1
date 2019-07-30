@@ -171,9 +171,10 @@
 
 .accountCreatedMsg{
     position: fixed;
-    top: 70px;
+    top: 90px;
+    left: -50px;
     z-index: 3;
-    background-color: #ffffff;
+    background-color: #2ccc34;
     margin-left: 250px;
     border: 1px solid #d3d3d3;
     animation-name: opacity;
@@ -184,8 +185,9 @@
 
 .accountCreatedMsg h2{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color:  #2ccc34;
+    color: #ffffff;
     font-weight: 400;
+    font-size: 18px;
     margin: 10px;
 }
 

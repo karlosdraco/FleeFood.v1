@@ -14,7 +14,8 @@ app.controller("post-controller",['$scope','$rootScope','RestService',function($
     $scope.showCardPost = 0;
     $scope.showErrorMsg = 0;
     $scope.errMsg = "";
-    $scope.disable = true;
+    $scope.disableNextButton = false;
+    $scope.showPreloader = false;
     $scope.delete = {}; 
    
     $scope.selectedFilter = '$';
@@ -97,17 +98,28 @@ app.controller("post-controller",['$scope','$rootScope','RestService',function($
 
     $scope.foodInput = document.getElementsByClassName("foodInput")[0];
     
+    $scope.buttonText = "Next";
     $scope.foodPost = function(){
+
+            $scope.disableNextButton = true;
+            $scope.showPreloader = true;
+            $scope.buttonText = " ";
 
             RestService.foodPost($scope.post).then(function(response){
                 $scope.data = response.data;
                 
+                
+               
                 if($scope.data.error == false){
+                    $scope.showPreloader = false;
                     $scope.postCardSelector(0);
                     $scope.postCardSelector(1);
                     errorMsgFunc($scope.data.message);
                 
                 }else if($scope.data.error == true){
+                    $scope.disableNextButton = false;
+                    $scope.showPreloader = false;
+                    $scope.buttonText = "Next";
                     errorMsgFunc($scope.data.message);
                     
                 }
