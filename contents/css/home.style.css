@@ -141,3 +141,30 @@
     cursor: pointer;
 }
 
+.rightNavigation{
+    float: left;
+    width: 250px;
+    margin-left: 10px;
+}
+
+.about{
+    margin: 10px;
+}
+
+.rightNavigation .about a{
+    color: #949494;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;
+    font-weight: 200;
+    margin: 10px;
+}
+
+.about a:hover{
+    text-decoration: underline;
+}
+
+
+
+
+

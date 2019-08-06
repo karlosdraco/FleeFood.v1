@@ -4,6 +4,7 @@ app.controller('header-controller', ['$scope','$rootScope','RestService','$cooki
   errorCount = 0, //Counter for the server errors
   loadPromise; //Pointer to the promise created by the Angular $timout service
   $scope.showDropdown = 0;
+  $scope.showNavBar = 0;
   $scope.showUserHeaderIcon = 0;
   $scope.showHeaderNav = 0;
   $scope.showCountIcon = 1;
@@ -80,6 +81,16 @@ getData();
         if($scope.showDropdown > 1){
             $scope.showDropdown = 0;
         }
+    }
+   
+    $scope.navBarSlider = function(){
+
+        $scope.showNavBar++;
+
+        if($scope.showNavBar > 1){
+            $scope.showNavBar = 0;
+        }
+
     }
 
     $scope.logout = function(){

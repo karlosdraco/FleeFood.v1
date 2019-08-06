@@ -175,7 +175,7 @@
 }
   
   /* The finishing CSS styles for the enter animation */
-.feed.ng-enter.ng-enter-active {
+.feed.ng-enter.ng-enter-active{
     opacity:1;
     -webkit-transform: scale(1);
 }
@@ -186,8 +186,9 @@
 }
 
   /* The finishing CSS styles for the enter animation */
-.feed.ng-leave.ng-leave-active {
+.feed.ng-leave.ng-leave-active{
     opacity:0;
 }
+
 
 
