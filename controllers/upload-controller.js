@@ -10,7 +10,6 @@ app.controller("upload-controller",['$scope','$rootScope','RestService','$route'
     $scope.showPreloader = false;
 
     $scope.upload = function(){
-        
             var fd = new FormData();
             angular.forEach($scope.uploadfiles, function(file){
                 fd.append("file", file);
@@ -27,7 +26,7 @@ app.controller("upload-controller",['$scope','$rootScope','RestService','$route'
     }
 
     
-    $scope.uploadFoodGallery = function(){
+    $rootScope.uploadFoodGallery = function(){
         var fd = new FormData();
         
         angular.forEach($scope.uploadfiles,function(file){

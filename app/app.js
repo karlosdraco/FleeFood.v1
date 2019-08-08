@@ -41,6 +41,12 @@ app.config(['$routeProvider','$httpProvider',function($routeProvider, $httpProvi
         resolve: resolver(true)
       })
 
+      .when("/post",{
+        templateUrl: 'views/post.html',
+        controller: 'post-controller',
+        resolve: resolver(true)
+      })
+
       .when("/stalls",{
         templateUrl: 'views/stalls.html',
         controller: 'stall-controller',

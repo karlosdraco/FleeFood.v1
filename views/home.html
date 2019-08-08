@@ -16,9 +16,14 @@
 
         <div class="user-activity-feed" ng-controller="post-controller">
                 <div class="user-post">
-                    <div class="post-food" ng-click="PostModal();">
+                    <!--<div class="post-food" ng-click="PostModal();">
                         <p>Post Food</p>
-                    </div>
+                    </div>-->
+                    <a href="#!post">
+                        <div class="post-food">
+                            <p>Post Food</p>
+                        </div>
+                    </a> 
 
                     <div class="feedLocationFilter">
                         <input type="text" id="filterSearch" placeholder="Filter food by" ng-model="filterSearch[selectedFilter]">
@@ -41,7 +46,7 @@
                     </button>
                 </div>
                
-                <div class="post-modal" ng-if="showPost" ng-keydown="key($event)" tabindex="0"> 
+                <!--<div class="post-modal" ng-if="showPost" ng-keydown="key($event)" tabindex="0"> 
                     <div class="post-content">
                             <div class="errorWrapper">
                                 <div class="errorMsg" ng-style="{'background-color': data.msgColor }" ng-if="showErrorMsg">
@@ -87,8 +92,6 @@
                                         <input class="foodInput" id="fd-add2" type="text" placeholder="Address line 2" ng-model="post.addressLine2">
                                         <p>Edit address or use your profile address</p>
     
-                                        <!--<input id="cancelBtn" type="submit" value="Cancel" ng-click="PostModal();">
-                                        <input id="nextBtn" type="submit" value="Next" ng-click='foodPost();'>-->
                                         <button id="cancelBtn" type="submit" value="Cancel" ng-click="PostModal();">Cancel</button>
                                         <button id="nextBtn" type="submit" ng-click="foodPost();" ng-disabled="disableNextButton">{{buttonText}}<img src="./contents/assets/resource/images/preloaders/horizontal-preloader.svg" id="nextPreload" ng-if="showPreloader"></button>
                                     </div>
@@ -111,7 +114,7 @@
                                 <input id="postBtn" type="button" value="Post" ng-click='uploadFoodGallery();'>
                           </div>
                     </div>
-                </div>
+                </div>-->
 
                 <div class="post-feed" ng-controller="feed-controller" ng-init="discover()">
 

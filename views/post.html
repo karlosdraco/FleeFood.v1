@@ -1,0 +1,65 @@
+<div class="post-wrapper">
+    <div class="formHeader">
+        <div class="formContent">
+                <h2>Post food listing</h2>
+                <p class="postNote">Note: Food related post only or your post will be reported and removed.</p>
+                <button type="submit" id="post" ng-disabled="disablePostButton" ng-click="foodPost()">{{buttonText}}
+                    <img src="./contents/assets/resource/images/preloaders/horizontal-preloader.svg" id="postPreload" ng-if="showPreloader">
+                </button>
+        </div>
+    </div>
+
+    <div class="post-form-content" ng-controller="upload-controller">
+        <div class="formSubHeader">
+            <button id="clearForm" ng-click="formReset()">Clear form</button>
+            <div class="postMessage" ng-style="{'background-color': data.msgColor }" ng-if="showErrorMsg">
+                 {{data.message}}
+            </div>
+        </div>
+        <div class="uploadImageContainer">
+                <p id="uploadHeader">Upload image</p>
+           <div class="imageContainer" ng-repeat="step in stepsModel">
+               <!--<p>Upload image</p>-->
+               <span class="removeImage" ng-click="removeImage(step)"><p>&times;</p></span>
+               <img ng-src="{{step}}" alt="">
+           </div>
+           <input type="file" name="file" id="file" class="inputfile" onchange="angular.element(this).scope().imageUpload(event)" ng-file='uploadfiles'>
+           <label for="file">Choose a file</label>
+        </div>
+
+        <div class="mainForm">
+            <form id="postForm">
+                <input type="text" id="foodName" class="postInput" placeholder="Food name or title" ng-model="post.foodName"><br> 
+                <textarea type="text" id="foodDescription" placeholder="Description" ng-model="post.foodDescription"></textarea><br>
+                <input type="number" id="foodPrice" class="postInput" min="0" placeholder="Price" value="0" ng-model="post.foodPrice">
+                                       
+                <select id="currency" ng-model="post.currency">
+                    <option value="" disabled selected>Currency</option>
+                    <option value="php">PHP</option>
+                    <option value="usd">USD</option>
+                </select>
+
+                <input type="text" id="postQuantity" class="postInput" placeholder="Quantity">
+                <ul>
+                    <li id="avlContainer">
+                        <h3>Availability</h3>
+                        <label class="switch" >
+                            <input type="checkbox" ng-model="post.foodAvailability">
+                            <span class="slider round"></span>
+                        </label>
+                    </li>
+
+                    <li>
+                        <h3>Delivery fee: </h3>
+                        <input type="number" id="deliveryFee" class="postInput" min="0" value="0" ng-model="post.deliveryFee">
+                    </li>
+                </ul>
+
+                <input type="text" id="address1" class="postInput" placeholder="Address line 1" ng-model="post.addressLine1">
+                <input type="text" id="address2" class="postInput" placeholder="Address line 2" ng-model="post.addressLine2"><br>
+                
+            </form>
+        </div>
+
+    </div>
+</div>

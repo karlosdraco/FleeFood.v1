@@ -84,13 +84,11 @@ getData();
     }
    
     $scope.navBarSlider = function(){
-
         $scope.showNavBar++;
 
         if($scope.showNavBar > 1){
             $scope.showNavBar = 0;
         }
-
     }
 
     $scope.logout = function(){

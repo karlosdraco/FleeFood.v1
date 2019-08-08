@@ -15,6 +15,7 @@ app.controller("post-controller",['$scope','$rootScope','RestService',function($
     $scope.showErrorMsg = 0;
     $scope.errMsg = "";
     $scope.disableNextButton = false;
+    $scope.disablePostButton = false;
     $scope.showPreloader = false;
     $scope.delete = {}; 
    
@@ -40,9 +41,11 @@ app.controller("post-controller",['$scope','$rootScope','RestService',function($
         });
     }
 
+    var resetFile = document.getElementById('file');
     $scope.removeImage = function(image){
         var remove = $scope.stepsModel.indexOf(image);
         $scope.stepsModel.splice(remove, 1);
+        resetFile.value = '';
     }
 
     $scope.PostModal = function(){
@@ -56,12 +59,10 @@ app.controller("post-controller",['$scope','$rootScope','RestService',function($
         if($event.keyCode == 27){
             $rootScope.showPost--;
         }
-        //console.log('got key ' + $event.code);
     }
 
 
     $scope.postIndex = 0;
-    
     $scope.deleteFood = function(index){
         $scope.postIndex = $rootScope.feed.indexOf(index);
         var removePost = $rootScope.feed[$scope.postIndex];
@@ -79,51 +80,50 @@ app.controller("post-controller",['$scope','$rootScope','RestService',function($
         })
     }
 
-    
-    /*function isEmpty(obj){
-        for(var key in obj) {
-            if(obj.hasOwnProperty(key))
-                return false;
-        }
-        return true;
-    }*/
 
     function errorMsgFunc(msg){
-            $scope.showErrorMsg = 1;
-            $scope.errMsg = msg;
-            setInterval(function(){
-                $scope.showErrorMsg = 0;
-            },3000);
+        $scope.showErrorMsg = 1;
+        $scope.errMsg = msg;
+        setInterval(function(){
+            $scope.showErrorMsg = 0;
+        },3000);
     }
 
+
     $scope.foodInput = document.getElementsByClassName("foodInput")[0];
+    var postForm = document.getElementById('postForm');
+
+    $scope.formReset = function(){
+        postForm.reset();
+    }
     
-    $scope.buttonText = "Next";
+    $scope.buttonText = "Post";
     $scope.foodPost = function(){
-
-            $scope.disableNextButton = true;
-            $scope.showPreloader = true;
-            $scope.buttonText = " ";
-
-            RestService.foodPost($scope.post).then(function(response){
-                $scope.data = response.data;
+        
+        $scope.buttonText = '';
+        $scope.disablePostButton = true;
+        $scope.showPreloader = true;
+       
+        RestService.foodPost($scope.post).then(function(response){
+            $scope.data = response.data;
+            
+            if($scope.data.error == false){
+                $scope.showPreloader = false;
+                //$scope.postCardSelector(0);
+                //$scope.postCardSelector(1);
+                errorMsgFunc($scope.data.message);
+                $rootScope.uploadFoodGallery();
+                postForm.reset();
+                resetFile.value = '';
+                $scope.buttonText = "Post";
                 
-                
-               
-                if($scope.data.error == false){
-                    $scope.showPreloader = false;
-                    $scope.postCardSelector(0);
-                    $scope.postCardSelector(1);
-                    errorMsgFunc($scope.data.message);
-                
-                }else if($scope.data.error == true){
-                    $scope.disableNextButton = false;
-                    $scope.showPreloader = false;
-                    $scope.buttonText = "Next";
-                    errorMsgFunc($scope.data.message);
-                    
-                }
-            })
+            }else if($scope.data.error == true){
+                $scope.disablePostButton = false;
+                $scope.showPreloader = false;
+                $scope.buttonText = "Post";
+                errorMsgFunc($scope.data.message);
+            }
+        })
     }
 
     $scope.card = [];
