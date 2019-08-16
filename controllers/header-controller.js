@@ -127,9 +127,9 @@ getData();
                 $scope.showUserHeaderIcon = 0;
             }
 
-            if($rootScope.userloggedIn || $location.path('#/!')){
+            /*if($rootScope.userloggedIn || $location.path('#/!')){
                 $location.path('home');
-            }
+            }*/
         });
 
        

@@ -20,7 +20,7 @@ app.config(['$routeProvider','$httpProvider',function($routeProvider, $httpProvi
     $routeProvider
       .when("/",{
         templateUrl: 'views/landing-page.html',
-        controller: 'landing-page-controller',
+        controller: 'landing-page-controller'
       })
 
       .when("/home",{
@@ -35,9 +35,9 @@ app.config(['$routeProvider','$httpProvider',function($routeProvider, $httpProvi
         resolve: resolver(true)
       })
       
-      .when("/notification",{
+      .when("/notifications",{
         templateUrl: 'views/notifications.html',
-        controller: 'notifications-controller',
+        controller: 'notifications-controller', 
         resolve: resolver(true)
       })
 
@@ -70,31 +70,28 @@ app.config(['$routeProvider','$httpProvider',function($routeProvider, $httpProvi
       }).otherwise({
         redirectTo: '/page',
         resolve: resolver(false)
+        
       });
-}]).run(function($rootScope, $location){
-  $rootScope.$on("$routeChangeStart", function (event, next, current) {
+}]).run(function($rootScope, $location, $cookies, $http){
+  
+  $rootScope.$on("$locationChangeStart", function (event, next, current) {
     if (next.access) {
       event.preventDefault();
       $rootScope.$evalAsync(function() {
         $location.path('/');
       });
     }
+    
+    var restrictedPage = $.inArray($location.path(), ['/']) === -1;
+    var loggedIn = $cookies.get('auth_token');
+    if(restrictedPage && !loggedIn){
+      $location.path('/');
+    }
+
+    var restrictLandingPage = $.inArray($location.path(), ['/home', '/post', '/dashboard/', '/notifications', '/about', '/page', '/account_settings', '/stalls']) === -1;
+     if(restrictLandingPage && loggedIn){
+       $location.path('/home');
+     }
+
   });
 })
-
-
-
-
-/*
-.run(function($rootScope, $location){
-  $rootScope.$on("$routeChangeStart", function(event, next, current){
-    if($rootScope.isloggedin == false){
-      if(next.templateUrl === 'views/landing-page.html'){
-      }else{
-        $location.path("/");
-      }
-    }
-  })
-});
-
-*/

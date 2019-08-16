@@ -115,7 +115,6 @@ app.controller("post-controller",['$scope','$rootScope','RestService',function($
                 $rootScope.uploadFoodGallery();
                 postForm.reset();
                 resetFile.value = '';
-                $scope.buttonText = "Post";
                 
             }else if($scope.data.error == true){
                 $scope.disablePostButton = false;

@@ -14,6 +14,7 @@ app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$co
     $scope.showEditModal = 0;
     $scope.showErrorLabel = 1;
     $scope.showCart = 1;
+    $scope.profileNotFound;
    
     //CHECKING IF THERE'S A COOKIE
     if($cookies.get('auth_token')){
@@ -24,6 +25,8 @@ app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$co
 
         RestService.getUserName().then(function(response){
             $scope.profile = response.data;
+            $scope.profileNotFound = $scope.profile.error;
+
             $scope.followers = $scope.profile.profile_data.followers;
             $scope.following = $scope.profile.profile_data.following;
 
