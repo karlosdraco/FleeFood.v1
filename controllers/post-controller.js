@@ -3,6 +3,7 @@ app.controller("post-controller",['$scope','$rootScope','RestService',function($
         foodName: null,
         foodDescription: null,
         foodPrice: null,
+        foodQuantity: null,
         currency: null,
         foodAvailability: null,
         deliveryFee: null,

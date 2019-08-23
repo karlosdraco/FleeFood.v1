@@ -75,7 +75,7 @@ app.config(['$routeProvider','$httpProvider',function($routeProvider, $httpProvi
 }]).run(function($rootScope, $location, $cookies, $http){
   
   $rootScope.$on("$locationChangeStart", function (event, next, current) {
-    if (next.access) {
+    if(next.access) {
       event.preventDefault();
       $rootScope.$evalAsync(function() {
         $location.path('/');
@@ -88,10 +88,10 @@ app.config(['$routeProvider','$httpProvider',function($routeProvider, $httpProvi
       $location.path('/');
     }
 
-    var restrictLandingPage = $.inArray($location.path(), ['/home', '/post', '/dashboard/', '/notifications', '/about', '/page', '/account_settings', '/stalls']) === -1;
+    /*var restrictLandingPage = $.inArray($location.path(), ['/home', '/post', '/dashboard/', '/notifications', '/about', '/page', '/account_settings', '/stalls']) === -1;
      if(restrictLandingPage && loggedIn){
        $location.path('/home');
-     }
+     }*/
 
   });
 })

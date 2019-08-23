@@ -74,6 +74,10 @@
     margin-bottom: 20px;
 }
 
+.user-post a{
+    text-decoration: none;
+}
+
 .post-food{
     box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3);
     width: 120px;

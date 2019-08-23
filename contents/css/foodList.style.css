@@ -8,6 +8,7 @@
     margin-bottom: 15px;
 }
 
+
 .followingFeed h3{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #8f8f8f;
@@ -36,7 +37,7 @@
     outline: none;
 }
 
-#reportBtn:hover{
+#reportBtn, .feed:hover{
     cursor: pointer;    
 }
 

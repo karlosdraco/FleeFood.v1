@@ -276,9 +276,11 @@
                     <option value="usd">USD</option>
                 </select><br>
 
+                <input id="editQuantity" type="number" min="0" placeholder="Quantity: " ng-model="update.foodQuantity">
+
                 <span class="Label">Availability </span>
-                <label class="switch" ng-model="update.foodAvailability">
-                    <input class="foodInput" type="checkbox">
+                <label class="switch">
+                    <input class="foodInput" type="checkbox" ng-model="update.foodAvailability" >
                     <span class="slider round"></span>
                 </label>
                 
