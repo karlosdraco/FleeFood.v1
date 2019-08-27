@@ -53,6 +53,7 @@ app.controller("feed-controller", ['$scope', '$rootScope','RestService', '$timeo
     $scope.viewFood = function(food){
         $scope.foodIndex = $scope.feed.indexOf(food);
         $rootScope.viewedFood = $scope.feed[$scope.foodIndex];
+        $scope.foodModalOn();
     
         if($rootScope.data.id != $rootScope.viewedFood.user_id){
             $scope.orderFunc = 1;

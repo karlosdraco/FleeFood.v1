@@ -156,7 +156,7 @@ app.controller("dashboard-controller", ['$scope','$rootScope','RestService','$co
             foodPrice:  parseFloat($scope.toUpdate.food_price),
             foodQuantity: parseInt($scope.toUpdate.quantity),
             foodCurrency: $scope.toUpdate.currency,
-            foodAvailability: $scope.toUpdate.food_availability,
+            foodAvailability: !!parseInt($scope.toUpdate.food_availability),
             foodDelivery: parseFloat($scope.toUpdate.delivery_type),
             foodAdd1: $scope.toUpdate.addressLine1,
             foodAdd2: $scope.toUpdate.addressLine2
