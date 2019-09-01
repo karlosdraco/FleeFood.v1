@@ -113,6 +113,30 @@
     font-size: 25px;
 }
 
+#quantityTag{
+    float: right;
+    position: relative;
+    right: -100px;
+    border: 2px solid  #44cf62;
+    height: 50px;
+    margin-top: 20px;
+}
+
+#quantityTag h3{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    position: relative;
+    left: 18px;
+    top: -15px;
+}
+
+.qHead{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+    background-color: #44cf62;
+    margin: 0;
+}
+
 #delivery{
     background-color: #ffe228;
     border: 1px solid #ffe228;

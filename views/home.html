@@ -137,10 +137,18 @@
 
                                        <div class="food-detail">
                                            <div id="price" ng-if="freeSign(data)">{{data.currency | uppercase}}.<span>{{data.food_price}}</span></div>
-                                           <!--<p id="delivery">Delivery fee: {{data.currency  + "." + data.delivery_type | uppercase}}</p>-->
+                                            <!--<p id="delivery">Delivery fee: {{data.currency  + "." + data.delivery_type | uppercase}}</p>-->
                                             <!--<p id="contact">Contact: {{data.contact}}</p>-->
+                                            <div id="quantityTag">
+                                                <p class="qHead">
+                                                    QUANTITY
+                                                </p>
+                                                <h3>{{data.quantity}}</h3>
+                                            </div>
                                             <p id="foodDesc" ng-if="hide_element">{{data.food_description}}</p>
+    
                                             <!--<button id="viewBtn" ng-click='viewFood(data)'>View</button>-->
+
                                         </div>
                                         
                                     </div>
